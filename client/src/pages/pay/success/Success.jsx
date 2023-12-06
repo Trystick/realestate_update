@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './success.css'
+import Header from '../../../components/header/Header';
+import Footer from '../../../components/footer/Footer';
 
 const Success = () => {
   const [message, setMessage] = useState('');
@@ -33,6 +35,7 @@ const Success = () => {
 
   return (
     <div className='successContainer'>
+      <Header/>
         <div className="topsuccess">
           <div className="titlesuccess">
             Thanh Toán Thành Công
@@ -40,13 +43,10 @@ const Success = () => {
         </div>
         <div className="undersuccess">
           <div className="textundersuccess">
-            {message ? message : 'Bây giờ bạn đã có thể đăng tin !!!'}
+           Bây giờ bạn đã có thể đăng tin !!!
           </div>
         </div>
-        <div className="backhome">
-            <a href='/' className='textbackhome'>
-            &lt;&lt;&lt;  Trang chủ</a>
-        </div>
+      <Footer/>
     </div>
   )
 }

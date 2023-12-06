@@ -48,6 +48,16 @@ export const getComment = async (req, res) => {
     }
 };
 
+export const getComments = async (req, res) => {
+  try {
+      const comments = await Comment.find().populate('replies');
+      res.send(comments);
+  } catch (error) {
+      res.status(500).send({ message: error.message });
+  }
+};
+
+
 export const getCommentsByPost = async (req, res) => {
   try {
       const comments = await Comment.find({ postId: req.params.postId, parentId: null }).populate('replies');

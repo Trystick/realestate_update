@@ -1,5 +1,5 @@
 import "./widget.scss";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
@@ -9,8 +9,7 @@ import { useEffect, useState } from "react";
 const Widget = ({ type }) => {
   const [data, setData] = useState(null);
   const [amount, setAmount] = useState(0);
-  const [diff, setDiff] = useState(0);
-
+ 
   useEffect(() => {
     let url;
     switch (type) {

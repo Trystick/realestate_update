@@ -27,8 +27,18 @@ export const getLike = async (req, res) => {
     } catch (error) {
       res.status(500).json({ message: 'Error getting like', error });
     }
-  };
-  
+};
+
+export const getLikes = async (req, res) => {
+  try {
+      const likes = await Like.find();
+      res.send(likes);
+  } catch (error) {
+      res.status(500).json({ message: 'Error getting all likes', error });
+  }
+};
+
+
 
 export const updateLike = async (req, res) => {
     try {

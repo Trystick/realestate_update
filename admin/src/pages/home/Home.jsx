@@ -6,6 +6,7 @@ import Featured from "../../components/featured/Featured";
 import Chart from "../../components/chart/Chart";
 import Table from "../../components/table/Table";
 import CancelReasonChart from "../../components/cancelreasonchart/CancelReasonChart";
+import DownSide from "../../components/downside/DownSide";
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
       <Sidebar />
       <div className="homeContainer">
         <Navbar />
+        <div className="listInteract">Business Activities</div>
         <div className="widgets">
           <Widget type="user" />
           <Widget type="order" />
@@ -32,6 +34,12 @@ const Home = () => {
         <div className="cancelReasonContainer">
           <div className="listTitleCancel">Cancel Reason</div>
           <CancelReasonChart />
+        </div>
+        <div className="listInteract">Interact Community</div>
+        <div className="widgets">
+          <DownSide type="like" />
+          <DownSide type="favorite" />
+          <DownSide type="comment" />
         </div>
       </div>
     </div>

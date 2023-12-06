@@ -55,6 +55,7 @@
     display: inline-block;
     font-size: 18px;
     cursor: pointer; /* Con trỏ chuột */
+    border-radius: 5px;
 }
 
 /* CSS cho nút khi rê chuột vào */

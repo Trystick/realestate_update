@@ -151,7 +151,7 @@ app.post("/api/sendMailJob", upload.single('file'), async (req, res) => {
 })
 
 // gửi mail resetpassword
-import User from '../models/User.js'
+import User from './models/User.js'
 import Order from "./models/Order.js"
 import Payment from "./models/Payment.js"
 import Packet from "./models/Packet.js"
