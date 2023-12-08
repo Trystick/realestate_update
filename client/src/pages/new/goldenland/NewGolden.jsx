@@ -40,7 +40,7 @@ const NewGolden = () => {
     );
     
     useEffect(() => {
-        axios.get('http://localhost:8800/api/post/postCategory/656d4a49989c1bc76e32939c')
+        axios.get('http://localhost:8800/api/post/postCategory/657290e0eab7b27a0a0ba7c5')
           .then(response => setData(response.data))
           .catch(error => console.error(error));
       }, []);

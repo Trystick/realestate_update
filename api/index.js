@@ -364,17 +364,72 @@ app.post('/api/create_order', async (req, res) => {
 });
 
 
+// app.post('/api/update_order_status', async (req, res) => {
+//   const orderId = req.body.orderId;
+//   const status = req.body.status;
+
+//   // Tạo một phiên giao dịch mới
+//   const session = await mongoose.startSession();
+//   session.startTransaction();
+
+//   try {
+//     // Tìm đơn hàng bằng ID
+//     const order = await Order.findById(orderId).session(session);
+
+//     // Cập nhật trạng thái đơn hàng
+//     order.status = status;
+
+//     // Lưu đơn hàng
+//     await order.save();
+
+//     if (status === 'Thành công') {
+//       // Lấy thông tin gói thanh toán từ cơ sở dữ liệu
+//       const packet = await Packet.findById(order.packetId).session(session);
+
+//       // Kiểm tra xem đã có thanh toán cho đơn hàng này chưa
+//       const existingPayment = await Payment.findOne({ orderId: orderId }).session(session);
+
+//       if (!existingPayment) {
+//         // Lưu thông tin thanh toán vào cơ sở dữ liệu
+//         const payment = new Payment({
+//           userId: order.userId, // Giả sử rằng đơn hàng có trường userId
+//           orderId: orderId,
+//           amount: order.amount,
+//           packetName: order.packetName, // Sử dụng số tiền từ order
+//           status: 'Thành công',
+//         });
+//         await payment.save({ session });
+//       }
+
+//       // Cập nhật trường 'type' của User
+//       const user = await User.findById(order.userId).session(session);
+//       user.type = packet.name; // Sử dụng tên gói thanh toán từ cơ sở dữ liệu
+//       await user.save();
+//     }
+
+//     // Hoàn tất giao dịch
+//     await session.commitTransaction();
+
+//     // Trả về trạng thái thành công
+//     res.status(200).json({ message: 'Order and payment status updated successfully.' });
+//   } catch (error) {
+//     // Nếu có lỗi, hủy bỏ giao dịch
+//     await session.abortTransaction();
+//     res.status(500).json({ message: 'An error occurred while updating the order and payment status.' });
+//     console.log(error);
+//   } finally {
+//     // Kết thúc phiên giao dịch
+//     session.endSession();
+//   }
+// });
+
 app.post('/api/update_order_status', async (req, res) => {
   const orderId = req.body.orderId;
   const status = req.body.status;
 
-  // Tạo một phiên giao dịch mới
-  const session = await mongoose.startSession();
-  session.startTransaction();
-
   try {
     // Tìm đơn hàng bằng ID
-    const order = await Order.findById(orderId).session(session);
+    const order = await Order.findById(orderId);
 
     // Cập nhật trạng thái đơn hàng
     order.status = status;
@@ -384,43 +439,38 @@ app.post('/api/update_order_status', async (req, res) => {
 
     if (status === 'Thành công') {
       // Lấy thông tin gói thanh toán từ cơ sở dữ liệu
-      const packet = await Packet.findById(order.packetId).session(session);
+      const packet = await Packet.findById(order.packetId);
 
       // Kiểm tra xem đã có thanh toán cho đơn hàng này chưa
-      const existingPayment = await Payment.findOne({ orderId: orderId }).session(session);
+      let existingPayment = await Payment.findOne({ orderId: orderId });
 
-      if (!existingPayment) {
+      if (!existingPayment || existingPayment.status !== 'Thành công') {
+        // Nếu không có thanh toán hiện tại hoặc trạng thái hiện tại không phải là 'Thành công'
         // Lưu thông tin thanh toán vào cơ sở dữ liệu
-        const payment = new Payment({
+        const payment = existingPayment || new Payment({
           userId: order.userId, // Giả sử rằng đơn hàng có trường userId
           orderId: orderId,
           amount: order.amount,
           packetName: order.packetName, // Sử dụng số tiền từ order
-          status: 'Thành công',
         });
-        await payment.save({ session });
+        payment.status = 'Thành công';
+        await payment.save();
       }
 
       // Cập nhật trường 'type' của User
-      const user = await User.findById(order.userId).session(session);
+      const user = await User.findById(order.userId);
       user.type = packet.name; // Sử dụng tên gói thanh toán từ cơ sở dữ liệu
       await user.save();
     }
 
-    // Hoàn tất giao dịch
-    await session.commitTransaction();
-
     // Trả về trạng thái thành công
     res.status(200).json({ message: 'Order and payment status updated successfully.' });
   } catch (error) {
-    // Nếu có lỗi, hủy bỏ giao dịch
-    await session.abortTransaction();
     res.status(500).json({ message: 'An error occurred while updating the order and payment status.' });
-  } finally {
-    // Kết thúc phiên giao dịch
-    session.endSession();
+    console.log(error);
   }
 });
+
 
 //xóa gói khi hết hạn
 cron.schedule('0 5 * * *', async function() {

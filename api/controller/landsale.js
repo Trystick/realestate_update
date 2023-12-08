@@ -1,7 +1,9 @@
 import CategoryLandSale from "../models/CategoryLandSale.js";
 import LandSale from "../models/LandSale.js";
+import LandLease from "../models/LandLease.js";
 import Favorite from "../models/Favorite.js";
 import User from "../models/User.js";
+import { startOfWeek, endOfWeek, eachWeekOfInterval, startOfMonth, endOfMonth } from 'date-fns';
 
 export const createLandSale = async (req, res, next) => {
     const categoryLandSaleId = req.params.categorylandsaleid;
@@ -123,5 +125,35 @@ export const getLandSalesByUser = async (req, res, next) => {
     } catch (err) {
       next(err);
     }
-  };
+};
+
+export const getWeeklyLandSaleAndLease = async (req, res, next) => {
+    try {
+        const month = req.params.month;
+        const year = req.params.year;
+        const startDate = startOfMonth(new Date(year, month - 1));
+        const endDate = endOfMonth(new Date(year, month - 1));
+        const weeks = eachWeekOfInterval({ start: startDate, end: endDate });
+
+        const weeklyLandSaleAndLease = await Promise.all(weeks.map(async (weekStart, index) => {
+            const weekEnd = endOfWeek(weekStart);
+            const landSales = await LandSale.find({
+                createdAt: { $gte: weekStart, $lte: weekEnd }
+            });
+            const landLeases = await LandLease.find({
+                createdAt: { $gte: weekStart, $lte: weekEnd }
+            });
+
+            return {
+                week: `Week ${index + 1}`,
+                landSales: landSales.length,
+                landLeases: landLeases.length
+            };
+        }));
+
+        res.status(200).json(weeklyLandSaleAndLease);
+    } catch (err) {
+        next(err);
+    }
+};
   

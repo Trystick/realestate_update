@@ -10,7 +10,8 @@ const PaymentSchema = new mongoose.Schema({
     orderId: {
         type: Schema.Types.ObjectId,
         ref: 'Order',
-        required: true
+        required: true,
+        unique: true
     },
     packetName: {
         type: String,

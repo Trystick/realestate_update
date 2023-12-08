@@ -107,6 +107,7 @@ const NewDetail = () => {
   const ArrayData = [data];
  
   const [datanew, setDataNew] = useState([]);
+
   useEffect(() => {
       axios.get('http://localhost:8800/api/post/randomposts')
         .then(response => setDataNew(response.data))
@@ -118,23 +119,25 @@ const NewDetail = () => {
         alert('Vui lòng đăng nhập để bình luận');
         return;
       }
-  
       try {
         const response = await axios.post('http://localhost:8800/api/comment', {
           userId: user._id,
           postId,
           content: comment,
+          isApproved: false,  // bình luận mới chưa được kiểm duyệt
         });
-  
+    
         if (response.status === 201) {
-          alert('Bình luận của bạn đã được đăng thành công');
+          alert('Bình luận của bạn đã được gửi và đang chờ kiểm duyệt');
           setComment('');
+          window.location.reload();
         }
       } catch (error) {
         console.error('Error creating comment', error);
         alert('Có lỗi xảy ra khi đăng bình luận');
       }
     };
+    
 
     const [comments, setComments] = useState([]);
     useEffect(() => {
@@ -144,20 +147,23 @@ const NewDetail = () => {
     
           if (response.status === 200) {
             const commentData = response.data;
-            const commentsWithUser = await Promise.all(commentData.map(async (comment) => {
+            const approvedComments = commentData.filter(comment => comment.isApproved);
+            const commentsWithUser = await Promise.all(approvedComments.map(async (comment) => {
               const userResponse = await axios.get(`http://localhost:8800/api/users/${comment.userId}`);
               let repliesWithUser = [];
               if (comment.replies && comment.replies.length > 0) {
-                repliesWithUser = await Promise.all(comment.replies.map(async (reply) => {
+                const approvedReplies = comment.replies.filter(reply => reply.isApproved);
+                repliesWithUser = await Promise.all(approvedReplies.map(async (reply) => {
                   const replyUserResponse = await axios.get(`http://localhost:8800/api/users/${reply.userId}`);
                   return { ...reply, user: replyUserResponse.data };
                 }));
               }
               return { ...comment, user: userResponse.data, replies: repliesWithUser };
             }));
-    
+          
             setComments(commentsWithUser);
           }
+          
         } catch (error) {
           console.error('Error fetching comments', error);
         }
@@ -177,10 +183,11 @@ const NewDetail = () => {
         const response = await axios.post(`http://localhost:8800/api/comment/${commentId}/replies`, {
           userId: user._id,
           content: reply,
+          isApproved: false,
         });
   
         if (response.status === 201) {
-          alert('Trả lời của bạn đã được đăng thành công');
+          alert('Trả lời của bạn  đã được gửi và đang chờ kiểm duyệt');
           setReply('');
           setIsReplying(false);
           window.location.reload();

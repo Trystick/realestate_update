@@ -40,7 +40,7 @@ const New = () => {
     );
     
     useEffect(() => {
-        axios.get('http://localhost:8800/api/post/postCategory/656d4a0e989c1bc76e32937a')
+        axios.get('http://localhost:8800/api/post/postCategory/657290bbeab7b27a0a0ba7af')
           .then(response => setData(response.data))
           .catch(error => console.error(error));
       }, []);

@@ -70,6 +70,7 @@ const Assign = () => {
         "job":"Việc làm",
         "jobApply":"Thông tin ứng tuyển",
         "slide":"Hình ảnh",
+        "comment": "Kiểm duyệt bình luận",
         "role":"Phân quyền",
         // Add descriptions for the rest of your modules here
     };

@@ -1,15 +1,14 @@
 import "./newJob.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
-import { jobInputs, projectInputs } from "../../formSource";
+import { jobInputs} from "../../formSource";
 import useFetch from "../../hooks/useFetch";
 import axios from "axios"
 import {useNavigate} from 'react-router-dom'
 
 const NewJob = () => {
-  // const [files, setFiles] = useState("");
+
   const [info, setInfo] = useState({});
   const [jobCategoryId, setJobCategoryId] = useState(undefined);
   const navigate = useNavigate();
@@ -27,19 +26,9 @@ const NewJob = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-    //   const list = await Promise.all(
-    //     Object.values(files).map( async (file) => {
-    //     const data = new FormData();
-    //     data.append("file", file);
-    //     data.append("upload_preset", "upload");
-    //     const uploadRes = await axios.post("https://api.cloudinary.com/v1_1/dw1rf0o5f/image/upload", data);
-    //     const {url} = uploadRes.data;
-    //     return url;
-    // }));
       const newJob = {
         ...info,
         jobCategoryId: jobCategoryId,
-        // photos: list,
       };
        await axios.post(`/job/${jobCategoryId}`, newJob);
       
@@ -63,37 +52,26 @@ const NewJob = () => {
           <h1>Add New Jobs</h1>
         </div>
         <div className="bottom">
-          {/* <div className="left">
-            <img
-              src={
-                files
-                  ? URL.createObjectURL(files[0])
-                  : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
-              }
-              alt=""
-            />
-          </div> */}
           <div className="right">
             <form>
-              {/* <div className="formInput">
-                <label htmlFor="file">
-                  Image: <DriveFolderUploadOutlinedIcon className="icon" />
-                </label>
-                <input
-                  type="file"
-                  id="file"
-                  multiple
-                  onChange={(e) => setFiles(e.target.files)}
-                  style={{ display: "none" }}
-                />
-              </div> */}
+             
               {jobInputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
-                  <input type={input.type} 
-                  id={input.id}
-                  onChange={handleChange}
-                  placeholder={input.placeholder} />
+                  {input.type === "textarea" ? ( // Kiểm tra nếu type là "textarea"
+                  <textarea
+                    id={input.id}
+                    onChange={handleChange}
+                    placeholder={input.placeholder}
+                  />
+                ) : (
+                  <input
+                    type={input.type}
+                    id={input.id}
+                    onChange={handleChange}
+                    placeholder={input.placeholder}
+                  />
+                )}
                 </div>
               ))}
               <div className="formInput">

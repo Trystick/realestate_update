@@ -670,8 +670,8 @@ export const adminInputs = [
     {
       id: "desc",
       label: "Description",
-      type: "text",
-      placeholder: "Phụ Hồ",
+      type: "textarea",
+      placeholder: "Mô tả",
     },
     {
       id: "gender",
@@ -758,5 +758,8 @@ export const adminInputs = [
       placeholder: "Modules",
     },
   ];
+
+
+
 
   

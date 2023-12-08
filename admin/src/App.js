@@ -9,7 +9,7 @@ import "./style/dark.scss";
 import { useContext, useEffect, useState } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
-import { adminColumns, adviseColumns, categoryColumns, categoryLandLeaseColumns, categoryLandSaleColumns, jobApplyColumns, jobCategoryColumns, jobColumns, landLeaseColumns, landSaleColumns, orderColumns, packetColumns, packetTypeColumns, paymentColumns, postCategoryColumns, postColumns, projectColumns, roleColumns, slideColumns, userColumns } from "./datatablesource";
+import { adminColumns, adviseColumns, categoryColumns, categoryLandLeaseColumns, categoryLandSaleColumns, commentColumns, jobApplyColumns, jobCategoryColumns, jobColumns, landLeaseColumns, landSaleColumns, orderColumns, packetColumns, packetTypeColumns, paymentColumns, postCategoryColumns, postColumns, projectColumns, roleColumns, slideColumns, userColumns } from "./datatablesource";
 import NewCategory from "./pages/newCategory/NewCategory";
 import NewProject from "./pages/newProject/NewProject";
 import EditCategory from "./pages/editCategory/EditCategory"
@@ -410,6 +410,11 @@ function App() {
                   <Slide/>
                   </ProtectedRoute>}
               />
+          </Route>
+          <Route path="comment">
+              <Route index element={ <ProtectedRoute path="comment">
+                    <List columns={commentColumns}/>
+                  </ProtectedRoute>} />
           </Route>
           <Route path="role">
               <Route index element={ <ProtectedRoute path="role">

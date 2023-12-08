@@ -41,7 +41,7 @@ const NewTT = () => {
     
    
     useEffect(() => {
-        axios.get('http://localhost:8800/api/post/postCategory/656d4a32989c1bc76e32938b')
+        axios.get('http://localhost:8800/api/post/postCategory/657290cfeab7b27a0a0ba7ba')
           .then(response => setData(response.data))
           .catch(error => console.error(error));
       }, []);

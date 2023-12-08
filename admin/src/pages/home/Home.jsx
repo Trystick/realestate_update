@@ -7,6 +7,8 @@ import Chart from "../../components/chart/Chart";
 import Table from "../../components/table/Table";
 import CancelReasonChart from "../../components/cancelreasonchart/CancelReasonChart";
 import DownSide from "../../components/downside/DownSide";
+import PostWeek from "../../components/postweek/PostWeek";
+import JobAndAdvise from "../../components/jobandadvise/JobAndAdvise";
 
 
 const Home = () => {
@@ -41,6 +43,16 @@ const Home = () => {
           <DownSide type="favorite" />
           <DownSide type="comment" />
         </div>
+        <div className="cancelReasonContainer">
+          <div className="listTitleCancel">Post Land Week</div>
+          <PostWeek/>
+        </div>
+        <div className="listInteract">Job and Advise</div>
+          <div className="widgets">
+            <JobAndAdvise type="job" />
+            <JobAndAdvise type="jobApply" />
+            <JobAndAdvise type="advise" />
+          </div>
       </div>
     </div>
   );

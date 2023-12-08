@@ -820,6 +820,38 @@ export const roleColumns = [
   },
 ];
 
+export const commentColumns = [
+  { field: "_id", headerName: "ID", width: 170 },
+  {
+    field: "userId",
+    headerName: "userId",
+    width: 200,
+  },
+  {
+    field: "postId",
+    headerName: "postId",
+    width: 250,
+  },
+  {
+    field: "parentId",
+    headerName: "parentId",
+    width: 250,
+  },
+  {
+    field: "content",
+    headerName: "content",
+    width: 250,
+  },
+  {
+    field: "replies",
+    headerName: "replies",
+    width: 250,
+    valueGetter: (params) => {
+      return params.value.map(reply => `${reply.content}`).join('; ');
+    },
+  },
+];
+
 export const slideColumns = [
   { field: "_id", headerName: "ID", width: 170 },
   {

@@ -19,7 +19,13 @@
 }
 
 .muctuyendung {
+    background-color: goldenrod;
     text-align: center;
+    border: 1px solid rgb(210, 242, 147);
+}
+
+.noidungtuyendung {
+    background-color: wheat;
     border: 1px solid rgb(210, 242, 147);
 }
 

@@ -28,12 +28,14 @@ import AnalyticsIcon from '@mui/icons-material/Analytics';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import AllInboxIcon from '@mui/icons-material/AllInbox';
 import WidgetsIcon from '@mui/icons-material/Widgets';
+import MarkUnreadChatAltIcon from '@mui/icons-material/MarkUnreadChatAlt';
 import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext, useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom'
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
+import logoGoldenland from '../sidebar/LOGO.png'
 
 const Sidebar = () => {
   const [loading, setLoading] = useState(true);
@@ -287,6 +289,13 @@ const handleClickChildslide = (e) => {
   navigate('/slide')
 };
 
+const handleClickChildcomment = (e) => {
+  e.stopPropagation();
+  e.preventDefault();
+  // Xử lý sự kiện khi mục con được nhấn
+  navigate('/comment')
+};
+
 const handleClickChildrole = (e) => {
   e.stopPropagation();
   e.preventDefault();
@@ -299,7 +308,9 @@ const handleClickChildrole = (e) => {
       <div className="top">
       {checkAccess('home') && (
         <Link to="/home" style={{ textDecoration: "none" }}>
-          <span className="logo">Golden Land Admin</span>
+          <span className="logo">
+            <img src={logoGoldenland} alt="" className="imglogogoldenland" />
+          </span>
         </Link>
       )}
       </div>
@@ -521,6 +532,14 @@ const handleClickChildrole = (e) => {
             <li onClick={handleClickChildslide}>
               <TuneIcon className="icon" />
               <span>Slider</span>
+            </li>
+          </Link>
+           )}
+           {checkAccess('comment') && (
+          <Link style={{ textDecoration: "none" }}>
+            <li onClick={handleClickChildcomment}>
+              <MarkUnreadChatAltIcon className="icon" />
+              <span>Comment</span>
             </li>
           </Link>
            )}

@@ -11,9 +11,12 @@
     justify-content: center;
 
     .logo {
-      font-size: 20px;
-      font-weight: bold;
-      color: #6439ff;
+       width: 100%;
+
+      .imglogogoldenland {
+        width: 100px;
+        height: 50px;
+      }
     }
   }
 
