@@ -124,7 +124,7 @@ function App() {
               <Route
                 path="new"
                 element={<ProtectedRoute path="users">
-                  <New inputs={userInputs} title="Add New User" />
+                  <New inputs={userInputs} title="Thêm khách hàng" />
                 </ProtectedRoute>}
               />
             </Route>

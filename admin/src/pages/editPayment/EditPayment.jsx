@@ -90,21 +90,21 @@ const EditPayment = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Edit Payment</h1>
+          <h1>Sửa thanh toán</h1>
         </div>
         <div className="bottom">
           <div className="right">
           {ArrayData.map(item =>  (
             <form key={item._id} item={item}>
                   <div className="formInput">
-                    <label>Amount</label>
+                    <label>Tổng tiền</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.amount || item.amount}
                     id="amount"
                   />
                   </div>
                   <div className="formInput">
-                    <label>status</label>
+                    <label>Trạng thái</label>
                     <select onChange={handleChange} ref={ref} 
                     id="status">
                     <option value=''>Chọn</option>
@@ -113,9 +113,9 @@ const EditPayment = () => {
                   </select>
                   </div>
                   <div className="formInput">
-                  <label>Choose a order</label>
+                  <label>Chọn đơn hàng</label>
                   <select id="orderId" onChange={handleChange}> 
-                  <option value=''> Order </option>
+                  <option value=''> Đơn hàng </option>
                   {categories.map((category) => (
                     <option key={category._id} value={category._id}>
                       {category.customerName}
@@ -123,7 +123,7 @@ const EditPayment = () => {
                   ))}
                  </select>
                 </div>
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Gửi</button>
             </form>
              )) }
           </div>

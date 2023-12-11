@@ -48,27 +48,27 @@ const EditRole = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Edit Role</h1>
+          <h1>Sửa phân quyền</h1>
         </div>
         <div className="bottom">
           <div className="right">
           {ArrayData.map(item =>  (
             <form key={item._id} item={item}>
                 <div className="formInput">
-                    <label>Name</label>
+                    <label>Tên</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.name || item.name}
                     id="name"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Module</label>
+                    <label>Chức năng</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.module || item.module}
                     id="type"
                   />
                   </div>
-              <button onClick={handleClick} >Send</button>
+              <button onClick={handleClick} >Gửi</button>
             </form>
              )) }
           </div>

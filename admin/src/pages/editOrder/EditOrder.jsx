@@ -93,27 +93,27 @@ const EditProject = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Edit Order</h1>
+          <h1>Sửa đơn hàng</h1>
         </div>
         <div className="bottom">
           <div className="right">
           {ArrayData.map(item =>  (
             <form key={item._id} item={item}>
                 <div className="formInput">
-                    <label>Customer Name</label>
+                    <label>Tên khách hàng</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.customerName || item.customerName}
                     id="customerName"
                   />
                    <div className="formInput">
-                    <label>Address</label>
+                    <label>Địa chỉ</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.address || item.address}
                     id="address"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Phone Number</label>
+                    <label>Số điện thoại</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.phoneNumber || item.phoneNumber}
                     id="phoneNumber"
@@ -121,7 +121,7 @@ const EditProject = () => {
                   </div>
                   </div>
                   <div className="formInput">
-                    <label>status</label>
+                    <label>Trạng thái</label>
                     <select onChange={handleChange} ref={ref} 
                     id="status">
                     <option value=''>Chọn</option>
@@ -130,23 +130,23 @@ const EditProject = () => {
                   </select>
                   </div>
                   <div className="formInput">
-                    <label>Amount</label>
+                    <label>Tổng tiền</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.amount || item.amount} 
                     id="amount"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Cancel Reason</label>
+                    <label>Lý do hủy</label>
                     <textarea onChange={handleChange} ref={ref} 
                     value={info.cancelReason || item.cancelReason} 
                     id="cancelReason"
                   />
                   </div>
                   <div className="formInput">
-                  <label>Choose a packet</label>
+                  <label>Chọn loại gói</label>
                   <select id="packetId" onChange={handleChange}> 
-                  <option value=''> Packet </option>
+                  <option value=''> Gói </option>
                   {categories.map((category) => (
                     <option key={category._id} value={category._id}>
                       {category.name}
@@ -154,7 +154,7 @@ const EditProject = () => {
                   ))}
                  </select>
                 </div>
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Gửi</button>
             </form>
              )) }
           </div>

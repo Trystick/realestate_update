@@ -37,7 +37,7 @@ const NewLandLeaseCategory = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add New Category Land Sale</h1>
+          <h1>Thêm loại nhà thuê</h1>
         </div>
         <div className="bottom">
     
@@ -51,7 +51,7 @@ const NewLandLeaseCategory = () => {
                   id={input.id}/>
                 </div>
               ))}
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Gửi</button>
             </form>
           </div>
         </div>

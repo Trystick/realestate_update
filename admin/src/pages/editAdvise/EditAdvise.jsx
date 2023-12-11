@@ -51,7 +51,7 @@ const EditAdvise = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Edit Advise</h1>
+          <h1>Sửa tư vấn</h1>
         </div>
         <div className="bottom">
           {/* <div className="left">
@@ -80,7 +80,7 @@ const EditAdvise = () => {
                 />
               </div> */}
                 <div className="formInput">
-                    <label>FullName</label>
+                    <label>Họ tên</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.fullname || item.fullname}
                     id="fullname"
@@ -94,14 +94,14 @@ const EditAdvise = () => {
                   />
                   </div>
                   <div className="formInput">
-                    <label>Phone</label>
+                    <label>Số điện thoại</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.phone || item.phone}
                     id="phone"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Description</label>
+                    <label>Mô tả</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.desc || item.desc}
                     id="desc"
@@ -109,7 +109,7 @@ const EditAdvise = () => {
                   </div>
                   
                   
-              <button onClick={handleClick} >Send</button>
+              <button onClick={handleClick} >Gửi</button>
             </form>
              )) }
           </div>

@@ -133,7 +133,7 @@ const Profile = () => {
       <div className="profileContainer">
         <Navbar/>
         <div className="top">
-          <h1>Profile</h1>
+          <h1>Hồ sơ</h1>
           <form onSubmit={handleSubmit} className='formProfile'>
                     <img
                     src={
@@ -144,7 +144,7 @@ const Profile = () => {
                     alt="" className='pictureavatar'
                     />
                         <label htmlFor="file" className='chooseavatar'>
-                         Choose Avatar 
+                         Chọn ảnh đại diện
                         </label>
                         <input
                         type="file"
@@ -153,11 +153,11 @@ const Profile = () => {
                         style={{ display: "none" }}
                     />
                     <label className='labelprofile'>
-                        Username
+                        Tên đăng nhập
                         <input className='inpprofile' type="text" name="username" id='username' value={form.username} onChange={handleChange}/>
                     </label>
                     <label className='labelprofile'>
-                        Phone Number
+                        Số điện thoại
                         <input className='inpprofile' type="text" name="phoneNumber" value={form.phoneNumber} onChange={handleChange}/>
                     </label>
                     <label className='labelprofile'>
@@ -165,12 +165,12 @@ const Profile = () => {
                         <input className='inpprofile' type="text" name="email" value={form.email} onChange={handleChange}/>
                     </label>
                     <label className='labelprofile'>
-                        Password
+                        Mật khẩu
                         <div className="passwordContainer">
                             <input className='inpprofile' type='password' name="password" id='password'value={form.password} onChange={handleChange} disabled/>
                         </div>
                     </label>
-                    <input className='inpbtn' type="submit" value="Profile Update" />
+                    <input className='inpbtn' type="submit" value="Cập nhật hồ sơ" />
                 </form>
         </div>
       </div>

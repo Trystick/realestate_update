@@ -64,7 +64,7 @@ const NewAdmin = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add Admin</h1>
+          <h1>Thêm quản trị viên</h1>
         </div>
         <div className="bottom">
           <div className="left">
@@ -81,7 +81,7 @@ const NewAdmin = () => {
             <form>
               <div className="formInput">
                 <label htmlFor="file">
-                  Image: <DriveFolderUploadOutlinedIcon className="icon" />
+                  Hình ảnh: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
                 <input
                   type="file"
@@ -101,15 +101,15 @@ const NewAdmin = () => {
                 </div>
               ))}
                <div className="formInput">
-                  <label>Choose a role</label>
+                  <label>Chọn quyền</label>
                   <select id="jobCategoryId" onChange={handleSelectChange}> 
-                  <option> Role </option>
+                  <option> Quyền </option>
                   {loading ? "loading" : data && data.map((jobCategory) => (
                     <option key={jobCategory._id} value={jobCategory._id}>{jobCategory.name}</option>
                   ))}
                  </select>
                 </div>
-              <button onClick={handleClick} >Send</button>
+              <button onClick={handleClick} >Gửi</button>
             </form>
           </div>
         </div>

@@ -96,7 +96,7 @@ const EditLandSale = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Edit Project</h1>
+          <h1>Sửa nhà bán</h1>
         </div>
         <div className="bottom">
           <div className="left">
@@ -114,7 +114,7 @@ const EditLandSale = () => {
             <form key={item._id} item={item}>
               <div className="formInput" >
                 <label htmlFor="file">
-                  Image: <DriveFolderUploadOutlinedIcon className="icon" />
+                  Hình ảnh: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
                 <input
                   type="file"
@@ -125,20 +125,20 @@ const EditLandSale = () => {
                 />
               </div>
                 <div className="formInput">
-                    <label>Name</label>
+                    <label>Tên</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.name || item.name}
                     id="name"
                   />
                    <div className="formInput">
-                    <label>Location</label>
+                    <label>Địa chỉ</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.location || item.location}
                     id="location"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Description</label>
+                    <label>Mô tả</label>
                     <textarea onChange={handleChange} ref={ref} 
                     value={info.desc || item.desc}
                     id="desc"
@@ -146,65 +146,65 @@ const EditLandSale = () => {
                   </div>
                   </div>
                   <div className="formInput">
-                    <label>Area</label>
+                    <label>Diện tích</label>
                     <input onChange={handleChange} ref={ref} type='number'
                     value={info.area || item.area}
                     id="area"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Price</label>
+                    <label>Giá</label>
                     <input onChange={handleChange} ref={ref} type='number'
                     value={info.price || item.price}
                     id="price"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Title</label>
+                    <label>Tiêu đề</label>
                     <textarea onChange={handleChange}ref={ref}  
                     value={info.title || item.title}
                     id="title"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Name Contact</label>
+                    <label>Tên liên hệ</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.nameContact || item.nameContact}
                     id="nameContact"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Phone Contact</label>
+                    <label>Số điện thoại liên hệ</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.phoneContact || item.phoneContact}
                     id="phoneContact"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Email Contact</label>
+                    <label>Email liên hệ</label>
                     <input onChange={handleChange} ref={ref} type='email'
                     value={info.emailContact || item.emailContact}
                     id="emailContact"
                     />
                     </div>
                   <div className="formInput">
-                    <label>Room</label>
+                    <label>Số phòng</label>
                     <input onChange={handleChange} ref={ref} type='number'
                     value={info.room || item.room}
                     id="room"
                     />
                     </div>
                    <div className="formInput">
-                    <label>Toilet</label>
+                    <label>Số nhà vệ sinh</label>
                     <input onChange={handleChange} ref={ref} type='number'
                     value={info.toilet || item.toilet}
                     id="toilet"
                   />
                   </div>
                   <div className="formInput">
-                  <label>Choose a category</label>
+                  <label>Chọn danh mục nhà bán</label>
                   <select id="categoryLandSaleId" onChange={handleChange}> 
-                  <option> Category </option>
+                  <option> Danh mục </option>
                   {categories.map((category) => (
                     <option key={category._id} value={category._id}>
                       {category.name}
@@ -212,7 +212,7 @@ const EditLandSale = () => {
                   ))}
                  </select>
                 </div>
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Gửi</button>
             </form>
              )) }
           </div>

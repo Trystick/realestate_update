@@ -74,7 +74,7 @@ const EditAdmin = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Edit Admins</h1>
+          <h1>Sửa quản trị viên</h1>
         </div>
         <div className="bottom">
           <div className="left">
@@ -92,7 +92,7 @@ const EditAdmin = () => {
             <form key={item._id} item={item}>
               <div className="formInput" >
                 <label htmlFor="file">
-                  Image: <DriveFolderUploadOutlinedIcon className="icon" />
+                  Hình ảnh: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
                 <input
                   type="file"
@@ -102,7 +102,7 @@ const EditAdmin = () => {
                 />
               </div>
                 <div className="formInput">
-                    <label>Username</label>
+                    <label>Tên quản trị viên</label>
                     <input  ref={ref}
                     onChange={handleChange}  
                     value={info.username || item.username}
@@ -118,7 +118,7 @@ const EditAdmin = () => {
                   />
                   </div>
                   <div className="formInput">
-                    <label>Password</label>
+                    <label>Mật khẩu</label>
                     <input onChange={handleChange}  
                     ref={ref}
                     value={info.password || item.password}
@@ -126,7 +126,7 @@ const EditAdmin = () => {
                   />
                   </div>
                   <div className="formInput">
-                  <label>Admin Rights</label>
+                  <label>Quyền quản trị</label>
                   <select onChange={handleChange}  
                       ref={ref}
                       value={info.role || item.role}
@@ -137,7 +137,7 @@ const EditAdmin = () => {
                       ))}
                   </select>
                   </div>
-              <button onClick={handleClick} >Send</button>
+              <button onClick={handleClick} >Gửi</button>
             </form>
              )) }
           </div>

@@ -78,7 +78,7 @@ const EditPost = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Edit Post</h1>
+          <h1>Sửa tin tức</h1>
         </div>
         <div className="bottom">
           <div className="left">
@@ -96,7 +96,7 @@ const EditPost = () => {
             <form key={item._id} item={item}>
               <div className="formInput" >
                 <label htmlFor="file">
-                  Image: <DriveFolderUploadOutlinedIcon className="icon" />
+                  Hình ảnh: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
                 <input
                   type="file"
@@ -107,58 +107,58 @@ const EditPost = () => {
                 />
               </div>
                 <div className="formInput">
-                    <label>Name</label>
+                    <label>Tên</label>
                     <input onChange={handleChange}ref={ref}
                     id="name"
                     value={info.name || item.name}
                   />
                   </div>
                   <div className="formInput">
-                    <label>Descriptionone</label>
+                    <label>Nội dung</label>
                     <textarea onChange={handleChange} ref={ref} 
                     id="descone"
                     value={info.descone || item.descone}
                   />
                   </div>
                   <div className="formInput">
-                    <label>Descriptiontwo</label>
+                    <label>Nội dung</label>
                     <textarea onChange={handleChange} ref={ref} 
                     id="desctwo"
                     value={info.desctwo || item.desctwo}
                   />
                   </div>
                   <div className="formInput">
-                    <label>Descriptionthree</label>
+                    <label>Nội dung</label>
                     <textarea onChange={handleChange} ref={ref} 
                     id="descthree"
                     value={info.descthree || item.descthree}
                   />
                   </div>
                   <div className="formInput">
-                    <label>Descriptionfour</label>
+                    <label>Nội dung</label>
                     <textarea onChange={handleChange} ref={ref} 
                     id="descfour"
                     value={info.descfour || item.descfour}
                   />
                   </div>
                   <div className="formInput">
-                    <label>Descriptionfive</label>
+                    <label>Nội dung</label>
                     <textarea onChange={handleChange}ref={ref}  
                     id="descfive"
                     value={info.descfive || item.descfive}
                   />
                   </div>
                   <div className="formInput">
-                    <label>Title</label>
+                    <label>Tiều đề</label>
                     <input onChange={handleChange} ref={ref} 
                     id="title"
                     value={info.title || item.title}
                   />
                   </div>
                   <div className="formInput">
-                  <label>Choose post category</label>
+                  <label>Chọn danh mục tin tức</label>
                   <select id="postCategoryId" onChange={handleChange}> 
-                  <option> Post Category </option>
+                  <option> Danh mục tin tức </option>
                   {postCategories.map((postCategory) => (
                     <option key={postCategory._id} value={postCategory._id}>
                       {postCategory.name}
@@ -166,7 +166,7 @@ const EditPost = () => {
                   ))}
                  </select>
                 </div>
-              <button onClick={handleClick} >Send</button>
+              <button onClick={handleClick} >Gửi</button>
             </form>
              )) }
           </div>

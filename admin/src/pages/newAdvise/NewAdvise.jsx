@@ -50,7 +50,7 @@ const NewAdvise = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>New Advise</h1>
+          <h1>Thêm tư vấn</h1>
         </div>
         <div className="bottom">
           {/* <div className="left">
@@ -85,7 +85,7 @@ const NewAdvise = () => {
                   id={input.id}/>
                 </div>
               ))}
-              <button onClick={handleClick} >Send</button>
+              <button onClick={handleClick} >Gửi</button>
             </form>
           </div>
         </div>

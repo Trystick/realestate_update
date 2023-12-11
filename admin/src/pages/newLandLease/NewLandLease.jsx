@@ -82,7 +82,7 @@ const NewLandLease = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add New Land Lease</h1>
+          <h1>Thêm nhà thuê</h1>
         </div>
         <div className="bottom">
           <div className="left">
@@ -99,7 +99,7 @@ const NewLandLease = () => {
             <form>
               <div className="formInput">
                 <label htmlFor="file">
-                  Image: <DriveFolderUploadOutlinedIcon className="icon" />
+                  Hình ảnh: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
                 <input
                   type="file"
@@ -129,15 +129,15 @@ const NewLandLease = () => {
               </div>
               ))}
               <div className="formInput">
-                  <label>Choose a category</label>
+                  <label>Chọn loại nhà thuê</label>
                   <select id="categoryLandLeaseId" onChange={handleSelectChange}> 
-                  <option> Category </option>
+                  <option> Danh mục nhà thuê </option>
                   {loading ? "loading" : data && data.map((category) => (
                     <option key={category._id} value={category._id}>{category.name}</option>
                   ))}
                  </select>
                 </div>
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Gửi</button>
             </form>
           </div>
         </div>

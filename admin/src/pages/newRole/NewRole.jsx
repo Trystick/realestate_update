@@ -37,7 +37,7 @@ const NewRole = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add New Role</h1>
+          <h1>Thêm quyền quản trị</h1>
         </div>
         <div className="bottom">
           <div className="right">
@@ -50,7 +50,7 @@ const NewRole = () => {
                   id={input.id}/>
                 </div>
               ))}
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Gửi</button>
             </form>
           </div>
         </div>

@@ -51,7 +51,7 @@ const NewPacket = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add New Package</h1>
+          <h1>Thêm gói</h1>
         </div>
         <div className="bottom">
           <div className="right">
@@ -66,15 +66,15 @@ const NewPacket = () => {
                 </div>
               ))}
               <div className="formInput">
-                  <label>Choose a package type</label>
+                  <label>Chọn loại gói</label>
                   <select id="jobCategoryId" onChange={handleSelectChange}> 
-                  <option> Package Type </option>
+                  <option> Danh mục gói </option>
                   {loading ? "loading" : data && data.map((jobCategory) => (
                     <option key={jobCategory._id} value={jobCategory._id}>{jobCategory.name}</option>
                   ))}
                  </select>
                 </div>
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Gửi</button>
             </form>
           </div>
         </div>

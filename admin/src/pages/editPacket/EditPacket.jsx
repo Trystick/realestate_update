@@ -64,27 +64,27 @@ const EditPacket = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Edit Package</h1>
+          <h1>Sửa gói</h1>
         </div>
         <div className="bottom">
           <div className="right">
           {ArrayData.map(item =>  (
             <form key={item._id} item={item}>
                 <div className="formInput">
-                    <label>Name</label>
+                    <label>Tên</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.name || item.name}
                     id="name"
                   />
                    <div className="formInput">
-                    <label>Time End</label>
+                    <label>Thời gian kết thúc</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.timeend || item.timeend}
                     id="timeend"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Function</label>
+                    <label>Chức năng</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.function || item.function}
                     id="function"
@@ -92,30 +92,30 @@ const EditPacket = () => {
                   </div>
                   </div>
                   <div className="formInput">
-                    <label>Description</label>
+                    <label>Mô tả</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.desc || item.desc}
                     id="desc"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Price</label>
+                    <label>Giá</label>
                     <input onChange={handleChange} ref={ref} type='number'
                     value={info.price || item.price}
                     id="price"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Title</label>
+                    <label>Tiêu đề</label>
                     <input onChange={handleChange}ref={ref}  
                     value={info.title || item.title}
                     id="title"
                   />
                   </div>
                   <div className="formInput">
-                  <label>Choose Package Type</label>
+                  <label>Chọn loại gói</label>
                   <select id="packetTypeId" onChange={handleChange}> 
-                  <option>Package Type</option>
+                  <option>Loại gói</option>
                   {jobCategories.map((jobCategory) => (
                     <option key={jobCategory._id} value={jobCategory._id}>
                       {jobCategory.name}
@@ -123,7 +123,7 @@ const EditPacket = () => {
                   ))}
                  </select>
                 </div>
-              <button onClick={handleClick} >Send</button>
+              <button onClick={handleClick} >Gửi</button>
             </form>
              )) }
           </div>

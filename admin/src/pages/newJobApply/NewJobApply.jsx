@@ -50,7 +50,7 @@ const NewJobApply = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>New Apply Job</h1>
+          <h1>Thêm ứng tuyển</h1>
         </div>
         <div className="bottom">
           <div className="left">
@@ -67,7 +67,7 @@ const NewJobApply = () => {
             <form>
               <div className="formInput">
                 <label htmlFor="file">
-                  File: <DriveFolderUploadOutlinedIcon className="icon" />
+                  Hồ sơ: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
                 <input
                   type="file"
@@ -86,7 +86,7 @@ const NewJobApply = () => {
                 </div>
               ))}
              
-              <button onClick={handleClick} >Send</button>
+              <button onClick={handleClick} >Gửi</button>
             </form>
           </div>
         </div>

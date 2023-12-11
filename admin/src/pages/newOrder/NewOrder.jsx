@@ -88,7 +88,7 @@ const NewOrder = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add New Order</h1>
+          <h1>Thêm đơn hàng</h1>
         </div>
         <div className="bottom">
           <div className="right">
@@ -110,19 +110,19 @@ const NewOrder = () => {
               </div>
               ))}
               <div className="formInput">
-                <label>Amount</label>
+                <label>Tổng tiền</label>
                 <input id="amount" value={selectedPacketAmount} readOnly />
               </div>
               <div className="formInput">
-                  <label>Choose a packet</label>
+                  <label>Chọn loại gói</label>
                   <select id="categoryId" onChange={handleSelectChange}> 
-                  <option value=''> Packet </option>
+                  <option value=''> Danh mục gói </option>
                   {loading ? "loading" : data && data.map((category) => (
                     <option key={category._id} value={category._id}>{category.name}</option>
                   ))}
                  </select>
                 </div>
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Gửi</button>
             </form>
           </div>
         </div>

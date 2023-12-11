@@ -72,7 +72,7 @@ const Edit = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Edit Users</h1>
+          <h1>Sửa khách hàng</h1>
         </div>
         <div className="bottom">
           <div className="left">
@@ -90,7 +90,7 @@ const Edit = () => {
             <form key={item._id} item={item}>
               <div className="formInput" >
                 <label htmlFor="file">
-                  Image: <DriveFolderUploadOutlinedIcon className="icon" />
+                  Hình ảnh: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
                 <input
                   type="file"
@@ -100,7 +100,7 @@ const Edit = () => {
                 />
               </div>
                 <div className="formInput">
-                    <label>Username</label>
+                    <label>Tên khách hàng</label>
                     <input  ref={ref}
                     onChange={handleChange}  
                     value={info.username || item.username}
@@ -116,7 +116,7 @@ const Edit = () => {
                   />
                   </div>
                   <div className="formInput">
-                    <label>Password</label>
+                    <label>Mật khẩu</label>
                     <input onChange={handleChange}  
                     ref={ref}
                     value={info.password || item.password}
@@ -124,7 +124,7 @@ const Edit = () => {
                   />
                   </div>
                   <div className="formInput">
-                  <label>Type</label>
+                  <label>Loại</label>
                   <select onChange={handleChange}  
                       ref={ref}
                       value={info.type || item.type}

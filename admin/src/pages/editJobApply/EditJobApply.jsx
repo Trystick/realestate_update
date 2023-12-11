@@ -59,7 +59,7 @@ const EditJobApply = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Edit JobApply</h1>
+          <h1>Sửa ứng tuyển</h1>
         </div>
         <div className="bottom">
           <div className="left">
@@ -77,7 +77,7 @@ const EditJobApply = () => {
             <form key={item._id} item={item}>
               <div className="formInput" >
                 <label htmlFor="file">
-                  File: <DriveFolderUploadOutlinedIcon className="icon" />
+                  Hồ sơ: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
                 <input
                   type="file"
@@ -88,14 +88,14 @@ const EditJobApply = () => {
                 />
               </div>
                 <div className="formInput">
-                    <label>Name Job</label>
+                    <label>Tên công việc</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.namejob || item.namejob}
                     id="namejob"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Fullname</label>
+                    <label>Họ tên</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.fullname || item.fullname}
                     id="fullname"
@@ -109,7 +109,7 @@ const EditJobApply = () => {
                   />
                   </div>
                   <div className="formInput">
-                    <label>Phone</label>
+                    <label>Số điện thoại</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.phone || item.phone}
                     id="phone"
@@ -117,7 +117,7 @@ const EditJobApply = () => {
                   </div>
                   
                   
-              <button onClick={handleClick} >Send</button>
+              <button onClick={handleClick} >Gửi</button>
             </form>
              )) }
           </div>

@@ -38,7 +38,7 @@ const NewPostCategory = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add New Post Category</h1>
+          <h1>Thêm loại tin tức</h1>
         </div>
         <div className="bottom">
           {/* <div className="left"> */}
@@ -73,7 +73,7 @@ const NewPostCategory = () => {
                   id={input.id}/>
                 </div>
               ))}
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Gửi</button>
             </form>
           </div>
         </div>

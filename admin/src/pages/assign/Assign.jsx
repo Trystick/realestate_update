@@ -81,14 +81,14 @@ const Assign = () => {
       <div className="assignContainer">
         <Navbar/>
         <div className="top">
-          <h1>Assign</h1>
+          <h1>Phân quyền quản trị</h1>
         </div>
         <form onSubmit={handleSubmit}>
-            <h1>Assign Role: {role.name}</h1>
+            <h1>Tên quyền quản trị: {role.name}</h1>
 
             <div className="formContainer">
                 <div className="moduleColumn">
-                    <h2>Assign Route</h2>
+                    <h2>Chức năng quản trị</h2>
                     {Object.keys(moduleDescriptions).map(module => (
                         <div key={module}>
                             <input
@@ -105,14 +105,14 @@ const Assign = () => {
                 </div>
 
                 <div className="descriptionColumn">
-                    <h2>Assign Description</h2>
+                    <h2>Mô tả chức năng</h2>
                     {Object.values(moduleDescriptions).map(description => (
                         <p key={description} className='pdesc'>{description}</p>
                     ))}
                 </div>
             </div>
 
-            <button type="submit">Assign Role</button>
+            <button type="submit">Phân quyền</button>
         </form>
       </div>
     </div>

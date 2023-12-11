@@ -51,35 +51,35 @@ const EditPacketType = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Edit Package Type</h1>
+          <h1>Sửa danh mục gói</h1>
         </div>
         <div className="bottom">
           <div className="right">
           {ArrayData.map(item =>  (
             <form key={item._id} item={item}>
                 <div className="formInput">
-                    <label>Name</label>
+                    <label>Tên</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.name || item.name}
                     id="name"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Description</label>
+                    <label>Mô tả</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.desc || item.desc}
                     id="desc"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Title</label>
+                    <label>Tiêu đề</label>
                     <input onChange={handleChange} ref={ref}  
                     value={info.title || item.title}
                     id="title"
                   />
                   </div>
                   
-              <button onClick={handleClick} >Send</button>
+              <button onClick={handleClick} >Gửi</button>
             </form>
              )) }
           </div>

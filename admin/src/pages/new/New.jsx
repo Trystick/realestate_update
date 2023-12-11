@@ -78,7 +78,7 @@ const New = ({ inputs, title }) => {
             <form>
               <div className="formInput">
                 <label htmlFor="file">
-                  Image: <DriveFolderUploadOutlinedIcon className="icon" />
+                  Hình ảnh: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
                 <input
                   type="file"
@@ -97,15 +97,15 @@ const New = ({ inputs, title }) => {
                 </div>
               ))}
               <div className="formInput">
-                  <label>Choose a package type</label>
+                  <label>Chọn loại khách hàng</label>
                   <select id="jobCategoryId" onChange={handleSelectChange}> 
-                  <option> Type </option>
+                  <option> Loại </option>
                   {loading ? "loading" : data && data.map((jobCategory) => (
                     <option key={jobCategory._id} value={jobCategory._id}>{jobCategory.name}</option>
                   ))}
                  </select>
                 </div>
-              <button onClick={handleClick} >Send</button>
+              <button onClick={handleClick} >Gửi</button>
             </form>
           </div>
         </div>

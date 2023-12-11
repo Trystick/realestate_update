@@ -76,10 +76,10 @@ const Login = () => {
   return (
     <div className='login'>
         <div className="loginContainer">
-            <h1 className="adminTitle">Admin GoldenLand</h1>
-            <input type="text" placeholder='username' id='username' className="loginInput" onChange={handleChange} />
-            <input type="password" placeholder='password' id='password' className="loginInput" onChange={handleChange} />
-            <button disabled={loading} onClick={handleClick} className="loginButton">Login</button>
+            <h1 className="adminTitle">Trang quản trị GoldenLand</h1>
+            <input type="text" placeholder='Tên tài khoản' id='username' className="loginInput" onChange={handleChange} />
+            <input type="password" placeholder='Mật khẩu' id='password' className="loginInput" onChange={handleChange} />
+            <button disabled={loading} onClick={handleClick} className="loginButton">Đăng nhập</button>
             {error && <span>{error.message}</span>}
         </div>
     </div>

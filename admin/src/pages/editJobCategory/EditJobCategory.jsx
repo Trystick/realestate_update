@@ -49,7 +49,7 @@ const EditJobCategory = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Edit Job Category</h1>
+          <h1>Sửa loại công việc</h1>
         </div>
         <div className="bottom">
           {/* <div className="left">
@@ -78,35 +78,35 @@ const EditJobCategory = () => {
                 />
               </div> */}
                 <div className="formInput">
-                    <label>Name</label>
+                    <label>Tên</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.name || item.name}
                     id="name"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Type</label>
+                    <label>Loại</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.type || item.type}
                     id="type"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Description</label>
+                    <label>Mô tả</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.desc || item.desc}
                     id="desc"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Title</label>
+                    <label>Tiêu đề</label>
                     <input onChange={handleChange} ref={ref}  
                     value={info.title || item.title}
                     id="title"
                   />
                   </div>
                   
-              <button onClick={handleClick} >Send</button>
+              <button onClick={handleClick} >Gửi</button>
             </form>
              )) }
           </div>

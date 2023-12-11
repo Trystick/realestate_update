@@ -49,7 +49,7 @@ const EditPostCategory = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Edit Post Category</h1>
+          <h1>Sửa danh mục tin tức</h1>
         </div>
         <div className="bottom">
           {/* <div className="left">
@@ -78,7 +78,7 @@ const EditPostCategory = () => {
                 />
               </div> */}
                 <div className="formInput">
-                    <label>Name</label>
+                    <label>Tên</label>
                     <input 
                     ref={ref} 
                     onChange={handleChange} 
@@ -87,7 +87,7 @@ const EditPostCategory = () => {
                   />
                   </div>
                   <div className="formInput">
-                    <label>Type</label>
+                    <label>Loại</label>
                     <input ref={ref} 
                     onChange={handleChange} 
                     value={info.type || item.type}
@@ -95,7 +95,7 @@ const EditPostCategory = () => {
                   />
                   </div>
                   <div className="formInput">
-                    <label>Description</label>
+                    <label>Mô tả</label>
                     <input  ref={ref} 
                     onChange={handleChange} 
                     value={info.desc || item.desc}
@@ -103,7 +103,7 @@ const EditPostCategory = () => {
                   />
                   </div>
                   <div className="formInput">
-                    <label>Title</label>
+                    <label>Tiêu đề</label>
                     <input ref={ref} 
                     onChange={handleChange} 
                     value={info.title || item.title}
@@ -111,7 +111,7 @@ const EditPostCategory = () => {
                   />
                   </div>
                   
-              <button onClick={handleClick} >Send</button>
+              <button onClick={handleClick} >Gửi</button>
             </form>
              )) }
           </div>

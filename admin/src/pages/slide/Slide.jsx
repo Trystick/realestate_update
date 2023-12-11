@@ -6,7 +6,7 @@ import { useState } from "react";
 import axios from "axios"
 import {useNavigate} from 'react-router-dom'
 
-const Slide = ({ inputs, title }) => {
+const Slide = () => {
   const [files, setFiles] = useState("");
   const navigate = useNavigate();
 
@@ -44,7 +44,7 @@ const Slide = ({ inputs, title }) => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add New Sliders</h1>
+          <h1>Thêm hình ảnh cho slide</h1>
         </div>
         <div className="bottom">
           <div className="left">
@@ -61,7 +61,7 @@ const Slide = ({ inputs, title }) => {
             <form>
               <div className="formInput">
                 <label htmlFor="file">
-                  Image: <DriveFolderUploadOutlinedIcon className="icon" />
+                  Hình ảnh: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
                 <input
                   type="file"
@@ -71,7 +71,7 @@ const Slide = ({ inputs, title }) => {
                   style={{ display: "none" }}
                 />
               </div>
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Gửi</button>
             </form>
           </div>
         </div>

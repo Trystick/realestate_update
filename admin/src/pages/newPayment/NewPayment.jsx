@@ -76,7 +76,7 @@ const NewPayment = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add New Payment</h1>
+          <h1>Thêm thanh toán</h1>
         </div>
         <div className="bottom">
           <div className="right">
@@ -98,15 +98,15 @@ const NewPayment = () => {
               </div>
               ))}
               <div className="formInput">
-                  <label>Choose a order</label>
+                  <label>Chọn đơn hàng</label>
                   <select id="categoryId" onChange={handleSelectChange}> 
-                  <option value=''> Order </option>
+                  <option value=''> Đơn hàng </option>
                   {loading ? "loading" : data && data.map((category) => (
                     <option key={category._id} value={category._id}>{category.customerName}</option>
                   ))}
                  </select>
                 </div>
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Gửi</button>
             </form>
           </div>
         </div>

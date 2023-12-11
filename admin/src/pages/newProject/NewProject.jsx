@@ -63,7 +63,7 @@ const NewProject = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add New Projects</h1>
+          <h1>Thêm dự án</h1>
         </div>
         <div className="bottom">
           <div className="left">
@@ -80,7 +80,7 @@ const NewProject = () => {
             <form>
               <div className="formInput">
                 <label htmlFor="file">
-                  Image: <DriveFolderUploadOutlinedIcon className="icon" />
+                  Hình ảnh: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
                 <input
                   type="file"
@@ -110,15 +110,15 @@ const NewProject = () => {
               </div>
               ))}
               <div className="formInput">
-                  <label>Choose a category</label>
+                  <label>Chọn loại dự án</label>
                   <select id="categoryId" onChange={handleSelectChange}> 
-                  <option> Category </option>
+                  <option> Danh mục dự án </option>
                   {loading ? "loading" : data && data.map((category) => (
                     <option key={category._id} value={category._id}>{category.name}</option>
                   ))}
                  </select>
                 </div>
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Gửi</button>
             </form>
           </div>
         </div>

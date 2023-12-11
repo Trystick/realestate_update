@@ -76,7 +76,7 @@ const EditJob = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Edit Project</h1>
+          <h1>Sửa công việc</h1>
         </div>
         <div className="bottom">
           {/* <div className="left">
@@ -105,20 +105,20 @@ const EditJob = () => {
                 />
               </div> */}
                 <div className="formInput">
-                    <label>Name</label>
+                    <label>Tên</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.name || item.name}
                     id="name"
                   />
                    <div className="formInput">
-                    <label>Location</label>
+                    <label>Địa chỉ</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.location || item.location}
                     id="location"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Number</label>
+                    <label>Số lượng</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.number || item.number}
                     id="number"
@@ -126,72 +126,72 @@ const EditJob = () => {
                   </div>
                   </div>
                   <div className="formInput">
-                    <label>Date end</label>
+                    <label>Ngày kết thúc</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.dateend || item.dateend}
                     id="dateend"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Description</label>
+                    <label>Mô tả</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.desc || item.desc}
                     id="desc"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Gender</label>
+                    <label>Giới tính</label>
                     <input onChange={handleChange}ref={ref}  
                     value={info.gender || item.gender}
                     id="gender"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Age</label>
+                    <label>Tuổi</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.age || item.age}
                     id="age"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Level</label>
+                    <label>Trình độ</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.level || item.level}
                     id="level"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Experience</label>
+                    <label>Kinh nghiệm</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.experience || item.experience}
                     id="experience"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Request</label>
+                    <label>Yêu cầu</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.request || item.request}
                     id="request"
                   />
                   </div>
                   <div className="formInput">
-                    <label>income</label>
+                    <label>Lương</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.income || item.income}
                     id="income"
                   />
                   </div>
                   <div className="formInput">
-                    <label>Regime</label>
+                    <label>Chế độ</label>
                     <input onChange={handleChange} ref={ref} 
                     value={info.regime || item.regime}
                     id="regime"
                   />
                   </div>
                   <div className="formInput">
-                  <label>Choose job category</label>
+                  <label>Chọn loại công việc</label>
                   <select id="jobCategoryId" onChange={handleChange}> 
-                  <option>Job Category </option>
+                  <option>Danh mục công việc </option>
                   {jobCategories.map((jobCategory) => (
                     <option key={jobCategory._id} value={jobCategory._id}>
                       {jobCategory.name}
@@ -199,7 +199,7 @@ const EditJob = () => {
                   ))}
                  </select>
                 </div>
-              <button onClick={handleClick} >Send</button>
+              <button onClick={handleClick} >Gửi</button>
             </form>
              )) }
           </div>
