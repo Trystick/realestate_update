@@ -145,7 +145,7 @@ export const getWeeklyLandSaleAndLease = async (req, res, next) => {
             });
 
             return {
-                week: `Week ${index + 1}`,
+                week: `Tuần ${index + 1}`,
                 landSales: landSales.length,
                 landLeases: landLeases.length
             };

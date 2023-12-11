@@ -38,32 +38,32 @@ const Featured = () => {
   return (
     <div className="featured">
       <div className="top">
-        <h1 className="title">Total Revenue</h1>
+        <h1 className="title">Tổng doanh thu</h1>
       </div>
       <div className="bottom">
         <div className="featuredChart">
          <CircularProgressbar value={data.percentage} text={`${data.percentage}%`} strokeWidth={5} />
         </div>
-        <p className="title">Total sales made today</p>
+        <p className="title">Doanh thu trong ngày</p>
         <p className="amount">{amount.toLocaleString()} VND</p>
         <p className="desc">
-          Previous transactions processing. Last payments may not be included.
+          Xử lý giao dịch trước đó. Các khoản thanh toán cuối cùng có thể không được bao gồm.
         </p>
         <div className="summary">
           <div className="item">
-            <div className="itemTitle">Target Month</div>
+            <div className="itemTitle">Mục tiêu tháng</div>
             <div className="itemResult negative">
               <div className="resultAmount">1,000K VND</div>
             </div>
           </div>
           <div className="item">
-            <div className="itemTitle">Last Week</div>
+            <div className="itemTitle">Tuần trước</div>
             <div className="itemResult positive">
               <div className="resultAmount">{lastWeek.toLocaleString()} VND</div>
             </div>
           </div>
           <div className="item">
-            <div className="itemTitle">Last Month</div>
+            <div className="itemTitle">Tháng trước</div>
             <div className="itemResult positive">
               <div className="resultAmount">{lastMonth.toLocaleString()} VND</div>
             </div>

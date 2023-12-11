@@ -18,7 +18,7 @@ const Home = () => {
       <Sidebar />
       <div className="homeContainer">
         <Navbar />
-        <div className="listInteract">Business Activities</div>
+        <div className="listInteract">Hoạt động kinh doanh</div>
         <div className="widgets">
           <Widget type="user" />
           <Widget type="order" />
@@ -30,24 +30,24 @@ const Home = () => {
           <Chart aspect={2 / 1} />
         </div>
         <div className="listContainer">
-          <div className="listTitle">Latest Transactions</div>
+          <div className="listTitle">Giao dịch mới nhất</div>
           <Table />
         </div>
         <div className="cancelReasonContainer">
-          <div className="listTitleCancel">Cancel Reason</div>
+          <div className="listTitleCancel">Lý do hủy gói</div>
           <CancelReasonChart />
         </div>
-        <div className="listInteract">Interact Community</div>
+        <div className="listInteract">Tương tác khách hàng</div>
         <div className="widgets">
           <DownSide type="like" />
           <DownSide type="favorite" />
           <DownSide type="comment" />
         </div>
         <div className="cancelReasonContainer">
-          <div className="listTitleCancel">Post Land Week</div>
+          <div className="listTitleCancel">Bất động sản trong tháng</div>
           <PostWeek/>
         </div>
-        <div className="listInteract">Job and Advise</div>
+        <div className="listInteract">Công việc và tư vấn</div>
           <div className="widgets">
             <JobAndAdvise type="job" />
             <JobAndAdvise type="jobApply" />

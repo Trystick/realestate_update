@@ -43,8 +43,8 @@ const JobAndAdvise = ({ type }) => {
     switch (type) {
       case "job":
         setData({
-          title: "JOBS",
-          link: "See all jobs",
+          title: "Số công việc",
+          link: "Tất cả công việc",
           linkUrl : "/job",
           icon: (
             <WorkIcon
@@ -59,8 +59,8 @@ const JobAndAdvise = ({ type }) => {
         break;
       case "jobApply":
         setData({
-          title: "JOBAPPLIES",
-          link: "See all jobApplies",
+          title: "Số lượt ứng tuyển",
+          link: "Tất cả ứng tuyển",
           linkUrl : "/jobApply",
           icon: (
             <BadgeIcon
@@ -75,8 +75,8 @@ const JobAndAdvise = ({ type }) => {
         break;
       case "advise":
         setData({
-          title: "ADVISES",
-          link: "See all advises",
+          title: "Lượt tư vấn",
+          link: "Tất cả tư vấn",
           linkUrl : "/advise",
           icon: (
             <ContactPhoneIcon

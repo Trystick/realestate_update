@@ -2,7 +2,7 @@ export const adminColumns = [
   { field: "_id", headerName: "ID", width: 170 },
   {
     field: "admin",
-    headerName: "Admin",
+    headerName: "Quản trị viên",
     width: 230,
     renderCell: (params) => {
       return (
@@ -15,7 +15,7 @@ export const adminColumns = [
   },
   {
     field: "password",
-    headerName: "Password",
+    headerName: "Mật khẩu",
     width: 230,
   },
   {
@@ -25,7 +25,7 @@ export const adminColumns = [
   },
   {
     field: "role",
-    headerName: "Role",
+    headerName: "Chức vụ",
     width: 150,
     valueGetter: (params) => params.row.role.name,
   },
@@ -36,7 +36,7 @@ export const userColumns = [
   { field: "_id", headerName: "ID", width: 170 },
   {
     field: "user",
-    headerName: "User",
+    headerName: "Khách hàng",
     width: 230,
     renderCell: (params) => {
       return (
@@ -49,7 +49,7 @@ export const userColumns = [
   },
   {
     field: "password",
-    headerName: "Password",
+    headerName: "Mật khẩu",
     width: 230,
   },
   {
@@ -59,13 +59,13 @@ export const userColumns = [
   },
   {
     field: "role",
-    headerName: "Role",
+    headerName: "Chức vụ",
     width: 130,
     valueGetter: (params) => params.row.role.name,
   },
   {
     field: "type",
-    headerName: "Type",
+    headerName: "Loại khách hàng",
     width: 230,
   }
 ];
@@ -75,22 +75,22 @@ export const categoryColumns = [
   { field: "_id", headerName: "ID", width: 250 },
   {
     field: "name",
-    headerName: "Name",
+    headerName: "Tên danh mục",
     width: 150,
   },
   {
     field: "type",
-    headerName: "Type",
+    headerName: "Loại",
     width: 100,
   },
   {
     field: "desc",
-    headerName: "Desc",
+    headerName: "Mô tả",
     width: 230,
   },
   {
     field: "title",
-    headerName: "Title",
+    headerName: "Tiêu đề",
     width: 100,
   },
 ];
@@ -99,12 +99,12 @@ export const projectColumns = [
   { field: "_id", headerName: "ID", width: 250 },
   {
     field: "name",
-    headerName: "Name",
+    headerName: "Tên dự án",
     width: 150,
   },
   {
     field: "photos",
-    headerName: "Photos",
+    headerName: "Hình ảnh",
     width: 150,
     renderCell: (params) => {
       return (
@@ -116,127 +116,127 @@ export const projectColumns = [
   },
   {
     field: "location",
-    headerName: "Location",
+    headerName: "Địa chỉ",
     width: 100,
   },
   {
     field: "descLocation",
-    headerName: "Description Location",
+    headerName: "Mô tả địa chỉ",
     width: 100,
   },
   {
     field: "investor",
-    headerName: "Investor",
+    headerName: "Nhà đầu tư",
     width: 100,
   },
   {
     field: "construction",
-    headerName: "Construction",
-    width: 230,
+    headerName: "Nhà thầu",
+    width: 100,
   },
   {
     field: "land_area",
-    headerName: "Land Area",
+    headerName: "Diện tích đất",
     width: 100,
   },
   {
     field: "scale",
-    headerName: "Scale",
+    headerName: "Chiều rộng",
     width: 100,
   },
   {
     field: "utiliti",
-    headerName: "Utiliti",
+    headerName: "Tiện ích",
     width: 100,
   },
   {
     field: "descUtilitiIn",
-    headerName: " Description Utiliti In",
+    headerName: "Mô tả nội tiện ích",
     width: 100,
   },
   {
     field: "descUtilitiInSe",
-    headerName: " Description Utiliti In",
+    headerName: "Mô tả nội tiện ích",
     width: 100,
   },
   {
     field: "descUtilitiInTh",
-    headerName: " Description Utiliti In",
+    headerName: "Mô tả nội tiện ích",
     width: 100,
   },
   {
     field: "descUtilitiInFo",
-    headerName: " Description Utiliti In",
+    headerName: "Mô tả nội tiện ích",
     width: 100,
   },
   {
     field: "descUtilitiInFi",
-    headerName: " Description Utiliti In",
+    headerName: "Mô tả nội tiện ích",
     width: 100,
   },
   {
     field: "descUtilitiOut",
-    headerName: "Description Utiliti Out",
+    headerName: "Mô tả ngoại tiện ích",
     width: 100,
   },
   {
     field: "descUtilitiOutSe",
-    headerName: "Description Utiliti Out",
+    headerName: "Mô tả ngoại tiện ích",
     width: 100,
   },
   {
     field: "descUtilitiOutTh",
-    headerName: "Description Utiliti Out",
+    headerName: "Mô tả ngoại tiện ích",
     width: 100,
   },
   {
     field: "descUtilitiOutFo",
-    headerName: "Description Utiliti Out",
+    headerName: "Mô tả ngoại tiện ích",
     width: 100,
   },
   {
     field: "descUtilitiOutFi",
-    headerName: "Description Utiliti Out",
+    headerName: "Mô tả ngoại tiện ích",
     width: 100,
   },
   {
     field: "ground",
-    headerName: "Ground",
+    headerName: "Đất",
     width: 100,
   },
   {
     field: "groundSe",
-    headerName: "Ground",
+    headerName: "Đất",
     width: 100,
   },
   {
     field: "groundTh",
-    headerName: "Ground",
+    headerName: "Đất",
     width: 100,
   },
   {
     field: "categoryDesc",
-    headerName: "Description Category",
+    headerName: "Mô tả danh mục",
     width: 100,
   },
   {
     field: "juridical",
-    headerName: "Juridical",
+    headerName: "Pháp lý",
     width: 100,
   },
   {
     field: "price",
-    headerName: "Price",
+    headerName: "Giá",
     width: 100,
   },
   {
     field: "time_start",
-    headerName: "Time Start",
+    headerName: "Thời gian bắt đầu",
     width: 100,
   },
   {
     field: "categoryId",
-    headerName: "Category ID",
+    headerName: "ID danh mục",
     width: 150,
   },
 ];
@@ -245,7 +245,7 @@ export const adviseColumns = [
   { field: "_id", headerName: "ID", width: 170 },
   {
     field: "fullname",
-    headerName: "Fullname",
+    headerName: "Họ tên",
     width: 230,
   },
   {
@@ -255,12 +255,12 @@ export const adviseColumns = [
   },
   {
     field: "phone",
-    headerName: "Phone",
+    headerName: "Số điện thoại",
     width: 230,
   },
   {
     field: "desc",
-    headerName: "Description",
+    headerName: "Mô tả",
     width: 230,
   },
 ];
@@ -269,48 +269,48 @@ export const orderColumns = [
   { field: "_id", headerName: "ID", width: 170 },
   {
     field: "userId",
-    headerName: "userId",
+    headerName: "Id Khách hàng",
     width: 230,
   },
   {
     field: "packetId",
-    headerName: "packetId",
+    headerName: "Id gói",
     width: 230,
   },
   {
     field: "packetName",
-    headerName: "Packet Name",
+    headerName: "Tên gói",
     width: 230,
   },
   {
     field: "customerName",
-    headerName: "Customer Name",
+    headerName: "Tên khách hàng",
     width: 230,
   },
   {
     field: "address",
-    headerName: "Address",
+    headerName: "Địa chỉ",
     width: 230,
   },
   {
     field: "phoneNumber",
-    headerName: "Phone Number",
+    headerName: "Số điện thoại",
     width: 230,
   },
   {
     field: "amount",
-    headerName: "Amount",
+    headerName: "Tổng tiền",
     width: 230,
     valueFormatter: (params) => params.value.toLocaleString(),
   },
   {
     field: "status",
-    headerName: "Status",
+    headerName: "Trạng thái",
     width: 230,
   },
   {
     field: "cancelReason",
-    headerName: "Cancel Reason",
+    headerName: "Lý do hủy",
     width: 230,
   },
 ];
@@ -320,28 +320,28 @@ export const paymentColumns = [
   { field: "_id", headerName: "ID", width: 170 },
   {
     field: "userId",
-    headerName: "userId",
+    headerName: "Id khách hàng",
     width: 230,
   },
   {
     field: "orderId",
-    headerName: "orderId",
+    headerName: "Id đơn hàng",
     width: 230,
   },
   {
     field: "packetName",
-    headerName: "Packet Name",
+    headerName: "Tên gói",
     width: 230,
   },
   {
     field: "amount",
-    headerName: "Amount",
+    headerName: "Tổng tiền",
     width: 230,
     valueFormatter: (params) => params.value.toLocaleString(),
   },
   {
     field: "status",
-    headerName: "Status",
+    headerName: "Trạng thái",
     width: 230,
   },
 ];
@@ -350,17 +350,17 @@ export const packetTypeColumns = [
   { field: "_id", headerName: "ID", width: 250 },
   {
     field: "name",
-    headerName: "Name",
+    headerName: "Tên",
     width: 150,
   },
   {
     field: "desc",
-    headerName: "Desc",
+    headerName: "Mô tả",
     width: 230,
   },
   {
     field: "title",
-    headerName: "Title",
+    headerName: "Tiêu đề",
     width: 100,
   },
 ];
@@ -369,37 +369,37 @@ export const packetColumns = [
   { field: "_id", headerName: "ID", width: 250 },
   {
     field: "packetTypeId",
-    headerName: "packetTypeId",
+    headerName: "Id danh mục gói",
     width: 150,
   },
   {
     field: "name",
-    headerName: "Name",
+    headerName: "Tên gói",
     width: 150,
   },
   {
     field: "timeend",
-    headerName: "Time End",
+    headerName: "Thời hạn gói",
     width: 150,
   },
   {
     field: "function",
-    headerName: "Function",
+    headerName: "Chức năng gói",
     width: 230,
   },
   {
     field: "desc",
-    headerName: "Desc",
+    headerName: "Mô tả",
     width: 230,
   },
   {
     field: "price",
-    headerName: "Price",
+    headerName: "Giá",
     width: 230,
   },
   {
     field: "title",
-    headerName: "Title",
+    headerName: "Tiêu đề",
     width: 100,
   },
 ];
@@ -407,17 +407,17 @@ export const categoryLandSaleColumns = [
   { field: "_id", headerName: "ID", width: 250 },
   {
     field: "name",
-    headerName: "Name",
+    headerName: "Tên",
     width: 150,
   },
   {
     field: "desc",
-    headerName: "Desc",
+    headerName: "Mô tả",
     width: 230,
   },
   {
     field: "title",
-    headerName: "Title",
+    headerName: "Tiêu đề",
     width: 100,
   },
 ];
@@ -426,79 +426,79 @@ export const landSaleColumns = [
   { field: "_id", headerName: "ID", width: 250 },
   {
     field: "userId",
-    headerName: "userId",
+    headerName: "Id khách hàng",
     width: 150,
   },
   {
     field: "photos",
-    headerName: "Photos",
+    headerName: "Hình ảnh",
     width: 150,
     renderCell: (params) => {
       return (
         <div>
-          <img src={params.row.photos[1]} alt="photos"/>
+          <img src={params.row.photos[1]} alt="hình ảnh"/>
         </div>
       );
     },
   },
   {
     field: "categoryLandSaleId",
-    headerName: "categoryLandSaleId",
+    headerName: "Id loại đất bán",
     width: 230,
   },
   {
     field: "name",
-    headerName: "Name",
+    headerName: "Tên",
     width: 100,
   },
   {
     field: "location",
-    headerName: "Location",
+    headerName: "Địa chỉ",
     width: 100,
   },
   {
     field: "area",
-    headerName: "Area",
+    headerName: "Diện tích",
     width: 100,
   },
   {
     field: "price",
-    headerName: "Price",
+    headerName: "Giá",
     width: 100,
   },
   {
     field: "title",
-    headerName: "Title",
+    headerName: "Tiêu đề",
     width: 100,
   },
   {
     field: "desc",
-    headerName: "Description",
+    headerName: "Mô tả",
     width: 100,
   },
   {
     field: "nameContact",
-    headerName: "Name contact",
+    headerName: "Tên liên hệ",
     width: 100,
   },
   {
     field: "phoneContact",
-    headerName: "Phone contact",
+    headerName: "Số điện thoại liên hệ",
     width: 100,
   },
   {
     field: "emailContact",
-    headerName: "Email contact",
+    headerName: "Email liên hệ",
     width: 100,
   },
   {
     field: "room",
-    headerName: "Room",
+    headerName: "Số phòng",
     width: 100,
   },
   {
     field: "toilet",
-    headerName: "Toilet",
+    headerName: "Số nhà vệ sinh",
     width: 100,
   },
 ];
@@ -507,17 +507,17 @@ export const categoryLandLeaseColumns = [
   { field: "_id", headerName: "ID", width: 250 },
   {
     field: "name",
-    headerName: "Name",
+    headerName: "Tên",
     width: 150,
   },
   {
     field: "desc",
-    headerName: "Desc",
+    headerName: "Mô tả",
     width: 230,
   },
   {
     field: "title",
-    headerName: "Title",
+    headerName: "Tiêu đề",
     width: 100,
   },
 ];
@@ -526,79 +526,79 @@ export const landLeaseColumns = [
   { field: "_id", headerName: "ID", width: 250 },
   {
     field: "userId",
-    headerName: "userId",
+    headerName: "Id khách hàng",
     width: 150,
   },
   {
     field: "photos",
-    headerName: "Photos",
+    headerName: "Hình ảnh",
     width: 150,
     renderCell: (params) => {
       return (
         <div>
-          <img src={params.row.photos[1]} alt="photos"/>
+          <img src={params.row.photos[1]} alt="hình ảnh"/>
         </div>
       );
     },
   },
   {
     field: "categoryLandLeaseId",
-    headerName: "categoryLandLeaseId",
+    headerName: "Id loại đất thuê",
     width: 230,
   },
   {
     field: "name",
-    headerName: "Name",
+    headerName: "Tên",
     width: 100,
   },
   {
     field: "location",
-    headerName: "Location",
+    headerName: "Địa chỉ",
     width: 100,
   },
   {
     field: "area",
-    headerName: "Area",
+    headerName: "Diện tích",
     width: 100,
   },
   {
     field: "price",
-    headerName: "Price",
+    headerName: "Giá",
     width: 100,
   },
   {
     field: "title",
-    headerName: "Title",
+    headerName: "Tiêu đề",
     width: 100,
   },
   {
     field: "desc",
-    headerName: "Description",
+    headerName: "Mô tả",
     width: 100,
   },
   {
     field: "nameContact",
-    headerName: "Name contact",
+    headerName: "Tên liên hệ",
     width: 100,
   },
   {
     field: "phoneContact",
-    headerName: "Phone contact",
+    headerName: "Số điện thoại liên hệ",
     width: 100,
   },
   {
     field: "emailContact",
-    headerName: "Email contact",
+    headerName: "Email liên hệ",
     width: 100,
   },
   {
     field: "room",
-    headerName: "Room",
+    headerName: "Số phòng",
     width: 100,
   },
   {
     field: "toilet",
-    headerName: "Toilet",
+    headerName: "Số nhà vệ sinh",
     width: 100,
   },
 ];
@@ -607,22 +607,22 @@ export const postCategoryColumns = [
   { field: "_id", headerName: "ID", width: 170 },
   {
     field: "name",
-    headerName: "Name",
+    headerName: "Tên",
     width: 230,
   },
   {
     field: "type",
-    headerName: "Type",
+    headerName: "Loại",
     width: 230,
   },
   {
     field: "desc",
-    headerName: "Description",
+    headerName: "Mô tả",
     width: 230,
   },
   {
     field: "title",
-    headerName: "Title",
+    headerName: "Tiêu đề",
     width: 230,
   },
 ];
@@ -631,54 +631,54 @@ export const postColumns = [
   { field: "_id", headerName: "ID", width: 170 },
   {
     field: "name",
-    headerName: "Name",
+    headerName: "Tên",
     width: 230,
   },
   {
     field: "photos",
-    headerName: "Photos",
+    headerName: "Hình ảnh",
     width: 150,
     renderCell: (params) => {
       return (
         <div>
-          <img src={params.row.photos[0]} alt="photos" />
+          <img src={params.row.photos[0]} alt="hình ảnh" />
         </div>
       );
     },
   },
   {
     field: "descone",
-    headerName: "Descriptionone",
+    headerName: "Nội dung",
     width: 230,
   },
   {
     field: "desctwo",
-    headerName: "Descriptiontwo",
+    headerName: "Nội dung",
     width: 230,
   },
   {
     field: "descthree",
-    headerName: "Descriptionthree",
+    headerName: "Nội dung",
     width: 230,
   },
   {
     field: "descfour",
-    headerName: "Descriptionfour",
+    headerName: "Nội dung",
     width: 230,
   },
   {
     field: "descfive",
-    headerName: "Descriptionfive",
+    headerName: "Nội dung",
     width: 230,
   },
   {
     field: "title",
-    headerName: "Title",
+    headerName: "Nội dung",
     width: 230,
   },
   {
     field: "postCategoryId",
-    headerName: "PostCategory ID",
+    headerName: "ID loại tin tức",
     width: 150,
   },
 ];
@@ -687,22 +687,22 @@ export const jobCategoryColumns = [
   { field: "_id", headerName: "ID", width: 170 },
   {
     field: "name",
-    headerName: "Name",
+    headerName: "Tên",
     width: 230,
   },
   {
     field: "type",
-    headerName: "Type",
+    headerName: "Loại",
     width: 230,
   },
   {
     field: "desc",
-    headerName: "Description",
+    headerName: "Mô tả",
     width: 230,
   },
   {
     field: "title",
-    headerName: "Title",
+    headerName: "Tiêu đề",
     width: 230,
   },
 ];
@@ -711,67 +711,67 @@ export const jobColumns = [
   { field: "_id", headerName: "ID", width: 170 },
   {
     field: "name",
-    headerName: "Name",
+    headerName: "Tên",
     width: 230,
   },
   {
     field: "location",
-    headerName: "Location",
+    headerName: "Địa chỉ",
     width: 230,
   },
   {
     field: "number",
-    headerName: "Number",
+    headerName: "Số lượng",
     width: 230,
   },
   {
     field: "dateend",
-    headerName: "Dateend",
+    headerName: "Ngày kết thúc",
     width: 230,
   },
   {
     field: "desc",
-    headerName: "Description",
+    headerName: "Mô tả công việc",
     width: 230,
   },
   {
     field: "gender",
-    headerName: "Gender",
+    headerName: "Giới tính",
     width: 230,
   },
   {
     field: "age",
-    headerName: "Age",
+    headerName: "Tuổi",
     width: 230,
   },
   {
     field: "level",
-    headerName: "Level",
+    headerName: "Trình độ",
     width: 230,
   },
   {
     field: "experience",
-    headerName: "Experience",
+    headerName: "Kinh nghiệm",
     width: 230,
   },
   {
     field: "request",
-    headerName: "Request",
+    headerName: "Yêu cầu",
     width: 230,
   },
   {
     field: "income",
-    headerName: "Income",
+    headerName: "Thu nhập",
     width: 230,
   },
   {
     field: "regime",
-    headerName: "Regime",
+    headerName: "Chế độ",
     width: 230,
   },
   {
     field: "jobCategoryId",
-    headerName: "JobCategory ID",
+    headerName: "ID Loại công việc",
     width: 150,
   },
 ];
@@ -780,7 +780,7 @@ export const jobApplyColumns = [
   { field: "_id", headerName: "ID", width: 170 },
   {
     field: "fullname",
-    headerName: "Fullname",
+    headerName: "Họ tên",
     width: 180,
   },
   {
@@ -790,17 +790,17 @@ export const jobApplyColumns = [
   },
   {
     field: "phone",
-    headerName: "Phone",
+    headerName: "Số điện thoại",
     width: 140,
   },
   {
     field:"file",
-    headerName:"File",
+    headerName:"Hồ sơ",
     width: 350,
   },
   {
     field: "namejob",
-    headerName: "Job Name",
+    headerName: "Tên công việc",
     width: 230,
   },
 ];
@@ -809,12 +809,12 @@ export const roleColumns = [
   { field: "_id", headerName: "ID", width: 170 },
   {
     field: "name",
-    headerName: "Role Name",
+    headerName: "Tên chức vụ",
     width: 200,
   },
   {
     field: "modules",
-    headerName: "Modules",
+    headerName: "Các chức năng",
     width: 250,
     valueGetter: (params) => params.row.modules.join(', '),
   },
@@ -824,27 +824,27 @@ export const commentColumns = [
   { field: "_id", headerName: "ID", width: 170 },
   {
     field: "userId",
-    headerName: "userId",
+    headerName: "Id khách hàng",
     width: 200,
   },
   {
     field: "postId",
-    headerName: "postId",
+    headerName: "Id tin tức",
     width: 250,
   },
   {
     field: "parentId",
-    headerName: "parentId",
+    headerName: "Id bình luận",
     width: 250,
   },
   {
     field: "content",
-    headerName: "content",
+    headerName: "Nội dung",
     width: 250,
   },
   {
     field: "replies",
-    headerName: "replies",
+    headerName: "Phản hồi",
     width: 250,
     valueGetter: (params) => {
       return params.value.map(reply => `${reply.content}`).join('; ');
@@ -856,60 +856,60 @@ export const slideColumns = [
   { field: "_id", headerName: "ID", width: 170 },
   {
     field: "photos1",
-    headerName: "Photos 1",
+    headerName: "Hình ảnh",
     width: 150,
     renderCell: (params) => {
       return (
         <div>
-          <img src={params.row.photos[0]} alt="photos" />
+          <img src={params.row.photos[0]} alt="Hình ảnh" />
         </div>
       );
     },
   },
   {
     field: "photos2",
-    headerName: "Photos 2",
+    headerName: "Hình ảnh",
     width: 150,
     renderCell: (params) => {
       return (
         <div>
-          <img src={params.row.photos[1]} alt="photos" />
+          <img src={params.row.photos[1]} alt="Hình ảnh" />
         </div>
       );
     },
   },
   {
     field: "photos3",
-    headerName: "Photos 3",
+    headerName: "Hình ảnh",
     width: 150,
     renderCell: (params) => {
       return (
         <div>
-          <img src={params.row.photos[2]} alt="photos" />
+          <img src={params.row.photos[2]} alt="Hình ảnh" />
         </div>
       );
     },
   },
   {
     field: "photos4",
-    headerName: "Photos 4",
+    headerName: "Hình ảnh",
     width: 150,
     renderCell: (params) => {
       return (
         <div>
-          <img src={params.row.photos[3]} alt="" />
+          <img src={params.row.photos[3]} alt="Hình ảnh" />
         </div>
       );
     },
   },
   {
     field: "photos5",
-    headerName: "Photos 5",
+    headerName: "Hình ảnh",
     width: 150,
     renderCell: (params) => {
       return (
         <div>
-          <img src={params.row.photos[4]} alt="" />
+          <img src={params.row.photos[4]} alt="Hình ảnh" />
         </div>
       );
     },

@@ -140,3 +140,16 @@ export const approveComment = async (req, res) => {
     res.status(500).send({ message: error.message });
   }
 };
+
+// API để lấy trạng thái isApproved của một bình luận
+export const isApproveComment = async (req, res) => {
+  try {
+    const comment = await Comment.findOne({ _id: req.params.id });
+    if (!comment) {
+      return res.status(404).json({ message: 'Comment not found' });
+    }
+    res.json({ isApproved: comment.isApproved });
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+};

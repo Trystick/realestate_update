@@ -43,7 +43,7 @@ const DownSide = ({ type }) => {
     switch (type) {
       case "like":
         setData({
-          title: "LIKES",
+          title: "Lượt thích",
           icon: (
             <ThumbUpIcon
               className="icon"
@@ -57,7 +57,7 @@ const DownSide = ({ type }) => {
         break;
       case "favorite":
         setData({
-          title: "FAVORITES",
+          title: "Lượt yêu thích",
           icon: (
             <FavoriteIcon
               className="icon"
@@ -71,7 +71,7 @@ const DownSide = ({ type }) => {
         break;
       case "comment":
         setData({
-          title: "COMMENTS",
+          title: "Lượt bình luận",
           icon: (
             <CommentIcon
               className="icon"

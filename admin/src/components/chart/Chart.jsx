@@ -22,7 +22,7 @@ const Chart = ({ aspect }) => {
 
   return (
     <div className="chart">
-      <div className="title">LAST 12 MONTH</div>
+      <div className="title">TRONG 12 THÁNG</div>
       <ResponsiveContainer width="100%" aspect={aspect}>
         <AreaChart
           width={730}

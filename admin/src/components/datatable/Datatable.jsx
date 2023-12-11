@@ -5,9 +5,11 @@ import useFetch from "../../hooks/useFetch"
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from 'axios'
-import { orderColumns } from '../../datatablesource';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 const Datatable = ({columns}) => {
+  const [actionStatus, setActionStatus] = useState('');
   const location = useLocation();
   const [totalAmount, setTotalAmount] = useState(0);
   const path = location.pathname.split("/")[1];
@@ -105,6 +107,7 @@ const Datatable = ({columns}) => {
       const response = await axios.post(`/comment/approve/${id}`);
       if (response.status === 200) {
         alert('Bình luận đã được đăng thành công');
+        setActionStatus('success');
       }
     } catch (error) {
       console.error('Error approving comment', error);
@@ -112,22 +115,10 @@ const Datatable = ({columns}) => {
     }
   };
   
-  const handleReport = async (id) => {
-    try {
-      const response = await axios.post(`/comment/unapproved/${id}`);
-      if (response.status === 200) {
-        alert('Bình luận đã được báo cáo thành công');
-      }
-    } catch (error) {
-      console.error('Error reporting comment', error);
-      alert('Có lỗi xảy ra khi báo cáo bình luận');
-    }
-  };
-
   const actionColumn = [
     {
       field: "action",
-      headerName: "Action",
+      headerName: "Thao tác",
       width: 230,
       renderCell: (params) => {
         if (path === 'comment') {
@@ -136,16 +127,13 @@ const Datatable = ({columns}) => {
               <Link style={{ textDecoration: "none" }}>
                 <div className="assignButton" onClick={() => handleApprove(params.row._id)}>Đăng</div>
               </Link>
-              <Link style={{ textDecoration: "none" }}>
-                <div className="deleteButton" onClick={() => handleReport(params.row._id)}>Lỗi</div>
-              </Link>
             </div>
           );
         } else {
           return (
             <div className="cellAction">
               <Link to={`/${path}/edit/${params.row._id}`} style={{ textDecoration: "none" }}>
-                <div className="viewButton">Edit</div>
+                <div className="viewButton">Sửa</div>
               </Link>
               {path === 'role' && (
                 <Link to={`/${path}/assign/${params.row._id}`} style={{ textDecoration: "none" }}>
@@ -156,7 +144,7 @@ const Datatable = ({columns}) => {
                 className="deleteButton"
                 onClick={() => handleDelete(params.row._id, params.row.categoryId, params.row.postCategoryId, params.row.jobCategoryId, params.row.categoryLandSaleId, params.row.categoryLandLeaseId, params.row.packetTypeId)}
               >
-                Delete
+                Xóa
               </div>
             </div>
           );
@@ -165,15 +153,85 @@ const Datatable = ({columns}) => {
     },
   ];
   
-
+  let title;
+  switch(path) {
+    case 'home':
+      title = 'Trang chủ';
+      break;
+    case 'admins':
+      title = 'Quản trị viên';
+      break;
+    case 'users':
+      title = 'Tài khoản khách hàng';
+      break;
+    case 'category':
+      title = 'Danh mục dự án';
+      break;
+    case 'project':
+      title = 'Dự án';
+      break;
+    case 'landSaleCategory':
+      title = 'Danh mục nhà bán';
+      break;
+    case 'landSale':
+      title = 'Nhà bán';
+      break;
+    case 'landLeaseCategory':
+      title = 'Danh mục nhà thuê';
+      break;
+    case 'landLease':
+      title = 'Nhà thuê';
+      break;
+    case 'advise':
+      title = 'Tư vấn';
+      break;
+    case 'order':
+      title = 'Đơn hàng';
+      break;
+    case 'payment':
+      title = 'Thanh toán';
+      break;
+    case 'postCategory':
+      title = 'Danh mục tin tức';
+      break;
+    case 'post':
+      title = 'Tin tức';
+      break;
+    case 'packetType':
+      title = 'Danh mục gói thanh toán';
+      break;
+    case 'packet':
+      title = 'Gói thanh toán';
+      break;
+    case 'jobCategory':
+      title = 'Danh mục việc làm';
+      break;
+    case 'job':
+    title = 'Việc làm';
+      break;
+    case 'jobApply':
+    title = 'Thông tin ứng tuyển';
+      break;
+    case 'slide':
+    title = 'Hình ảnh';
+      break;
+    case 'comment':
+    title = 'Kiểm duyệt bình luận';
+      break;
+    case 'role':
+      title = 'Phân quyền';
+      break;
+    default:
+      title = 'Khác';
+  }
 
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        {path}
+        {title}
         {path !== 'comment' && (
           <Link to={`/${path}/new`} className="link">
-            Add New
+            Thêm mới
           </Link>
         )}
       </div>
@@ -187,14 +245,13 @@ const Datatable = ({columns}) => {
           borderTop: '1px solid #ddd',
           marginTop: '10px',
         }}>
-          TOTAL AMOUNT SUCCESS : {totalAmount.toLocaleString()} VND
+          TỔNG SỐ TIỀN THU ĐƯỢC : {totalAmount.toLocaleString()} VND
         </div>
       }
       <DataGrid
        className="datagrid"
        rows={list}
        columns={columns.concat(actionColumn)}
-      
        pageSize={9}
        rowsPerPageOptions={[9]}
        checkboxSelection

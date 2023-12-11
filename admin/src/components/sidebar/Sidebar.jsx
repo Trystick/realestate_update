@@ -317,26 +317,26 @@ const handleClickChildrole = (e) => {
       <hr />
       <div className="center">
         <ul>
-          <p className="title">MAIN</p>
+          <p className="title">Chức năng chính</p>
           {checkAccess('home') && (
           <Link to="/home" style={{ textDecoration: "none" }}>
           <li>
             <DashboardIcon className="icon" />
-            <span>Dashboard</span>
+            <span>Thống Kê</span>
           </li>
           </Link>
            )}
-          <p className="title">LISTS</p>
+          <p className="title">Danh sách chức năng</p>
          <div>
             <li onClick={() => handleClick(0)}>
               <AccountCircleIcon className="icon" />
-              <span>Acounts</span>
+              <span>Tài Khoản</span>
               <ul style={{ display: activeIndex === 0 ? 'block' : 'none' }}>
               {checkAccess('admins') && (
                 <Link style={{ textDecoration: "none" }}>
                   <li onClick={handleClickChildAdmin}>
                     <AdminPanelSettingsIcon className="icon" />
-                    <span>Admins</span>
+                    <span>Quản trị viên</span>
                   </li>
                 </Link>
                  )}
@@ -344,7 +344,7 @@ const handleClickChildrole = (e) => {
                   <Link style={{ textDecoration: "none" }}>
                     <li onClick={handleClickChildUsers}>
                       <PersonOutlineIcon className="icon" />
-                      <span>Users</span>
+                      <span>Khách hàng</span>
                     </li>
                   </Link>
                  )}
@@ -354,13 +354,13 @@ const handleClickChildrole = (e) => {
           <div>
             <li onClick={() => handleClickProject(0)}>
               <BusinessIcon className="icon" />
-              <span>Projects</span>
+              <span>Dự án</span>
               <ul style={{ display: activeIndexProject === 0 ? 'block' : 'none' }}>
               {checkAccess('category') && (
                 <Link style={{ textDecoration: "none" }}>
                   <li onClick={handleClickChildCategory}>
                     <CategoryIcon className="icon" />
-                    <span>Category</span>
+                    <span>Danh mục dự án</span>
                   </li>
                 </Link>
                 )}
@@ -368,7 +368,7 @@ const handleClickChildrole = (e) => {
                 <Link style={{ textDecoration: "none" }}>
                   <li onClick={handleClickChildProject}>
                     <StoreIcon className="icon" />
-                    <span>Projects</span>
+                    <span>Các dự án</span>
                   </li>
                 </Link>
                 )}
@@ -378,13 +378,13 @@ const handleClickChildrole = (e) => {
           <div>
             <li onClick={() => handleClickLandSale(0)}>
               <HomeWorkIcon className="icon" />
-              <span>Land Sale</span>
+              <span>Nhà bán</span>
               <ul style={{ display: activeIndexLandSale === 0 ? 'block' : 'none' }}>
               {checkAccess('landSaleCategory') && (
                 <Link  style={{ textDecoration: "none" }}>
                   <li onClick={handleClickChildlandSaleCategory}>
                     <VillaIcon className="icon" />
-                    <span>LandSale Category</span>
+                    <span>Danh mục nhà bán</span>
                   </li>
                 </Link>
               )}
@@ -392,7 +392,7 @@ const handleClickChildrole = (e) => {
                 <Link style={{ textDecoration: "none" }}>
                   <li onClick={handleClickChildlandSale}>
                     <HomeIcon className="icon" />
-                    <span>Land Sale</span>
+                    <span>Các nhà bán</span>
                   </li>
                 </Link>
                 )}
@@ -402,13 +402,13 @@ const handleClickChildrole = (e) => {
           <div>
             <li onClick={() => handleClickLandLease(0)}>
               <HolidayVillageIcon className="icon" />
-              <span>Land Lease</span>
+              <span>Nhà thuê</span>
               <ul style={{ display: activeIndexLandLease === 0 ? 'block' : 'none' }}>
               {checkAccess('landLeaseCategory') && (
                 <Link style={{ textDecoration: "none" }}>
                   <li onClick={handleClickChildlandLeaseCategory}>
                     <AddHomeWorkIcon className="icon" />
-                    <span>LandLease Category</span>
+                    <span>Danh mục nhà thuê</span>
                   </li>
                 </Link>
               )}
@@ -416,7 +416,7 @@ const handleClickChildrole = (e) => {
                 <Link style={{ textDecoration: "none" }}>
                   <li onClick={handleClickChildlandLease}>
                     <GiteIcon className="icon" />
-                    <span>Land Lease</span>
+                    <span>Các nhà thuê</span>
                   </li>
                 </Link>
               )}
@@ -426,13 +426,13 @@ const handleClickChildrole = (e) => {
           <div>
             <li onClick={() => handleClickPost(0)}>
               <MarkunreadMailboxIcon className="icon" />
-              <span>Post</span>
+              <span>Tin tức</span>
               <ul style={{ display: activeIndexPost === 0 ? 'block' : 'none' }}>
               {checkAccess('postCategory') && (
                 <Link style={{ textDecoration: "none" }}>
                   <li onClick={handleClickChildpostCategory}>
                     <DynamicFeedSharpIcon className="icon" />
-                    <span>Post Category</span>
+                    <span>Danh mục tin tức</span>
                   </li>
                 </Link>
               )}
@@ -440,7 +440,7 @@ const handleClickChildrole = (e) => {
                 <Link style={{ textDecoration: "none" }}>
                   <li onClick={handleClickChildpost}>
                     <PostAddSharpIcon className="icon" />
-                    <span>Post</span>
+                    <span>Các tin tức</span>
                   </li>
                 </Link>
                 )}
@@ -450,13 +450,13 @@ const handleClickChildrole = (e) => {
           <div>
             <li onClick={() => handleClickJob(0)}>
               <WorkIcon className="icon" />
-              <span>Job</span>
+              <span>Công việc</span>
               <ul style={{ display: activeIndexJob === 0 ? 'block' : 'none' }}>
               {checkAccess('jobCategory') && (
                 <Link style={{ textDecoration: "none" }}>
                   <li onClick={handleClickChildjobCategory}>
                     <ClassIcon className="icon" />
-                    <span>Job Category</span>
+                    <span>Danh mục công việc</span>
                   </li>
                 </Link>
               )}
@@ -464,7 +464,7 @@ const handleClickChildrole = (e) => {
                 <Link style={{ textDecoration: "none" }}>
                   <li onClick={handleClickChildjob}>
                     <TaskIcon className="icon" />
-                    <span>Job</span>
+                    <span>Các công việc</span>
                   </li>
                 </Link>
               )}
@@ -472,7 +472,7 @@ const handleClickChildrole = (e) => {
                 <Link style={{ textDecoration: "none" }}>
                   <li onClick={handleClickChildjobApply}>
                     <AssignmentIndIcon className="icon" />
-                    <span>Job Apply</span>
+                    <span>Người ứng tuyển</span>
                   </li>
                 </Link>
               )}
@@ -482,13 +482,13 @@ const handleClickChildrole = (e) => {
           <div>
             <li onClick={() => handleClickPackage(0)}>
               <InventoryIcon className="icon" />
-              <span>Package</span>
+              <span>Gói thanh toán</span>
               <ul style={{ display: activeIndexPackage === 0 ? 'block' : 'none' }}>
               {checkAccess('packetType') && (
                 <Link style={{ textDecoration: "none" }}>
                   <li onClick={handleClickChildpacketType}>
                     <AllInboxIcon className="icon" />
-                    <span>Package Type</span>
+                    <span>Danh mục gói</span>
                   </li>
                 </Link>
               )}
@@ -496,7 +496,7 @@ const handleClickChildrole = (e) => {
                 <Link style={{ textDecoration: "none" }}>
                   <li onClick={handleClickChildpacket}>
                     <WidgetsIcon className="icon" />
-                    <span>Package</span>
+                    <span>Các gói thanh toán</span>
                   </li>
                 </Link>
               )}
@@ -507,7 +507,7 @@ const handleClickChildrole = (e) => {
           <Link style={{ textDecoration: "none" }}>
             <li  onClick={handleClickChildadvise}>
               <RecentActorsSharpIcon className="icon" />
-              <span>Advise</span>
+              <span>Tư vấn</span>
             </li>
           </Link>
           )}
@@ -515,7 +515,7 @@ const handleClickChildrole = (e) => {
           <Link style={{ textDecoration: "none" }}>
             <li  onClick={handleClickChildorder}>
               <AnalyticsIcon className="icon" />
-              <span>Order</span>
+              <span>Đơn hàng</span>
             </li>
           </Link>
            )}
@@ -523,7 +523,7 @@ const handleClickChildrole = (e) => {
           <Link style={{ textDecoration: "none" }}>
             <li  onClick={handleClickChildpayment}>
               <CreditCardIcon className="icon" />
-              <span>Payment</span>
+              <span>Thanh toán</span>
             </li>
           </Link>
            )}
@@ -531,7 +531,7 @@ const handleClickChildrole = (e) => {
           <Link style={{ textDecoration: "none" }}>
             <li onClick={handleClickChildslide}>
               <TuneIcon className="icon" />
-              <span>Slider</span>
+              <span>Hình ảnh</span>
             </li>
           </Link>
            )}
@@ -539,7 +539,7 @@ const handleClickChildrole = (e) => {
           <Link style={{ textDecoration: "none" }}>
             <li onClick={handleClickChildcomment}>
               <MarkUnreadChatAltIcon className="icon" />
-              <span>Comment</span>
+              <span>Kiểm duyệt bình luận</span>
             </li>
           </Link>
            )}
@@ -547,11 +547,11 @@ const handleClickChildrole = (e) => {
           <Link style={{ textDecoration: "none" }}>
             <li onClick={handleClickChildrole}>
               <DeveloperBoardIcon className="icon" />
-              <span>Role Permission</span>
+              <span>Phân quyền quản trị</span>
             </li>
           </Link>
            )}
-          <p className="title">USER</p>
+          <p className="title">Tài khoản</p>
           <li>
             <ExitToAppIcon className="icon" />
             <span onClick={handleLogout}>Logout</span>

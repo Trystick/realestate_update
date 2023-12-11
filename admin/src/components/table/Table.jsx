@@ -43,12 +43,12 @@ const List = () => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell className="tableCell">Order ID</TableCell>
-            <TableCell className="tableCell">Package</TableCell>
-            <TableCell className="tableCell">Customer</TableCell>
-            <TableCell className="tableCell">Date</TableCell>
-            <TableCell className="tableCell">Amount</TableCell>
-            <TableCell className="tableCell">Status</TableCell>
+            <TableCell className="tableCell">Mã đơn hàng</TableCell>
+            <TableCell className="tableCell">Gói thanh toán</TableCell>
+            <TableCell className="tableCell">Khách hàng</TableCell>
+            <TableCell className="tableCell">Ngày</TableCell>
+            <TableCell className="tableCell">Số tiền</TableCell>
+            <TableCell className="tableCell">Trạng thái</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

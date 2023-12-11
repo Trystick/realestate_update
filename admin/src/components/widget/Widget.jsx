@@ -57,9 +57,9 @@ const Widget = ({ type }) => {
   switch (type) {
     case "user":
       setData({
-        title: "USERS",
+        title: "Số khách hàng",
         isMoney: false,
-        link: "See all users",
+        link: "Tất cả khách hàng",
         linkUrl : "/users",
         icon: (
           <PersonOutlinedIcon
@@ -74,9 +74,9 @@ const Widget = ({ type }) => {
       break;
     case "order":
       setData({
-        title: "ORDERS",
+        title: "Số đơn hàng",
         isMoney: false,
-        link: "View all orders",
+        link: "Tất cả đơn hàng",
         linkUrl : "/order",
         icon: (
           <ShoppingCartOutlinedIcon
@@ -91,9 +91,9 @@ const Widget = ({ type }) => {
       break;
     case "earning":
       setData({
-        title: "EARNINGS",
+        title: "Số tiền",
         isMoney: true,
-        link: "View net earnings",
+        link: "Xem số tiền",
         linkUrl : "/order",
         icon: (
           <MonetizationOnOutlinedIcon
@@ -105,9 +105,9 @@ const Widget = ({ type }) => {
       break;
     case "balance":
       setData({
-        title: "TOTAL POST",
+        title: "Tổng số bài đăng",
         isMoney: false,
-        link: "See details",
+        link: "Xem chi tiết",
         linkUrl : "/landSale",
         icon: (
           <ArrowCircleUpIcon

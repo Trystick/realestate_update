@@ -35,7 +35,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="wrapper">
         <div className="search">
-          <input type="text" placeholder="Search..." />
+          <input type="text" placeholder="Tìm kiếm..." />
           <SearchOutlinedIcon />
         </div>
         <div className="items">
