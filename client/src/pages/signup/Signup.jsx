@@ -195,7 +195,7 @@ function Signup() {
                         </div>
                     </label>
                     <label>
-                    Xác Nhận Mật khẩu
+                    Xác nhận mật khẩu
                     <div className="passwordContainer">
                             <input type={showPassword ? "text" : "password"} name="confirmPassword" onChange={handleChange}/>
                             <img className="eyeIcon" src={eye} alt="Show Password" onClick={handleShowPassword} />

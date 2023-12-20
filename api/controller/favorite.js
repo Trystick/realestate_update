@@ -7,7 +7,6 @@ export const addFavorite = async (req, res) => {
     userId: req.body.userId,
     landsaleId: req.body.landsaleId,
     landleaseId: req.body.landleaseId,
-    projectId: req.body.projectId,
   });
 
   try {
@@ -29,7 +28,6 @@ export const removeFavorite = async (req, res) => {
       userId: req.body.userId,
       landsaleId: req.body.landsaleId,
       landleaseId: req.body.landleaseId,
-      projectId: req.body.projectId,
     });
 
     if (!favorite) {
@@ -70,17 +68,17 @@ export const getFavorite = async (req, res) => {
 
 export const checkFavorite = async (req, res) => {
   try {
-    const { userId, landsaleId, landleaseId, projectId } = req.query;
+    const { userId, landsaleId, landleaseId} = req.query;
 
-    if (!userId || (!landsaleId && !landleaseId && !projectId)) {
-      return res.status(400).send({ error: 'Yêu cầu không hợp lệ. Vui lòng cung cấp userId và ít nhất một trong ba tham số: landsaleId, landleaseId, hoặc projectId.' });
+    if (!userId || (!landsaleId && !landleaseId)) {
+      return res.status(400).send({ error: 'Yêu cầu không hợp lệ. Vui lòng cung cấp userId và ít nhất một trong ba tham số: landsaleId, landleaseId'});
     }
 
     const query = { userId };
 
     if (landsaleId) query.landsaleId = landsaleId;
     else if (landleaseId) query.landleaseId = landleaseId;
-    else if (projectId) query.projectId = projectId;
+
 
     const favorite = await Favorite.findOne(query);
 

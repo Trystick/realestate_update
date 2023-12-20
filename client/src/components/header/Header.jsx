@@ -131,12 +131,14 @@ const Header = () => {
     const { dispatch } = useContext(AuthContext);
 
     const handleLogout = () => {
-        dispatch({ type: 'LOGOUT' });
-        // Xóa thông tin người dùng khỏi localStorage
-        localStorage.removeItem("user");
-        navigate("/");
+        if (window.confirm("Bạn có chắc chắn muốn đăng xuất không?")) {
+            dispatch({ type: 'LOGOUT' });
+            // Xóa thông tin người dùng khỏi localStorage
+            localStorage.removeItem("user");
+            navigate("/");
+        }
     };
-
+    
     const handleDropdownClick = (item) => {
         setActiveItem('Nhaban');
         localStorage.setItem('activeItem', 'Nhaban');
@@ -173,7 +175,6 @@ const Header = () => {
     }
  }, []);
 
-    console.log(userLocal?.type);
     const handlePostClick = () => {
         if (userLocal && userLocal.type) {
             // Nếu gói còn hợp lệ, chuyển hướng người dùng đến trang đăng tin
@@ -184,9 +185,29 @@ const Header = () => {
         }
     };
 
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const toggleDropdown = () => {
+        // handleClick('Nhaban');
+        setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    const [isDropdownOpen2, setIsDropdownOpen2] = useState(false);
+
+    const toggleDropdown2 = () => {
+        // handleClick('Nhaban');
+        setIsDropdownOpen2(!isDropdownOpen2);
+    };
+
+    const [isDropdownOpen3, setIsDropdownOpen3] = useState(false);
+
+    const toggleDropdown3 = () => {
+        // handleClick('Nhaban');
+        setIsDropdownOpen3(!isDropdownOpen3);
+    };
+      
   return (
     <div className="header">
-       
          <div className="headerContainer">
             <div className="navContainer">
                     <Link to="/"><img src={logo} alt="logo" className="logo" /></Link>
@@ -273,7 +294,6 @@ const Header = () => {
             </div>
             {user ? (
     <div className="headerSign">
-        
         <div className="headerSignUp">
             <button className="btnsign">
                 <a className="linkcss" onClick={handlePostClick} >ĐĂNG TIN</a>
@@ -310,10 +330,8 @@ const Header = () => {
                 </div>
             )}
         </div>
-        
     </div>
-    
-) : (
+    ) : (
     <div className="headerSign">
         <div className="headerSignUp">
             <button className="btnsign">
@@ -326,55 +344,141 @@ const Header = () => {
             </button>
         </div>
     </div>
-)}
-
-            <label htmlFor="nav_input_mobile" className="navbarrs">
-                <FontAwesomeIcon icon={faBars}/>
+    )}
+        <label htmlFor="nav_input_mobile" className="navbarrs">
+            <FontAwesomeIcon icon={faBars}/>
+        </label>
+        <input type="checkbox" hidden name="" id="nav_input_mobile" className="nav_input" />
+        <label className="nav_overplay" htmlFor="nav_input_mobile">
+        </label>
+        <div className="nav_mobile">
+            <label className="nav_x" htmlFor="nav_input_mobile">
+                <FontAwesomeIcon icon={faTimes} />
             </label>
-
-            <input type="checkbox" hidden name="" id="nav_input_mobile" className="nav_input" />
-
-
-            <label className="nav_overplay" htmlFor="nav_input_mobile">
-            </label>
-            <div className="nav_mobile">
-                <label className="nav_x" htmlFor="nav_input_mobile">
-                    <FontAwesomeIcon icon={faTimes} />
-                </label>
-                <div className="headerListMobile">
-                    <div className={`headerListItemMobile ${activeItem === 'Trangchu' ? 'active' : ''}`}>
-                        <FontAwesomeIcon icon={faHouse} onClick={() => handleClick('Trangchu')}/>
+            <div className="headerListMobile">
+                <div className="navContainerMobile">
+                        <Link to="/"><img src={logo} alt="logo" className="logoMobile" /></Link>
+                </div>
+                <div className={`headerListItemMobile ${activeItem === 'Trangchu' ? 'active' : ''}`}>
+                    <FontAwesomeIcon icon={faHouse} onClick={() => handleClick('Trangchu')}/>
+                </div>
+                <div className={`headerListItemMobile ${activeItem === 'Gioithieu' ? 'active' : ''}`}>
+                    <span 
+                    onClick={() => handleClick('Gioithieu')}>{t('GIỚI THIỆU')}</span>
+                </div>
+                <div className={`headerListItemMobile ${activeItem === 'Nhaban' ? 'active' : ''}`}
+                  onClick={toggleDropdown}>
+                    <span>{t('NHÀ BÁN')}</span>
+                    {isDropdownOpen && (
+                    <div className="menudropdownmobile">
+                       {itemsnb.map((item, index) => (
+                           <Link key={index} to={`/landsale/landsalecategory/${item.id}`} 
+                            onClick={() => handleDropdownClick(item)} 
+                            className='linkheaderhref'>
+                                <div>{item.label}</div>
+                            </Link>
+                        ))}
+                         </div>
+                    )}
+                </div>
+                <div className={`headerListItemMobile ${activeItem === 'Nhathue' ? 'active' : ''}`}
+                 onClick={toggleDropdown2}>
+                    <span>{t('NHÀ THUÊ')}</span>
+                    {isDropdownOpen2 && (
+                    <div className="menudropdownmobile">
+                        {itemsnt.map((item, index) => (
+                            <Link key={index} to={`/landlease/landleasecategory/${item.id}`} 
+                            onClick={() => handleDropdownClickNT(item)} 
+                            className='linkheaderhref'>
+                                <div>{item.label}</div>
+                            </Link>
+                        ))}
+                         </div>
+                    )}
+                </div>
+                <div className={`headerListItemMobile ${activeItem === 'Duan' ? 'active' : ''}`}
+                 onClick={toggleDropdown3}>
+                    <span>{t('DỰ ÁN')}</span>
+                    {isDropdownOpen3 && (
+                    <div className="menudropdownmobile">
+                        {items.map((item, index) => (
+                            <Link key={index} to={`/listEstate/categoryEstate/${item.id}`} 
+                            onClick={() => handleDropdownClickPJ(item)} 
+                            className='linkheaderhref'>
+                                <div>{item.label}</div>
+                            </Link>
+                        ))}
                     </div>
-                    <div className={`headerListItemMobile ${activeItem === 'Gioithieu' ? 'active' : ''}`}>
-                        <span 
-                        onClick={() => handleClick('Gioithieu')}>{t('GIỚI THIỆU')}</span>
-                    </div>
-                    
-                    <div className={`headerListItemMobile ${activeItem === 'Duan' ? 'active' : ''}`}
-                    // onMouseEnter={() => setIsOpen(true)}
-                    // onMouseLeave={() => setIsOpen(false)}
-                    >
-                        <span onClick={() => handleClick('Duan')}>{t('DỰ ÁN')}</span>
-                    </div>
-                    
-                    <div className={`headerListItemMobile ${activeItem === 'Tintuc' ? 'active' : ''}`}>
-                        <span onClick={() => handleClick('Tintuc')}>{t('TIN TỨC')}</span>
-                    </div>
-                    <div className={`headerListItemMobile ${activeItem === 'Tuyendung' ? 'active' : ''}`}>
-                        <span onClick={() => handleClick('Tuyendung')}>{t('TUYỂN DỤNG')}</span>
-                    </div>
-                    <div className={`headerListItemMobile ${activeItem === 'Lienhe' ? 'active' : ''}`}>
-                        <span onClick={() => handleClick('Lienhe')}>{t('LIÊN HỆ')}</span>
-                    </div>
-                    {/* <div className="headerListItemMobile">
-                        <input type='text' placeholder={t("Tìm kiếm...")} className="inptk" onChange={ e => setNames(e.target.value)}/>
-                        <FontAwesomeIcon icon={faSearch} onClick={handleSearch} className='iconsearch' />
-                    </div> */}
+                )}
                 </div>
                 
+                <div className={`headerListItemMobile ${activeItem === 'Tintuc' ? 'active' : ''}`}>
+                    <span onClick={() => handleClick('Tintuc')}>{t('TIN TỨC')}</span>
+                </div>
+                <div className={`headerListItemMobile ${activeItem === 'Tuyendung' ? 'active' : ''}`}>
+                    <span onClick={() => handleClick('Tuyendung')}>{t('TUYỂN DỤNG')}</span>
+                </div>
+                <div className={`headerListItemMobile ${activeItem === 'Lienhe' ? 'active' : ''}`}>
+                    <span onClick={() => handleClick('Lienhe')}>{t('LIÊN HỆ')}</span>
+                </div>
             </div>
+            {user ? (
+            <div className="headerSignMobile">
+                <div className="signupinmobile">
+                    <div className="headerSignUpMobile">
+                        <button className="btnsignMobile">
+                            <a className="linkcssMobile" onClick={handlePostClick} >ĐĂNG TIN</a>
+                        </button>
+                    </div>
+                    <div className="headerSignInMobile">
+                        <button className="btnsignMobile">
+                            <a className="linkcssMobile" onClick={handleLogout}>ĐĂNG XUẤT</a>
+                        </button>
+                    </div>
+                </div>
+                <div className="headerAvatarMobile" 
+                    onMouseEnter={() => setIsOpenProlie(true)}
+                    onMouseLeave={() => setIsOpenProlie(false)}>
+                    <a href="/profile" className="aheadermobile">
+                        <img src={user && user.img ? user.img : avatar} alt="avatar" style={{borderRadius: '50%'}} className='avatarHeaderMobile'/>
+                    </a>
+                    {isOpenProlie && (
+                        <div className="dropdownMenuMobile">
+                        <a href="/profile" className="dropdownItem">
+                            <FontAwesomeIcon icon={faUser} className='iconProfile'/>
+                            Hồ Sơ</a>
+                        <a href="/payhistory" className="dropdownItem">
+                            <FontAwesomeIcon icon={faCreditCard} className='iconProfile'/>
+                            Thanh Toán</a>
+                        <a href="/history" className="dropdownItem">
+                            <FontAwesomeIcon icon={faHistory} className='iconProfile'/>
+                            Lịch Sử</a>
+                        <a href="/favorite" className="dropdownItem">
+                            <FontAwesomeIcon icon={faHeart} className='iconProfile'/>
+                            Yêu Thích</a>
+                        <a className="dropdownItem" onClick={handleLogout}>
+                            <FontAwesomeIcon icon={faHourglass} className='iconProfile'/>
+                        Đăng Xuất</a>
+                        </div>
+                    )}
+                </div>
+            </div>
+            ) : (
+            <div className="headerSignMobile">
+                <div className="headerSignUpMoblie">
+                    <button className="btnsignMobile">
+                        <a href="/signup" className="linkcssMobile">ĐĂNG KÝ</a>
+                    </button>
+                </div>
+                <div className="headerSignInMoblie">
+                    <button className="btnsignMobile">
+                        <a href="/login" className="linkcssMobile">ĐĂNG NHẬP</a>
+                    </button>
+                </div>
+            </div>
+            )}  
         </div>
-        
+        </div>    
     </div>
   );
 };

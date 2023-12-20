@@ -48,12 +48,15 @@ const LandSaleSchema = new mongoose.Schema({
     },
     emailContact: {
         type: String,
+        required: true
     },
     room: {
         type: Number,
+        required: true
     },
     toilet: {
         type: Number,
+        required: true
     },
     photos:{
         type: [String],

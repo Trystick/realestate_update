@@ -23,15 +23,19 @@ const ProjectSchema = new mongoose.Schema({
     },
     construction :{
         type: String,
+        required: true
     },
     land_area: {
         type: String,
+        required: true
     },
     scale:{
         type: String,
+        required: true
     },
     utiliti: {
         type: String,
+        required: true
     },
     descUtilitiIn: {
         type: String,
@@ -65,6 +69,7 @@ const ProjectSchema = new mongoose.Schema({
     },
     ground: {
         type: String,
+        required: true
     },
     groundSe: {
         type: String,
@@ -80,15 +85,13 @@ const ProjectSchema = new mongoose.Schema({
     },
     price:{
         type: String,
+        required: true
     },
     time_start: {
         type: String,
     },
     photos:{
         type: [String],
-    },
-    status: {
-        type: String,
     },
 }, {timestamps:true});
 

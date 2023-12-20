@@ -89,6 +89,32 @@ app.use("/api/comment", commentRoute);
 
 
 //gửi mail về thông tin khách hàng tư vấn
+// app.post("/api/sendMail", async (req, res) => {
+//   const { fullname, email, phone, desc } = req.body;
+//   const transporter = nodemailer.createTransport({
+//     service: "gmail",
+//     auth: {
+//       user: process.env.EMAIL_APP,
+//       pass: process.env.EMAIL_APP_PASSWORD
+//     }
+//   });
+//     await transporter.sendMail({
+//       from: '"Thông tin khách hàng"<luongthanhcong533@gmail.com>',
+//       to: `luongthanhcong.dh51905352@gmail.com`, // list of receivers
+//       text: `Họ tên: ${fullname}\nEmail: ${email}\nSố điện thoại: ${phone}\nNội dung quan tâm: ${desc}`
+//     }, (err) => {
+//       if (err) {
+//         return res.json({
+//           message:"Error",
+//           err
+//         })
+//       }
+//       return res.json({
+//         message:"Đã gửi mail thành công"
+//       })
+//     });
+// })
+
 app.post("/api/sendMail", async (req, res) => {
   const { fullname, email, phone, desc } = req.body;
   const transporter = nodemailer.createTransport({
@@ -98,25 +124,41 @@ app.post("/api/sendMail", async (req, res) => {
       pass: process.env.EMAIL_APP_PASSWORD
     }
   });
-    await transporter.sendMail({
-      from: '"Thông tin khách hàng"<luongthanhcong533@gmail.com>',
-      to: `luongthanhcong.dh51905352@gmail.com`, // list of receivers
-      text: `Họ tên: ${fullname}\nEmail: ${email}\nSố điện thoại: ${phone}\nNội dung quan tâm: ${desc}`
-    }, (err) => {
-      if (err) {
-        return res.json({
-          message:"Error",
-          err
-        })
-      }
+
+  await transporter.sendMail({
+    from: '"Thông tin khách hàng"<luongthanhcong533@gmail.com>',
+    to: `luongthanhcong.dh51905352@gmail.com`, // list of receivers
+    text: `Họ tên: ${fullname}\nEmail: ${email}\nSố điện thoại: ${phone}\nNội dung quan tâm: ${desc}`
+  }, async (err) => {
+    if (err) {
+      return res.json({
+        message:"Error",
+        err
+      });
+    } else {
+      // Send confirmation email to the customer
+      await transporter.sendMail({
+        from: '"Xác nhận từ Công ty"<luongthanhcong533@gmail.com>',
+        to: email, // customer's email
+        subject: 'Xác nhận nhận thông tin',
+        text: `Chào ${fullname},\n\nChúng tôi đã nhận được thông tin của bạn và sẽ liên lạc với bạn sớm nhất có thể.\n\nThông tin bạn đã gửi:\nHọ tên: ${fullname}\nEmail: ${email}\nSố điện thoại: ${phone}\nNội dung quan tâm: ${desc}\n\nTrân trọng,\nĐội ngũ hỗ trợ khách hàng`
+      }, (err) => {
+        if (err) {
+          console.log('Error sending confirmation email', err);
+        }
+      });
+
       return res.json({
         message:"Đã gửi mail thành công"
-      })
-    });
-})
+      });
+    }
+  });
+});
+
 
 //gửi mail về thông tin tuyển dụng có bao gồm file word, pdf
 const upload = multer();
+
 app.post("/api/sendMailJob", upload.single('file'), async (req, res) => {
   const { namejob, fullname, email, phone } = req.body;
   const file = req.file;
@@ -127,16 +169,28 @@ app.post("/api/sendMailJob", upload.single('file'), async (req, res) => {
       pass: process.env.EMAIL_APP_PASSWORD
     }
   });
+  await transporter.sendMail({
+    from: '"Thông tin tuyển dụng"<luongthanhcong533@gmail.com>',
+    to: `luongthanhcong.dh51905352@gmail.com`, // list of receivers
+    text: `Vị trí ứng tuyển: ${namejob}\nHọ và tên: ${fullname}\nEmail: ${email}\nSố điện thoại: ${phone}`,
+    attachments: [
+      {
+        filename: file.originalname,
+        content: file.buffer
+      }
+    ]
+  }, async (err) => {
+    if (err) {
+      return res.json({
+        message:"Error",
+        err
+      })
+    }
+    // Send confirmation email to the applicant
     await transporter.sendMail({
       from: '"Thông tin tuyển dụng"<luongthanhcong533@gmail.com>',
-      to: `luongthanhcong.dh51905352@gmail.com`, // list of receivers
-      text: `Vị trí ứng tuyển: ${namejob}\nHọ và tên: ${fullname}\nEmail: ${email}\nSố điện thoại: ${phone}`,
-      attachments: [
-        {
-          filename: file.originalname,
-          content: file.buffer
-        }
-      ]
+      to: email, // send to the applicant's email
+      text: `Xin chào ${fullname},\n\nCảm ơn bạn đã ứng tuyển cho vị trí ${namejob}. Chúng tôi đã nhận được hồ sơ của bạn và sẽ liên hệ với bạn sớm nhất có thể.\n\nTrân trọng,\nCông ty Bất Động Sản GoldenLand`
     }, (err) => {
       if (err) {
         return res.json({
@@ -148,7 +202,9 @@ app.post("/api/sendMailJob", upload.single('file'), async (req, res) => {
         message:"Đã gửi mail thành công"
       })
     });
-})
+  });
+});
+
 
 // gửi mail resetpassword
 import User from './models/User.js'

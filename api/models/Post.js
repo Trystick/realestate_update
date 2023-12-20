@@ -13,6 +13,7 @@ const PostSchema = new mongoose.Schema({
     },
     descone:{
         type: String,
+        required: true,
         trim: true 
     },
     desctwo:{

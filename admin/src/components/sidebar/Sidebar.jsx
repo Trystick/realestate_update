@@ -70,14 +70,13 @@ const Sidebar = () => {
   };
 
 const handleLogout = () => {
-  localStorage.removeItem("user");
-  localStorage.removeItem("role");
-
-  // Gửi một hành động đăng xuất đến reducer
-  dispatch({ type: "LOGOUT" });
-  alert('Bạn đã đăng xuất');
-  navigate('/')
-
+  if (window.confirm("Bạn có chắc chắn muốn đăng xuất không?")) {
+    localStorage.removeItem("user");
+    localStorage.removeItem("role");
+    dispatch({ type: "LOGOUT" });
+    alert('Bạn đã đăng xuất');
+    navigate('/')
+  }
 };
 
 const [activeIndex, setActiveIndex] = useState(null);
@@ -554,7 +553,7 @@ const handleClickChildrole = (e) => {
           <p className="title">Tài khoản</p>
           <li>
             <ExitToAppIcon className="icon" />
-            <span onClick={handleLogout}>Logout</span>
+            <span onClick={handleLogout}>Đăng xuất</span>
           </li>
         </ul>
       </div>

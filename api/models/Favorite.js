@@ -14,10 +14,6 @@ const FavoriteSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'LandLease' 
 },
-  projectId: { 
-    type: mongoose.Schema.Types.ObjectId, 
-    ref: 'Project' 
-},
 },{timestamps:true});
 
 export default mongoose.model("Favorite", FavoriteSchema)
