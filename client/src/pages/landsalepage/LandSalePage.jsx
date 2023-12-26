@@ -118,7 +118,7 @@ const LandSalePage = () => {
           <div className="grouppicturelandsaledetail">
             <div className="toppicturesliderlandsale">
             <button className='btns' onClick={handlePrevious}>&larr;</button>
-               <img src={wordData} height="300" width="500" className='imglandsaledetail'/> 
+               <img src={wordData} className='imglandsaledetail'/> 
             <button className='btns' onClick={handleNext}>&rarr;</button>
             </div>
             <div className="bottompicturelandsaledetail">
@@ -260,7 +260,7 @@ const LandSalePage = () => {
                     </div>
                     <div className="locanoibatkhac">
                       <FontAwesomeIcon icon={faLocation} className='iconlocatinnoibat'/>
-                      <div className="ploacationnoibat">, Hồ Chí Minh</div>
+                      <div className="ploacationnoibat">, {item.location}</div>
                     </div>
                   </div>
                 </div>

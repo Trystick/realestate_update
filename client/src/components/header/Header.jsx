@@ -205,6 +205,13 @@ const Header = () => {
         // handleClick('Nhaban');
         setIsDropdownOpen3(!isDropdownOpen3);
     };
+
+    const [isDropdownOpen4, setIsDropdownOpen4] = useState(false);
+
+    const toggleDropdown4 = () => {
+        // handleClick('Nhaban');
+        setIsDropdownOpen4(!isDropdownOpen4);
+    };
       
   return (
     <div className="header">
@@ -437,12 +444,11 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="headerAvatarMobile" 
-                    onMouseEnter={() => setIsOpenProlie(true)}
-                    onMouseLeave={() => setIsOpenProlie(false)}>
-                    <a href="/profile" className="aheadermobile">
+                    onClick={toggleDropdown4}>
+                    <a className="aheadermobile">
                         <img src={user && user.img ? user.img : avatar} alt="avatar" style={{borderRadius: '50%'}} className='avatarHeaderMobile'/>
                     </a>
-                    {isOpenProlie && (
+                    {isDropdownOpen4 && (
                         <div className="dropdownMenuMobile">
                         <a href="/profile" className="dropdownItem">
                             <FontAwesomeIcon icon={faUser} className='iconProfile'/>

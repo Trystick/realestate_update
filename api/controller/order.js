@@ -154,7 +154,7 @@ export const getTotalSuccessfulOrders = async (req, res) => {
         {
           $match: {
             createdAt: { $gte: start, $lte: end },
-            status: 'successful'
+            status: 'Thành công'
           }
         },
         {

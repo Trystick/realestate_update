@@ -144,15 +144,15 @@ function formatDate(dateString) {
                 <tbody className='tbodypayhistory'>
                 {currentItems.map((land, index) => (
                     <tr key={index} className='trpayhistory'>
-                      <td className='tdpayhistory'>{index+1}</td>
-                      <td className='tdpayhistory'>{land.packetName}</td>
-                      <td className='tdpayhistory'>{land.customerName}</td>
-                      <td className='tdpayhistory'>{land.phoneNumber}</td>
-                      <td className='tdpayhistory'>{land.address}</td>
-                      <td className='tdpayhistory'>{formatPrice(land.amount)}</td>
-                      <td className='tdpayhistory'>{formatDate(land.createdAt)}</td>
-                      <td className={`tdpayhistory ${land.status === 'Thành công' ? 'success' : 'cancel'}`}>{land.status}</td>
-                      <td className='tdpayhistory'>
+                      <td data-title='STT' className='tdpayhistory'>{index+1}</td>
+                      <td data-title='Tên gói' className='tdpayhistory'>{land.packetName}</td>
+                      <td data-title='khách hàng' className='tdpayhistory'>{land.customerName}</td>
+                      <td data-title='Số điện thoại' className='tdpayhistory'>{land.phoneNumber}</td>
+                      <td data-title='Địa chỉ' className='tdpayhistory'>{land.address}</td>
+                      <td data-title='Tổng tiền' className='tdpayhistory'>{formatPrice(land.amount)} VND</td>
+                      <td data-title='Ngày thanh toán' className='tdpayhistory'>{formatDate(land.createdAt)}</td>
+                      <td data-title='Trạng thái' className={`tdpayhistory ${land.status === 'Thành công' ? 'success' : 'cancel'}`}>{land.status}</td>
+                      <td data-title='Thao tác' className='tdpayhistory'>
                       {land.status === 'Hủy' ? (
                         <span className='wascancel'>Đã hủy</span>
                       ) : (

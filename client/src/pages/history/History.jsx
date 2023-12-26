@@ -185,17 +185,16 @@ const [landData, setLandData] = useState([]);
             <th className='thhistory'>Thao tác</th>
           </tr>
         </thead>
-        
         <tbody >
         {currentItems.map((land, index) => (
             <tr key={index} className='trhistory'>
-              <td className='tdhistory'>{index+1}</td>
-              <td className='tdhistory'>{land.categoryName}</td>
-              <td className='tdhistory'>{formatDate(land.createdAt)}</td>
-              <td className='tdhistory'>{land.name}</td>
-              <td className='tdhistory'>{land.location}</td>
-              <td className='tdhistory'>{land.price} {land.type === 'Landsale' ? 'tỷ' : 'triệu/tháng'} </td>
-              <td className='tdhistory'>
+              <td data-title='STT' className='tdhistory'>{index+1}</td>
+              <td data-title='Loại bất động sản' className='tdhistory'>{land.categoryName}</td>
+              <td data-title='Ngày đăng' className='tdhistory'>{formatDate(land.createdAt)}</td>
+              <td data-title='Tên bài đăng' className='tdhistory'>{land.name}</td>
+              <td data-title='Địa chỉ' className='tdhistory'>{land.location}</td>
+              <td data-title='Giá' className='tdhistory'>{land.price} {land.type === 'Landsale' ? 'tỷ' : 'triệu/tháng'} </td>
+              <td data-title='Thao tác' className='tdhistory'>
                 <button className='btnhistorysua' onClick={() => handleEdit(land._id)}>Sửa</button>
                 <button className='btnhistoryxoa' onClick={() => handleDelete(land._id, land.type === 'Landsale' ? land.categoryLandSaleId : land.categoryLandLeaseId, land.type)}>Xóa</button>
               </td>

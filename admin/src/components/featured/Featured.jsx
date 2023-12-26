@@ -53,7 +53,7 @@ const Featured = () => {
           <div className="item">
             <div className="itemTitle">Mục tiêu tháng</div>
             <div className="itemResult negative">
-              <div className="resultAmount">1,000K VND</div>
+              <div className="resultAmount">10,000K VND</div>
             </div>
           </div>
           <div className="item">

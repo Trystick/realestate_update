@@ -440,6 +440,453 @@
     .itemneworder {
         margin-bottom: 10px;
     }
+
+    .commentdiv {
+        padding-top: 2%;
+        padding-bottom: 2%;
+        margin-top: 3%;
+        margin-left: 2%;
+        margin-right: 2%;
+        background-color: rgb(210, 241, 241);
+        box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .inpcomment {
+        width: 100%;
+        border: none;
+    }
+    
+    .inpcommentuser {
+        width: 100%;
+        padding: 3px;
+        display: flex;
+        margin-left: 2%;
+    }
+    
+    .inputcomment {
+        width: 80%;
+        height: 30px;
+        font-size: 14px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    
+    .btnsendcomment {
+        width: 14%;
+        margin-left: 2%;
+        border: none;
+        font-size: 10px;
+        background-color: goldenrod;
+        color: white;
+        border-radius: 3px;
+    }
+    
+    .btnsendcomment:hover {
+        background-color: green;
+    }
+    
+    .btnsendcomment:active {
+        background-color: gray;
+    }
+    
+    .divanycomment {
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    .thanhngang {
+        width: 100%;
+        height: 1px;
+        background-color: black;
+        margin-bottom: 2%;
+        margin-top: 2%;
+    }
+    
+    .titlecommentpost {
+        font-size: 14px;
+        font-weight: 500;
+        margin-left: 2%;
+    }
+    
+    .usercommentform {
+        display: flex;
+        width: 100%;
+        margin-top: 3%;
+    }
+    
+    .imgussercomment {
+        width: 10%;
+    }
+    
+    .imgcommentuser {
+        width: 60%;
+        border-radius: 50%;
+        height: 20px;
+        margin-left: 20%;
+    }
+    
+    .tableinfousercomment {
+        color: black;
+        width: 85%;
+        border: 1px solid rgb(212, 208, 208);
+    }
+    
+    .nameusercomment {
+        color: blue;
+        border-bottom: 1px solid rgb(211, 207, 207) ;
+    }
+    
+    .commentbyusser, .nameusercomment {
+        padding: 2%;
+        font-size: 13px;
+    }
+    
+    .replycomment {
+        margin-top: 2px;
+        margin-left: 10%;
+    }
+    
+    .replydiv {
+        font-size: 12px;
+        color: rgb(80, 169, 241);
+        cursor: pointer;
+        margin-bottom: 1%;
+    }
+    
+    .iconreplycomment {
+        margin-right: 2px;
+        font-size: 8px;
+    }
+    
+    .replycommentbycomment {
+        width: 100%;
+        display: flex;
+        height: 40px;
+        margin-bottom: 2%;
+    }
+    
+    .replycommentreply {
+        width: 85%;
+        border: 1px solid black;
+        height: 75%;
+        font-size: 13px;
+    }
+    
+    .btnsendreplycommentreply {
+        width: 10%;
+        margin-left: 2%;
+        border: none;
+        background-color: goldenrod;
+        border-radius: 3px;
+        font-size: 12px;
+        color: white;
+        height: 80%;
+    }
+    
+    .btnsendreplycommentreply:hover {
+        background-color: green;
+    }
+    
+    .btnsendreplycommentreply:active {
+        background-color: gray;
+    }
+    
+    .usercommentformreply {
+        display: flex;
+        width: 95%;
+        margin-top: 3%;
+        margin-left: 5%;
+    }
+    
+    .replycommentcomment {
+        margin-top: 2px;
+        margin-left: 10%;
+    }
+    
+    .replydivcomment {
+        font-size: 13px;
+        color: rgb(80, 169, 241);
+        cursor: pointer;
+        margin-bottom: 1%;
+        margin-left: 5%;
+    }
+    
+    .replycommentbycommentcomment {
+        width: 95%;
+        display: flex;
+        height: 40px;
+        margin-left: 5%;
+        margin-bottom: 2%;
+    }
+    
+    .likepost {
+        margin-left: 24%;
+        margin-right: 20%;
+        margin-top: 2%;
+    }
+    
+    .likediv {
+        display: flex;
+    }
+    
+    .iconlikepost {
+        margin-right: 1%;
+        font-size: 25px;
+        color: gray;
+        cursor: pointer;
+    }
+    
+    .iconlikepost.liked {
+        color: blue;
+    }
+    
+    .titlelikepost {
+        font-size: 18px;
+        margin-top: 2px;
+    }
+}
+
+@media all and (max-width: 375px) {
+    .contentnewdetail {
+        width: 80%;
+        margin-left: 10%;
+    }
+    .other {
+        width: 80%;
+        margin-left: 10%;
+    }
+    .newother {
+        width: 100%;
+    }
+    .imgnewother {
+        width: 100%;
+        height: 160px;
+    }
+    
+    .itemneworder {
+        width: 90%;
+        height: 300px;
+        border: 2px solid goldenrod;
+    }
+    .namenewother {
+        font-size: 14px;
+    }
+    .textdescnewdetailsecond {
+        font-size: 16px;
+    }
+    .imgcontentnewdetail {
+        height: 80%;
+    }
+    .other {
+        display: block;
+        padding-left: 10%;
+    }
+    .itemneworder {
+        margin-bottom: 10px;
+    }
+    .commentdiv {
+        padding-top: 2%;
+        padding-bottom: 2%;
+        margin-top: 3%;
+        margin-left: 2%;
+        margin-right: 2%;
+        background-color: rgb(210, 241, 241);
+        box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .inpcomment {
+        width: 100%;
+        border: none;
+    }
+    
+    .inpcommentuser {
+        width: 100%;
+        padding: 3px;
+        display: flex;
+        margin-left: 2%;
+    }
+    
+    .inputcomment {
+        width: 80%;
+        height: 30px;
+        font-size: 14px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    
+    .btnsendcomment {
+        width: 14%;
+        margin-left: 2%;
+        border: none;
+        font-size: 10px;
+        background-color: goldenrod;
+        color: white;
+        border-radius: 3px;
+    }
+    
+    .btnsendcomment:hover {
+        background-color: green;
+    }
+    
+    .btnsendcomment:active {
+        background-color: gray;
+    }
+    
+    .divanycomment {
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    .thanhngang {
+        width: 100%;
+        height: 1px;
+        background-color: black;
+        margin-bottom: 2%;
+        margin-top: 2%;
+    }
+    
+    .titlecommentpost {
+        font-size: 14px;
+        font-weight: 500;
+        margin-left: 2%;
+    }
+    
+    .usercommentform {
+        display: flex;
+        width: 100%;
+        margin-top: 3%;
+    }
+    
+    .imgussercomment {
+        width: 10%;
+    }
+    
+    .imgcommentuser {
+        width: 60%;
+        border-radius: 50%;
+        height: 20px;
+        margin-left: 20%;
+    }
+    
+    .tableinfousercomment {
+        color: black;
+        width: 85%;
+        border: 1px solid rgb(212, 208, 208);
+    }
+    
+    .nameusercomment {
+        color: blue;
+        border-bottom: 1px solid rgb(211, 207, 207) ;
+    }
+    
+    .commentbyusser, .nameusercomment {
+        padding: 2%;
+        font-size: 13px;
+    }
+    
+    .replycomment {
+        margin-top: 2px;
+        margin-left: 10%;
+    }
+    
+    .replydiv {
+        font-size: 12px;
+        color: rgb(80, 169, 241);
+        cursor: pointer;
+        margin-bottom: 1%;
+    }
+    
+    .iconreplycomment {
+        margin-right: 2px;
+        font-size: 8px;
+    }
+    
+    .replycommentbycomment {
+        width: 100%;
+        display: flex;
+        height: 40px;
+        margin-bottom: 2%;
+    }
+    
+    .replycommentreply {
+        width: 85%;
+        border: 1px solid black;
+        height: 75%;
+        font-size: 13px;
+    }
+    
+    .btnsendreplycommentreply {
+        width: 10%;
+        margin-left: 2%;
+        border: none;
+        background-color: goldenrod;
+        border-radius: 3px;
+        font-size: 12px;
+        color: white;
+        height: 80%;
+    }
+    
+    .btnsendreplycommentreply:hover {
+        background-color: green;
+    }
+    
+    .btnsendreplycommentreply:active {
+        background-color: gray;
+    }
+    
+    .usercommentformreply {
+        display: flex;
+        width: 95%;
+        margin-top: 3%;
+        margin-left: 5%;
+    }
+    
+    .replycommentcomment {
+        margin-top: 2px;
+        margin-left: 10%;
+    }
+    
+    .replydivcomment {
+        font-size: 13px;
+        color: rgb(80, 169, 241);
+        cursor: pointer;
+        margin-bottom: 1%;
+        margin-left: 5%;
+    }
+    
+    .replycommentbycommentcomment {
+        width: 95%;
+        display: flex;
+        height: 40px;
+        margin-left: 5%;
+        margin-bottom: 2%;
+    }
+    
+    .likepost {
+        margin-left: 24%;
+        margin-right: 20%;
+        margin-top: 2%;
+    }
+    
+    .likediv {
+        display: flex;
+    }
+    
+    .iconlikepost {
+        margin-right: 1%;
+        font-size: 25px;
+        color: gray;
+        cursor: pointer;
+    }
+    
+    .iconlikepost.liked {
+        color: blue;
+    }
+    
+    .titlelikepost {
+        font-size: 18px;
+        margin-top: 2px;
+    }
+    
+
 }
 
 /* Dành cho điện thoại chiều ngang */
@@ -481,6 +928,210 @@
     .itemneworder {
         margin-bottom: 10px;
     }
+    .commentdiv {
+        padding-top: 2%;
+        padding-bottom: 2%;
+        margin-top: 3%;
+        margin-left: 2%;
+        margin-right: 2%;
+        background-color: rgb(210, 241, 241);
+        box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .inpcomment {
+        width: 100%;
+        border: none;
+    }
+    
+    .inpcommentuser {
+        width: 100%;
+        padding: 3px;
+        display: flex;
+        margin-left: 2%;
+    }
+    
+    .inputcomment {
+        width: 80%;
+        height: 30px;
+        font-size: 14px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    
+    .btnsendcomment {
+        width: 14%;
+        margin-left: 2%;
+        border: none;
+        font-size: 10px;
+        background-color: goldenrod;
+        color: white;
+        border-radius: 3px;
+    }
+    
+    .btnsendcomment:hover {
+        background-color: green;
+    }
+    
+    .btnsendcomment:active {
+        background-color: gray;
+    }
+    
+    .divanycomment {
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    .thanhngang {
+        width: 100%;
+        height: 1px;
+        background-color: black;
+        margin-bottom: 2%;
+        margin-top: 2%;
+    }
+    
+    .titlecommentpost {
+        font-size: 14px;
+        font-weight: 500;
+        margin-left: 2%;
+    }
+    
+    .usercommentform {
+        display: flex;
+        width: 100%;
+        margin-top: 3%;
+    }
+    
+    .imgussercomment {
+        width: 10%;
+    }
+    
+    .imgcommentuser {
+        width: 60%;
+        border-radius: 50%;
+        height: 20px;
+        margin-left: 20%;
+    }
+    
+    .tableinfousercomment {
+        color: black;
+        width: 85%;
+        border: 1px solid rgb(212, 208, 208);
+    }
+    
+    .nameusercomment {
+        color: blue;
+        border-bottom: 1px solid rgb(211, 207, 207) ;
+    }
+    
+    .commentbyusser, .nameusercomment {
+        padding: 2%;
+        font-size: 13px;
+    }
+    
+    .replycomment {
+        margin-top: 2px;
+        margin-left: 10%;
+    }
+    
+    .replydiv {
+        font-size: 12px;
+        color: rgb(80, 169, 241);
+        cursor: pointer;
+        margin-bottom: 1%;
+    }
+    
+    .iconreplycomment {
+        margin-right: 2px;
+        font-size: 8px;
+    }
+    
+    .replycommentbycomment {
+        width: 100%;
+        display: flex;
+        height: 40px;
+        margin-bottom: 2%;
+    }
+    
+    .replycommentreply {
+        width: 85%;
+        border: 1px solid black;
+        height: 75%;
+        font-size: 13px;
+    }
+    
+    .btnsendreplycommentreply {
+        width: 10%;
+        margin-left: 2%;
+        border: none;
+        background-color: goldenrod;
+        border-radius: 3px;
+        font-size: 12px;
+        color: white;
+        height: 80%;
+    }
+    
+    .btnsendreplycommentreply:hover {
+        background-color: green;
+    }
+    
+    .btnsendreplycommentreply:active {
+        background-color: gray;
+    }
+    
+    .usercommentformreply {
+        display: flex;
+        width: 95%;
+        margin-top: 3%;
+        margin-left: 5%;
+    }
+    
+    .replycommentcomment {
+        margin-top: 2px;
+        margin-left: 10%;
+    }
+    
+    .replydivcomment {
+        font-size: 13px;
+        color: rgb(80, 169, 241);
+        cursor: pointer;
+        margin-bottom: 1%;
+        margin-left: 5%;
+    }
+    
+    .replycommentbycommentcomment {
+        width: 95%;
+        display: flex;
+        height: 40px;
+        margin-left: 5%;
+        margin-bottom: 2%;
+    }
+    
+    .likepost {
+        margin-left: 24%;
+        margin-right: 20%;
+        margin-top: 2%;
+    }
+    
+    .likediv {
+        display: flex;
+    }
+    
+    .iconlikepost {
+        margin-right: 1%;
+        font-size: 25px;
+        color: gray;
+        cursor: pointer;
+    }
+    
+    .iconlikepost.liked {
+        color: blue;
+    }
+    
+    .titlelikepost {
+        font-size: 18px;
+        margin-top: 2px;
+    }
+    
+
 }
 
 @media all and (max-width: 320px) {

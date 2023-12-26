@@ -115,7 +115,6 @@ useEffect(() => {
               <p className="ptongquan"><span>{t('Tiện ích')}:</span> {t(item.utiliti)}</p>
               <p className="ptongquan"><span>{t('Loại hình sản phẩm')}:</span> {t(item.categoryDesc)}</p>
               <p className="ptongquan"><span>{t('Pháp lý')}:</span> {t(item.juridical)}</p>
-              <p className="ptongquan"><span>{t('Trạng thái')}:</span> {t(item.status)}</p>
             </div>
           </div>
           <div className="vitriestate">
