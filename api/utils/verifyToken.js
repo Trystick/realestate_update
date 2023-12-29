@@ -29,7 +29,7 @@ export const verifyToken = (req, res, next) => {
 
 export const verifyUser = (req, res, next) => {
     verifyToken(req, res, () => {
-        if (req.user.id === req.params.id || adminRoles.includes(req.user.role.name)) {
+        if (req.user.id === req.params.id || req.user.role.name === 'user' || adminRoles.includes(req.user.role.name)) {
             console.log(req.user.id);
             next();
         }else{

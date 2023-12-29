@@ -588,7 +588,7 @@ app.post('/api/cancel-package', async (req, res) => {
         await user.save();
       }
 
-      res.json({ message: 'Gói dịch vụ và thanh toán tương ứng đã được hủy thành công, và loại người dùng đã được xóa.' });
+      res.json({ message: 'Gói dịch vụ và thanh toán tương ứng đã được hủy thành công' });
     } else {
       res.json({ message: 'Rất tiếc, bạn chỉ có thể hủy gói dịch vụ trong vòng 3 ngày sau khi thanh toán.' });
     }
