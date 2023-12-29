@@ -26,14 +26,16 @@ const Login = () => {
         }
     }, []);
     
-
     const handleRememberUserChange = (e) => {
         setRememberUser(e.target.checked);
-        if (!e.target.checked) {
+        if (e.target.checked) {
+            // Nếu người dùng chọn "Lưu tài khoản", lưu tên đăng nhập vào localStorage
+            localStorage.setItem('rememberedUsername', credentials.username);
+        } else {
             // Nếu người dùng bỏ chọn "Lưu tài khoản", xóa tên đăng nhập khỏi localStorage
             localStorage.removeItem('rememberedUsername');
         }
-    };
+    };    
 
     const handleClick = async e => {
         e.preventDefault();
@@ -119,10 +121,6 @@ const Login = () => {
                     <img className="eyeIcon" src={eye} alt="Show Password" onClick={handleShowPassword} />
                 </div>
             </label>
-            <label>
-                    Lưu tài khoản
-                    <input type="checkbox" checked={rememberUser} onChange={handleRememberUserChange} className='checkrember'/>
-                </label>
             <input type="submit" value="Đăng nhập" onClick={handleClick} />
             <label>
                 <a href='/resetpass' className='resetpass'>Quên mật khẩu !!!</a>

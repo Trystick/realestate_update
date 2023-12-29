@@ -283,7 +283,6 @@ const handleSubmit = (event) => {
     }));
 }, [address]);
 
-  console.log(file);
   
   const handleClickForm = async (e) => {
     e.preventDefault();
@@ -305,6 +304,8 @@ const handleSubmit = (event) => {
         const {url} = uploadRes.data;
         return url;
     }));
+
+
 
     setTimeout(async () => {
         const newPost = {
@@ -354,7 +355,7 @@ const handleSubmit = (event) => {
   }
 
   const selectCategoryId = activePost === 'salepost' ? 'categoryLandSaleId' : 'categoryLandLeaseId';
-  console.log(info);
+  
   return (
     <div className='postpageContainer'>
       <Header/>

@@ -6,7 +6,7 @@ import './postchange.css'
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
-import { ca } from 'date-fns/locale'
+
 
 const PostChange = () => {
     //xét màu cho bán và thuê
@@ -62,7 +62,6 @@ const PostChange = () => {
      
     //load dữ liệu loại bất động sản
     const [data, setData] = useState([]);
-    const [ids, setIds] = useState([]);
     const [selectedId, setSelectedId] = useState(null);
 
     const handleSelectChange = (event) => {
@@ -84,8 +83,8 @@ const PostChange = () => {
             }
             response = await axios.get(url);
             setData(response.data);
-            const ids = response.data.map(item => item._id);
-            setIds(ids);
+            // const ids = response.data.map(item => item._id);
+            // setIds(ids);
           } catch (error) {
             console.error('Error fetching data:', error);
           }
@@ -102,72 +101,63 @@ const PostChange = () => {
     const [streets, setStreets] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8800/api/provinces')
+        axios.get('/Index.json')
             .then(response => {
-                if (response.data.length > 0) {
-                    setProvinces(response.data);
-                    setAddress(prevState => ({
-                        ...prevState,
-                        provinces: response.data[0].name // assuming the name is in the first object of the response data
-                    }));
+                if (response.data) {
+                    const provincesArray = Object.entries(response.data).map(([name, { code, file_path }]) => ({ name, code, file_path }));
+                    setProvinces(provincesArray);
+                    handleProvinceChange(provincesArray[0].code);
                 }
             })
             .catch(error => {
                 console.error('There was an error!', error);
             });
     }, []);
+    
+console.log(provinces);
 
-
-    const handleProvinceChange = (provinceId) => {
-        axios.get(`http://localhost:8800/api/provinces/${provinceId}/districts`)
+    const handleProvinceChange = (provinceCode) => {
+        const province = provinces.find(p => p.code === provinceCode);
+        axios.get(`http://localhost:3000/${province.file_path}`)
             .then(response => {
-                setDistricts(response.data);
-                if (response.data.length > 0) {
-                    setAddress(prevState => ({
-                        ...prevState,
-                        districts: response.data[0].name // assuming the name is in the first object of the response data
-                    }));
-                }
+                setDistricts(response.data.district);
+                
+                setAddress(prevState => ({
+                    ...prevState,
+                    provinces: province.name
+                }));
             })
             .catch(error => {
                 console.error('There was an error!', error);
             });
     }
-    
-    const handleDistrictChange = (districtId) => {
-        axios.get(`http://localhost:8800/api/districts/${districtId}/wards`)
-            .then(response => {
-                setWards(response.data);
-                if (response.data.length > 0) {
-                    setAddress(prevState => ({
-                        ...prevState,
-                        wards: response.data[0].name // assuming the name is in the first object of the response data
-                    }));
-                }
-            })
-            .catch(error => {
-                console.error('There was an error!', error);
-            });
+    console.log(districts);
+    const handleDistrictChange = (districtName) => {
+        const district = districts.find(d => d.name === districtName);
+        setWards(district.ward);
+        setAddress(prevState => ({
+            ...prevState,
+            districts: districtName
+        }));
     }
     
-    const handleWardChange = (wardId) => {
-        axios.get(`http://localhost:8800/api/wards/${wardId}/streets`)
-            .then(response => {
-                setStreets(response.data);
-                if (response.data.length > 0) {
-                    setAddress(prevState => ({
-                        ...prevState,
-                        streets: response.data[0].name // assuming the name is in the first object of the response data
-                    }));
-                }
-            })
-            .catch(error => {
-                console.error('There was an error!', error);
-            });
+    const handleWardChange = (wardName) => {
+        const ward = wards.find(w => w.name === wardName);
+        const district = districts.find(d => d.ward.includes(ward));
+        setStreets(district.street);
+        setAddress(prevState => ({
+            ...prevState,
+            wards: wardName
+        }));
     }
     
-    console.log(address);
-
+    const handleStreetChange = (streetName) => {
+        setAddress(prevState => ({
+            ...prevState,
+            streets: streetName
+        }));
+    }
+    
     const [userLocal, setUserLocal] = useState([]);
     
     // Lấy thông tin người dùng từ API khi trang tải
@@ -471,22 +461,10 @@ console.log(data);
                             Tỉnh, thành phố <span className='spanpost'>*</span>
                         </div>
                         <div className="selectcitypost">
-                            <select className={`selectcategorytag ${validationErrors.provinces ? 'input-error' : ''}`} onChange={e => {
-                                    const selectedProvinceId = parseInt(e.target.value, 10);
-                                    const selectedProvince = provinces.find(province => province.id === selectedProvinceId);
-                                    if (selectedProvince) {
-                                        setAddress(prevState => ({
-                                            ...prevState,
-                                            provinces: selectedProvince.name
-                                        }));
-                                        handleProvinceChange(selectedProvince.id);
-                                
-                                    }
-                                }}
-                                >
+                        <select className={`selectcategorytag ${validationErrors.provinces ? 'input-error' : ''}`} onChange={e => handleProvinceChange(e.target.value)}>
                                 <option value="default">----Chọn----</option>
-                                {provinces.map((item, index) => (
-                                    <option key={index} value={item.id}>{item.name}</option>
+                                {provinces.map(({name, code}) => (
+                                    <option key={code} value={code}>{name}</option>
                                 ))}
                             </select>
                         </div>
@@ -498,19 +476,11 @@ console.log(data);
                             Phường, xã <span className='spanpost'>*</span>
                         </div>
                         <select className={`selectcategorytag ${validationErrors.wards ? 'input-error' : ''}`} onChange={e => {
-                                    const selectedWardId = parseInt(e.target.value, 10);
-                                    const selectedWard = wards.find(ward => ward.id === selectedWardId);
-                                    if (selectedWard) {
-                                        setAddress(prevState => ({
-                                            ...prevState,
-                                            wards: selectedWard.name
-                                        }));
-                                        handleWardChange(selectedWard.id);
-                                    }
+                                        handleWardChange(e.target.value);
                                 }}>
                             <option value="default">----Chọn----</option>
-                            {wards.map((item, index) => (
-                                <option key={index} value={item.id}>{item.name}</option>
+                            {wards.map(({name}) => (
+                                <option key={name} value={name}>{name}</option>
                             ))}
                         </select>
                     </div>
@@ -524,22 +494,15 @@ console.log(data);
                            Quận, huyện <span className='spanpost'>*</span>
                         </div>
                         <div className="selectcitypost">
-                            <select className={`selectcategorytag ${validationErrors.districts ? 'input-error' : ''}`} onChange={e => {
-                                    const selectedDistrictId = parseInt(e.target.value, 10);
-                                    const selectedDistrict = districts.find(district => district.id === selectedDistrictId);
-                                    if (selectedDistrict) {
-                                        setAddress(prevState => ({
-                                            ...prevState,
-                                            districts: selectedDistrict.name
-                                        }));
-                                        handleDistrictChange(selectedDistrict.id);
-                                    }
-                                }}>
-                                <option value="default">----Chọn----</option>
-                                {districts.map((item, index) => (
-                                    <option key={index} value={item.id}>{item.name}</option>
-                                ))}
-                            </select>
+                        <select className={`selectcategorytag ${validationErrors.districts ? 'input-error' : ''}`} onChange={e => {
+                                   handleDistrictChange(e.target.value);
+                        
+                           }}>
+                           <option value="default">----Chọn----</option>
+                           {districts.map(({name}) => (
+                               <option key={name} value={name}>{name}</option>
+                           ))}
+                       </select>
                         </div>
                         {validationErrors.districts && <div className="error">{validationErrors.districts}
                         </div>
@@ -550,21 +513,12 @@ console.log(data);
                             Đường, phố
                         </div>
                         <div className="selectwardpost">
-                            <select className='selectcategorytag' onChange={e => {
-                                    const selectedStreetId = parseInt(e.target.value, 10);
-                                    const selectedStreet = streets.find(street => street.id === selectedStreetId);
-                                    if (selectedStreet) {
-                                        setAddress(prevState => ({
-                                            ...prevState,
-                                            streets: selectedStreet.name
-                                        }));
-                                    }
-                                }}>
-                                <option value="default">----Chọn----</option>
-                                {streets.map((item, index) => (
-                                    <option key={index} value={item.id}>{item.name}</option>
-                                ))}
-                            </select>
+                        <select className='selectcategorytag' onChange={e => {handleStreetChange(e.target.value)}}>
+                            <option value="default">----Chọn----</option>
+                            {streets.map((name) => (
+                                <option key={name} value={name}>{name}</option>
+                            ))}
+                        </select>
                         </div>
                     </div>
                 </div>
@@ -737,7 +691,7 @@ console.log(data);
             </div>
         </div>
         <div className="btnpostpageinp">
-            <input type="submit" value="Cập nhật tin đăng" className='btnpostpage' onClick={handleClickForm}/>
+            <input type="submit" value="Cập nhật" className='btnpostpage' onClick={handleClickForm}/>
         </div>
     </form>
       <ScrollToTop/>

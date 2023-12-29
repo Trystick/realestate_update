@@ -329,3 +329,167 @@
       text-transform: uppercase;
     }
   }
+
+  @media all and (max-width: 600px) {
+    .cancel-button {
+      margin-top: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-top: 25%;
+      padding-bottom: 3%;
+      margin: 0px;
+      width: 100%;
+    }
+      
+    .cancel-button label {
+      font-size: 22px;
+      color: red;
+      font-weight: 500;
+     
+    }
+  
+    .cancel-button select {
+      padding: 5px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border: 1px solid black;
+      font-size: 14px;
+      border-radius: 5px;
+      text-transform: uppercase;
+    }
+  
+    .cancel-button button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: red;
+      text-transform: uppercase;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    
+    .cancel-button button:hover {
+      background-color: #0056b3;
+    }
+    
+    .cancel-button p {
+      color: red;
+      margin-top: 10px;
+    }
+    
+    .notice {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+    
+    .notice h2 {
+      margin-bottom: 10px;
+      color: red;
+      font-size: 16px;
+    }
+    
+    .notice div {
+      margin-bottom: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgb(139, 222, 36);
+    }
+    
+    .notice span {
+      color: red;
+      font-size: 14px;
+    }
+    
+    .pmesscancel {
+      text-transform: uppercase;
+    }
+  }
+
+  @media all and (max-width: 800px) {
+    .cancel-button {
+      margin-top: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-top: 25%;
+      padding-bottom: 3%;
+      margin: 0px;
+      width: 100%;
+    }
+      
+    .cancel-button label {
+      font-size: 22px;
+      color: red;
+      font-weight: 500;
+     
+    }
+  
+    .cancel-button select {
+      padding: 5px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border: 1px solid black;
+      font-size: 14px;
+      border-radius: 5px;
+      text-transform: uppercase;
+    }
+  
+    .cancel-button button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: red;
+      text-transform: uppercase;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    
+    .cancel-button button:hover {
+      background-color: #0056b3;
+    }
+    
+    .cancel-button p {
+      color: red;
+      margin-top: 10px;
+    }
+    
+    .notice {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+    
+    .notice h2 {
+      margin-bottom: 10px;
+      color: red;
+      font-size: 16px;
+    }
+    
+    .notice div {
+      margin-bottom: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgb(139, 222, 36);
+    }
+    
+    .notice span {
+      color: red;
+      font-size: 14px;
+    }
+    
+    .pmesscancel {
+      text-transform: uppercase;
+    }
+  }
