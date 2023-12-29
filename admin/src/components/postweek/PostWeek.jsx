@@ -38,6 +38,7 @@ const PostWeek = () => {
                 textAnchor="middle"
                 alignmentBaseline="middle"
                 transform={`rotate(${rotationAngle}, ${x + width / 2}, ${y + height / 2})`}
+                style={{ fontSize: '8px' }}
             >
                 {`${dataKey}: ${value}`}
             </text>
@@ -65,7 +66,7 @@ const PostWeek = () => {
             {data.length > 0 && (
             <BarChart width={1000} height={400} data={data}>
                 <XAxis dataKey="week" />
-                <YAxis tickCount={2} />
+                <YAxis tickCount={4} />
                 <Tooltip />
                 <CartesianGrid stroke="#f5f5f5" />
                 <Bar dataKey="landSales" fill="#8884d8" barSize={30}>

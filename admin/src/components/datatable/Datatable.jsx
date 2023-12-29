@@ -5,7 +5,7 @@ import useFetch from "../../hooks/useFetch"
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from 'axios'
-
+import * as XLSX from 'xlsx';
 
 const Datatable = ({columns}) => {
   const [actionStatus, setActionStatus] = useState('');
@@ -114,6 +114,7 @@ const Datatable = ({columns}) => {
     }
   };
   
+
   const actionColumn = [
     {
       field: "action",
@@ -224,14 +225,34 @@ const Datatable = ({columns}) => {
       title = 'Khác';
   }
 
+  function handleExport() {
+    if (loading) {
+      console.error('Dữ liệu đang được tải, vui lòng thử lại sau!');
+      return;
+    }
+  
+    if (error) {
+      console.error('Có lỗi xảy ra khi tải dữ liệu:', error);
+      return;
+    }
+  
+    const ws = XLSX.utils.json_to_sheet(data);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+    XLSX.writeFile(wb, "output.xlsx");
+  }
+
   return (
     <div className="datatable">
       <div className="datatableTitle">
         {title}
         {path !== 'comment' && (
-          <Link to={`/${path}/new`} className="link">
-            Thêm mới
-          </Link>
+          <div>
+            <Link to={`/${path}/new`} className="link">
+              Thêm mới
+            </Link>
+            <button  className="linkexel" onClick={() => handleExport()}>Xuất Excel</button>
+          </div>
         )}
       </div>
       {path === 'order' && 

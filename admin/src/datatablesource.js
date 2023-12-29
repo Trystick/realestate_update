@@ -7,7 +7,8 @@ export const adminColumns = [
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img || "http://i.ibb.co/MBtjqXQ/no-avatar.gif"} alt="avatar" />
+          <img className="cellImg" src={params.row.img || "http://i.ibb.co/MBtjqXQ/no-avatar.gif"} alt="avatar" onLoad={(e) => { e.target.style.opacity = 1; }}
+        style={{ opacity: 0, transition: 'opacity 0.5s' }}/>
           {params.row.username}
         </div>
       );
@@ -27,7 +28,7 @@ export const adminColumns = [
     field: "role",
     headerName: "Chức vụ",
     width: 150,
-    valueGetter: (params) => params.row.role.name,
+    valueGetter: (params) => params.row.role ? params.row.role.name : '',
   },
 ];
 
@@ -41,7 +42,8 @@ export const userColumns = [
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img || "http://i.ibb.co/MBtjqXQ/no-avatar.gif"} alt="avatar" />
+          <img className="cellImg" src={params.row.img || "http://i.ibb.co/MBtjqXQ/no-avatar.gif"} alt="avatar" onLoad={(e) => { e.target.style.opacity = 1; }}
+        style={{ opacity: 0, transition: 'opacity 0.5s' }}/>
           {params.row.username}
         </div>
       );
@@ -60,8 +62,8 @@ export const userColumns = [
   {
     field: "role",
     headerName: "Chức vụ",
-    width: 130,
-    valueGetter: (params) => params.row.role.name,
+    width: 150,
+    valueGetter: (params) => params.row.role ? params.row.role.name : '',
   },
   {
     field: "type",
@@ -109,10 +111,17 @@ export const projectColumns = [
     renderCell: (params) => {
       return (
         <div>
-          <img src={params.row.photos[1]} alt="photos"/>
+          {params.row.photos && params.row.photos.length > 0 && (
+            <img
+              src={params.row.photos[0]}
+              alt="photos"
+              onLoad={(e) => { e.target.style.opacity = 1; }}
+              style={{ opacity: 0, transition: 'opacity 0.5s' }}
+            />
+          )}
         </div>
       );
-    },
+    },    
   },
   {
     field: "location",
@@ -301,7 +310,7 @@ export const orderColumns = [
     field: "amount",
     headerName: "Tổng tiền",
     width: 230,
-    valueFormatter: (params) => params.value.toLocaleString(),
+    valueFormatter: (params) => params.value ? params.value.toLocaleString() : '',
   },
   {
     field: "status",
@@ -337,7 +346,7 @@ export const paymentColumns = [
     field: "amount",
     headerName: "Tổng tiền",
     width: 230,
-    valueFormatter: (params) => params.value.toLocaleString(),
+    valueFormatter: (params) => params.value ? params.value.toLocaleString() : '',
   },
   {
     field: "status",
@@ -436,10 +445,17 @@ export const landSaleColumns = [
     renderCell: (params) => {
       return (
         <div>
-          <img src={params.row.photos[1]} alt="hình ảnh"/>
+          {params.row.photos && params.row.photos.length > 0 && (
+            <img
+              src={params.row.photos[0]}
+              alt="photos"
+              onLoad={(e) => { e.target.style.opacity = 1; }}
+              style={{ opacity: 0, transition: 'opacity 0.5s' }}
+            />
+          )}
         </div>
       );
-    },
+    },    
   },
   {
     field: "categoryLandSaleId",
@@ -536,10 +552,17 @@ export const landLeaseColumns = [
     renderCell: (params) => {
       return (
         <div>
-          <img src={params.row.photos[1]} alt="hình ảnh"/>
+          {params.row.photos && params.row.photos.length > 0 && (
+            <img
+              src={params.row.photos[0]}
+              alt="photos"
+              onLoad={(e) => { e.target.style.opacity = 1; }}
+              style={{ opacity: 0, transition: 'opacity 0.5s' }}
+            />
+          )}
         </div>
       );
-    },
+    },    
   },
   {
     field: "categoryLandLeaseId",
@@ -641,10 +664,17 @@ export const postColumns = [
     renderCell: (params) => {
       return (
         <div>
-          <img src={params.row.photos[0]} alt="hình ảnh" />
+          {params.row.photos && params.row.photos.length > 0 && (
+            <img
+              src={params.row.photos[0]}
+              alt="photos"
+              onLoad={(e) => { e.target.style.opacity = 1; }}
+              style={{ opacity: 0, transition: 'opacity 0.5s' }}
+            />
+          )}
         </div>
       );
-    },
+    },    
   },
   {
     field: "descone",
@@ -847,9 +877,15 @@ export const commentColumns = [
     headerName: "Phản hồi",
     width: 250,
     valueGetter: (params) => {
-      return params.value.map(reply => `${reply.content}`).join('; ');
+      return params.value && Array.isArray(params.value) ? params.value.map(reply => `${reply.content}`).join('; ') : '';
     },
   },
+  {
+    field: "isApproved",
+    headerName: "Trạng thái",
+    width: 120,
+    valueFormatter: (params) => params.value ? 'Đã đăng' : 'Chưa đăng',
+  }  
 ];
 
 export const slideColumns = [
@@ -861,10 +897,17 @@ export const slideColumns = [
     renderCell: (params) => {
       return (
         <div>
-          <img src={params.row.photos[0]} alt="Hình ảnh" />
+          {params.row.photos && params.row.photos.length > 0 && (
+            <img
+              src={params.row.photos[0]}
+              alt="photos"
+              onLoad={(e) => { e.target.style.opacity = 1; }}
+              style={{ opacity: 0, transition: 'opacity 0.5s' }}
+            />
+          )}
         </div>
       );
-    },
+    },    
   },
   {
     field: "photos2",
@@ -873,10 +916,17 @@ export const slideColumns = [
     renderCell: (params) => {
       return (
         <div>
-          <img src={params.row.photos[1]} alt="Hình ảnh" />
+          {params.row.photos && params.row.photos.length > 0 && (
+            <img
+              src={params.row.photos[1]}
+              alt="photos"
+              onLoad={(e) => { e.target.style.opacity = 1; }}
+              style={{ opacity: 0, transition: 'opacity 0.5s' }}
+            />
+          )}
         </div>
       );
-    },
+    },    
   },
   {
     field: "photos3",
@@ -885,10 +935,17 @@ export const slideColumns = [
     renderCell: (params) => {
       return (
         <div>
-          <img src={params.row.photos[2]} alt="Hình ảnh" />
+          {params.row.photos && params.row.photos.length > 0 && (
+            <img
+              src={params.row.photos[2]}
+              alt="photos"
+              onLoad={(e) => { e.target.style.opacity = 1; }}
+              style={{ opacity: 0, transition: 'opacity 0.5s' }}
+            />
+          )}
         </div>
       );
-    },
+    },    
   },
   {
     field: "photos4",
@@ -897,10 +954,17 @@ export const slideColumns = [
     renderCell: (params) => {
       return (
         <div>
-          <img src={params.row.photos[3]} alt="Hình ảnh" />
+          {params.row.photos && params.row.photos.length > 0 && (
+            <img
+              src={params.row.photos[3]}
+              alt="photos"
+              onLoad={(e) => { e.target.style.opacity = 1; }}
+              style={{ opacity: 0, transition: 'opacity 0.5s' }}
+            />
+          )}
         </div>
       );
-    },
+    },    
   },
   {
     field: "photos5",
@@ -909,9 +973,16 @@ export const slideColumns = [
     renderCell: (params) => {
       return (
         <div>
-          <img src={params.row.photos[4]} alt="Hình ảnh" />
+          {params.row.photos && params.row.photos.length > 0 && (
+            <img
+              src={params.row.photos[4]}
+              alt="photos"
+              onLoad={(e) => { e.target.style.opacity = 1; }}
+              style={{ opacity: 0, transition: 'opacity 0.5s' }}
+            />
+          )}
         </div>
       );
-    },
+    },    
   },
 ];

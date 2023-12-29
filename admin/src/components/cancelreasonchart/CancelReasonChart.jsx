@@ -18,7 +18,7 @@ const CancelReasonChart = () => {
     <div>
         <BarChart width={1000} height={400} data={data}>
             <XAxis dataKey="name" />
-            <YAxis tickCount={1}/>
+            <YAxis tickCount={4}/>
             <Tooltip />
             <CartesianGrid stroke="#f5f5f5" />
             <Bar dataKey="count" fill="#8884d8" barSize={30} />

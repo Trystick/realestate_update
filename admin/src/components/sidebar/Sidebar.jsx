@@ -321,15 +321,16 @@ const handleClickChildrole = (e) => {
           <Link to="/home" style={{ textDecoration: "none" }}>
           <li>
             <DashboardIcon className="icon" />
-            <span>Thống Kê</span>
+            <span className="titleCategory">Thống Kê</span>
           </li>
           </Link>
            )}
           <p className="title">Danh sách chức năng</p>
+          {(checkAccess('admins') && checkAccess('users')) && (
          <div>
             <li onClick={() => handleClick(0)}>
               <AccountCircleIcon className="icon" />
-              <span>Tài Khoản</span>
+              <span className="titleCategory">Tài Khoản</span>
               <ul style={{ display: activeIndex === 0 ? 'block' : 'none' }}>
               {checkAccess('admins') && (
                 <Link style={{ textDecoration: "none" }}>
@@ -350,10 +351,12 @@ const handleClickChildrole = (e) => {
               </ul>
             </li>
           </div>
+           )}
+            {(checkAccess('category') && checkAccess('project')) && (
           <div>
             <li onClick={() => handleClickProject(0)}>
               <BusinessIcon className="icon" />
-              <span>Dự án</span>
+              <span className="titleCategory">Dự án</span>
               <ul style={{ display: activeIndexProject === 0 ? 'block' : 'none' }}>
               {checkAccess('category') && (
                 <Link style={{ textDecoration: "none" }}>
@@ -374,10 +377,12 @@ const handleClickChildrole = (e) => {
                 </ul>
             </li>
           </div>
+            )}
+           {(checkAccess('landSaleCategory') && checkAccess('landSale')) && (
           <div>
             <li onClick={() => handleClickLandSale(0)}>
               <HomeWorkIcon className="icon" />
-              <span>Nhà bán</span>
+              <span className="titleCategory">Nhà bán</span>
               <ul style={{ display: activeIndexLandSale === 0 ? 'block' : 'none' }}>
               {checkAccess('landSaleCategory') && (
                 <Link  style={{ textDecoration: "none" }}>
@@ -398,10 +403,12 @@ const handleClickChildrole = (e) => {
                 </ul>
             </li>
           </div>
+           )}
+           {(checkAccess('landLeaseCategory') && checkAccess('landLease')) && (
           <div>
             <li onClick={() => handleClickLandLease(0)}>
               <HolidayVillageIcon className="icon" />
-              <span>Nhà thuê</span>
+              <span className="titleCategory">Nhà thuê</span>
               <ul style={{ display: activeIndexLandLease === 0 ? 'block' : 'none' }}>
               {checkAccess('landLeaseCategory') && (
                 <Link style={{ textDecoration: "none" }}>
@@ -422,10 +429,12 @@ const handleClickChildrole = (e) => {
               </ul>
             </li>
           </div>
+           )}
+            {(checkAccess('postCategory') && checkAccess('post')) && (
           <div>
             <li onClick={() => handleClickPost(0)}>
               <MarkunreadMailboxIcon className="icon" />
-              <span>Tin tức</span>
+              <span className="titleCategory">Tin tức</span>
               <ul style={{ display: activeIndexPost === 0 ? 'block' : 'none' }}>
               {checkAccess('postCategory') && (
                 <Link style={{ textDecoration: "none" }}>
@@ -446,10 +455,12 @@ const handleClickChildrole = (e) => {
                 </ul>
             </li>
           </div>
+            )}
+            {(checkAccess('jobCategory') && checkAccess('job') && checkAccess('jobApply')) && (
           <div>
             <li onClick={() => handleClickJob(0)}>
               <WorkIcon className="icon" />
-              <span>Công việc</span>
+              <span className="titleCategory">Công việc</span>
               <ul style={{ display: activeIndexJob === 0 ? 'block' : 'none' }}>
               {checkAccess('jobCategory') && (
                 <Link style={{ textDecoration: "none" }}>
@@ -478,10 +489,12 @@ const handleClickChildrole = (e) => {
                 </ul>
             </li>
           </div>
+           )}
+             {(checkAccess('packetType') && checkAccess('packet')) && (
           <div>
             <li onClick={() => handleClickPackage(0)}>
               <InventoryIcon className="icon" />
-              <span>Gói thanh toán</span>
+              <span className="titleCategory">Gói thanh toán</span>
               <ul style={{ display: activeIndexPackage === 0 ? 'block' : 'none' }}>
               {checkAccess('packetType') && (
                 <Link style={{ textDecoration: "none" }}>
@@ -502,11 +515,12 @@ const handleClickChildrole = (e) => {
                 </ul>
             </li>
           </div>
+           )}
           {checkAccess('advise') && (
           <Link style={{ textDecoration: "none" }}>
-            <li  onClick={handleClickChildadvise}>
+            <li onClick={handleClickChildadvise}>
               <RecentActorsSharpIcon className="icon" />
-              <span>Tư vấn</span>
+              <span className="titleCategory">Tư vấn</span>
             </li>
           </Link>
           )}
@@ -514,7 +528,7 @@ const handleClickChildrole = (e) => {
           <Link style={{ textDecoration: "none" }}>
             <li  onClick={handleClickChildorder}>
               <AnalyticsIcon className="icon" />
-              <span>Đơn hàng</span>
+              <span className="titleCategory">Đơn hàng</span>
             </li>
           </Link>
            )}
@@ -522,7 +536,7 @@ const handleClickChildrole = (e) => {
           <Link style={{ textDecoration: "none" }}>
             <li  onClick={handleClickChildpayment}>
               <CreditCardIcon className="icon" />
-              <span>Thanh toán</span>
+              <span className="titleCategory">Thanh toán</span>
             </li>
           </Link>
            )}
@@ -530,7 +544,7 @@ const handleClickChildrole = (e) => {
           <Link style={{ textDecoration: "none" }}>
             <li onClick={handleClickChildslide}>
               <TuneIcon className="icon" />
-              <span>Hình ảnh</span>
+              <span className="titleCategory">Hình ảnh</span>
             </li>
           </Link>
            )}
@@ -538,7 +552,7 @@ const handleClickChildrole = (e) => {
           <Link style={{ textDecoration: "none" }}>
             <li onClick={handleClickChildcomment}>
               <MarkUnreadChatAltIcon className="icon" />
-              <span>Kiểm duyệt bình luận</span>
+              <span className="titleCategory">Kiểm duyệt bình luận</span>
             </li>
           </Link>
            )}
@@ -546,14 +560,14 @@ const handleClickChildrole = (e) => {
           <Link style={{ textDecoration: "none" }}>
             <li onClick={handleClickChildrole}>
               <DeveloperBoardIcon className="icon" />
-              <span>Phân quyền quản trị</span>
+              <span className="titleCategory">Phân quyền quản trị</span>
             </li>
           </Link>
            )}
           <p className="title">Tài khoản</p>
           <li>
             <ExitToAppIcon className="icon" />
-            <span onClick={handleLogout}>Đăng xuất</span>
+            <span onClick={handleLogout} className="titleCategory">Đăng xuất</span>
           </li>
         </ul>
       </div>

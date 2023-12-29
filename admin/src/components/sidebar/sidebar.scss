@@ -41,6 +41,13 @@
         margin-bottom: 5px;
       }
 
+      .titleCategory {
+        font-size: 14px;
+        font-weight: bold;
+        color: rgb(107, 107, 107);
+        margin-bottom: 15px;
+      }
+
       li {
         padding: 5px;
         cursor: pointer;
@@ -69,7 +76,7 @@
             }
             span {
               font-size: 13px; /* Kích thước chữ nhỏ hơn cho mục con */
-              color: #888; /* Màu sắc khác cho mục con */
+              color: #999; /* Màu sắc khác cho mục con */
             }
           }
         }
