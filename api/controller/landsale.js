@@ -62,7 +62,7 @@ export const createLandSale = async (req, res, next) => {
                     landSale.isApproved = true;
                     await landSale.save();
                 }
-            }, 1 * 60 * 1000);  // 10 phút = 10 * 60 * 1000 ms
+            }, 10 * 60 * 1000);  // 10 phút = 10 * 60 * 1000 ms
 
         } catch (err) {
             next(err);

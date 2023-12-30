@@ -31,7 +31,7 @@ export const createLandLease = async (req, res, next) => {
                 landLease.isApproved = true;
                   await landLease.save();
               }
-          }, 1 * 60 * 1000); 
+          }, 10 * 60 * 1000); 
         } catch (err) {
             next(err);
         }
