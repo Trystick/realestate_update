@@ -52,7 +52,7 @@ const LandSale = () => {
   const itemsPerPage = 5;
 
   useEffect(() => {
-    axios.get('http://localhost:8800/api/landSale', {withCredentials: true})
+    axios.get('http://localhost:8800/api/landSale/userlandsale', {withCredentials: true})
       .then(response => {
         setHouses(response.data);
         // Lấy danh sách userId duy nhất từ dữ liệu

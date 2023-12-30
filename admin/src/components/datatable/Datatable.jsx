@@ -113,6 +113,32 @@ const Datatable = ({columns}) => {
       alert('Có lỗi xảy ra khi đăng bình luận');
     }
   };
+
+  const handleApproveLandSale = async (id) => {
+    try {
+      const response = await axios.post(`/landSale/approve/${id}`);
+      if (response.status === 200) {
+        alert('Nhà bán đã được đăng thành công');
+        setActionStatus('success');
+      }
+    } catch (error) {
+      console.error('Error approving landsale', error);
+      alert('Có lỗi xảy ra khi đăng bài nhà bán');
+    }
+  };
+
+  const handleApproveLandLease = async (id) => {
+    try {
+      const response = await axios.post(`/landLease/approve/${id}`);
+      if (response.status === 200) {
+        alert('Nhà thuê đã được đăng thành công');
+        setActionStatus('success');
+      }
+    } catch (error) {
+      console.error('Error approving landlease', error);
+      alert('Có lỗi xảy ra khi đăng bài nhà thuê');
+    }
+  };
   
 
   const actionColumn = [
@@ -129,7 +155,43 @@ const Datatable = ({columns}) => {
               </Link>
             </div>
           );
-        } else {
+        } else if (path === 'landSale'){
+          return (
+          <div className="cellAction">
+              <Link to={`/${path}/edit/${params.row._id}`} style={{ textDecoration: "none" }}>
+                <div className="viewButton">Sửa</div>
+              </Link>
+              <Link style={{ textDecoration: "none" }}>
+                <div className="assignButton" onClick={() => handleApproveLandSale(params.row._id)}>Đăng</div>
+              </Link>
+              <div
+                className="deleteButton"
+                onClick={() => handleDelete(params.row._id, params.row.categoryId, params.row.postCategoryId, params.row.jobCategoryId, params.row.categoryLandSaleId, params.row.categoryLandLeaseId, params.row.packetTypeId)}
+              >
+                Xóa
+              </div>
+            </div>
+          )
+        }
+        else if (path === 'landLease'){
+          return (
+          <div className="cellAction">
+              <Link to={`/${path}/edit/${params.row._id}`} style={{ textDecoration: "none" }}>
+                <div className="viewButton">Sửa</div>
+              </Link>
+              <Link style={{ textDecoration: "none" }}>
+                <div className="assignButton" onClick={() => handleApproveLandLease(params.row._id)}>Đăng</div>
+              </Link>
+              <div
+                className="deleteButton"
+                onClick={() => handleDelete(params.row._id, params.row.categoryId, params.row.postCategoryId, params.row.jobCategoryId, params.row.categoryLandSaleId, params.row.categoryLandLeaseId, params.row.packetTypeId)}
+              >
+                Xóa
+              </div>
+            </div>
+          )
+        }
+        else {
           return (
             <div className="cellAction">
               <Link to={`/${path}/edit/${params.row._id}`} style={{ textDecoration: "none" }}>

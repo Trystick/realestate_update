@@ -6,7 +6,7 @@ export const createComment = async (req, res) => {
       const user = await User.findById(req.body.userId);
       const comment = new Comment({
         ...req.body,
-        isApproved: user.type ? true : false,  // nếu người dùng có type, không cần kiểm duyệt
+        isApproved: user.type ? true : false,
       });
       await comment.save();
       res.status(201).send(comment);

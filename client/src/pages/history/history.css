@@ -99,7 +99,10 @@
   }
 
   .tdhistory:nth-child(7), .thhistory:nth-child(7) { /* Địa chỉ */
-    width: 25%;
+    width: 10%;
+  }
+  .tdhistory:nth-child(8), .thhistory:nth-child(8) { /* Địa chỉ */
+    width: 15%;
   }
 
   /* CSS cho hàng chẵn trong bảng */
@@ -166,6 +169,10 @@
   }
 
   .tdhistory:nth-child(7), .thhistory:nth-child(7) { /* Địa chỉ */
+    width: 100%;
+  }
+
+  .tdhistory:nth-child(8), .thhistory:nth-child(8) { /* Địa chỉ */
     width: 100%;
   }
 
@@ -242,6 +249,10 @@
     width: 100%;
   }
 
+  .tdhistory:nth-child(8), .thhistory:nth-child(8) { /* Địa chỉ */
+    width: 100%;
+  }
+
   .thhistory, .tdhistory {
     border: none;
     font-size: 13px;
@@ -315,6 +326,10 @@
     width: 100%;
   }
 
+  .tdhistory:nth-child(8), .thhistory:nth-child(8) { /* Địa chỉ */
+    width: 100%;
+  }
+
   .thhistory, .tdhistory {
     border: none;
     font-size: 13px;
@@ -385,6 +400,10 @@
   }
 
   .tdhistory:nth-child(7), .thhistory:nth-child(7) { /* Địa chỉ */
+    width: 100%;
+  }
+
+  .tdhistory:nth-child(8), .thhistory:nth-child(8) { /* Địa chỉ */
     width: 100%;
   }
 
