@@ -3,44 +3,73 @@ import LandLease from "../models/LandLease.js";
 import Favorite from "../models/Favorite.js";
 import User from "../models/User.js";
 
+// export const createLandLease = async (req, res, next) => {
+//     const categoryLandLeaseId = req.params.categorylandleaseid;
+
+//     // Kiểm tra xem CategoryLandLease có tồn tại không
+//     const categoryLandLeaseExists = await CategoryLandLease.findById(categoryLandLeaseId);
+//     if (!categoryLandLeaseExists) {
+//         return res.status(400).send("CategoryLandLease không tồn tại!");
+//     }
+//     const newLandLease = new LandLease(
+//         {
+//             ...req.body,
+//             isApproved: false,  // nếu người dùng có type, không cần kiểm duyệt
+//         }
+//     );
+
+//     try {
+//         const savedLandLease = await newLandLease.save()
+//         try {
+//             await CategoryLandLease.findByIdAndUpdate(categoryLandLeaseId, 
+//                 {$push : {landleases: savedLandLease._id},
+//             });
+
+//             setTimeout(async () => {
+//               const landLease = await LandLease.findById(savedLandLease._id);
+//               if (!landLease.isApproved) {
+//                 landLease.isApproved = true;
+//                   await landLease.save();
+//               }
+//           }, 10 * 60 * 1000); 
+//         } catch (err) {
+//             next(err);
+//         }
+//         res.status(200).json(savedLandLease);
+//     } catch (err) {
+//         next(err);
+//     }
+// };
+
 export const createLandLease = async (req, res, next) => {
-    const categoryLandLeaseId = req.params.categorylandleaseid;
+  const categoryLandLeaseId = req.params.categorylandleaseid;
 
-    // Kiểm tra xem CategoryLandLease có tồn tại không
-    const categoryLandLeaseExists = await CategoryLandLease.findById(categoryLandLeaseId);
-    if (!categoryLandLeaseExists) {
-        return res.status(400).send("CategoryLandLease không tồn tại!");
-    }
-    const newLandLease = new LandLease(
-        {
-            ...req.body,
-            isApproved: false,  // nếu người dùng có type, không cần kiểm duyệt
-        }
-    );
+  // Kiểm tra xem CategoryLandLease có tồn tại không
+  const categoryLandLeaseExists = await CategoryLandLease.findById(categoryLandLeaseId);
+  if (!categoryLandLeaseExists) {
+      return res.status(400).send("CategoryLandLease không tồn tại!");
+  }
+  const newLandLease = new LandLease(
+      {
+          ...req.body,
+          isApproved: false,  // nếu người dùng có type, không cần kiểm duyệt
+      }
+  );
 
-    try {
-        const savedLandLease = await newLandLease.save()
-        try {
-            await CategoryLandLease.findByIdAndUpdate(categoryLandLeaseId, 
-                {$push : {landleases: savedLandLease._id},
-            });
-
-            setTimeout(async () => {
-              const landLease = await LandLease.findById(savedLandLease._id);
-              if (!landLease.isApproved) {
-                landLease.isApproved = true;
-                  await landLease.save();
-              }
-          }, 10 * 60 * 1000); 
-        } catch (err) {
-            next(err);
-        }
-        res.status(200).json(savedLandLease);
-    } catch (err) {
-        next(err);
-    }
+  try {
+      const savedLandLease = await newLandLease.save()
+      try {
+          await CategoryLandLease.findByIdAndUpdate(categoryLandLeaseId, 
+              {$push : {landleases: savedLandLease._id},
+          });
+      } catch (err) {
+          next(err);
+      }
+      res.status(200).json(savedLandLease);
+  } catch (err) {
+      next(err);
+  }
 };
-
 
 export const updateLandLease = async(req, res, next) => {
     try {

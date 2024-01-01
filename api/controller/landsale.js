@@ -5,35 +5,6 @@ import Favorite from "../models/Favorite.js";
 import User from "../models/User.js";
 import { startOfWeek, endOfWeek, eachWeekOfInterval, startOfMonth, endOfMonth } from 'date-fns';
 
-// export const createLandSale = async (req, res, next) => {
-//     const categoryLandSaleId = req.params.categorylandsaleid;
-
-//     // Kiểm tra xem CategoryLandSale có tồn tại không
-//     const categoryLandSaleExists = await CategoryLandSale.findById(categoryLandSaleId);
-//     if (!categoryLandSaleExists) {
-//         return res.status(400).send("CategoryLandSale không tồn tại!");
-//     }
-//     const newLandSale = new LandSale(
-//         {
-//             ...req.body,
-//             isApproved: false,  // nếu người dùng có type, không cần kiểm duyệt
-//         });
-
-//     try {
-//         const savedLandSale = await newLandSale.save()
-//         try {
-//             await CategoryLandSale.findByIdAndUpdate(categoryLandSaleId, 
-//                 {$push : {landsales: savedLandSale._id},
-//             });
-//         } catch (err) {
-//             next(err);
-//         }
-//         res.status(200).json(savedLandSale);
-//     } catch (err) {
-//         next(err);
-//     }
-// };
-
 export const createLandSale = async (req, res, next) => {
     const categoryLandSaleId = req.params.categorylandsaleid;
 
@@ -45,7 +16,7 @@ export const createLandSale = async (req, res, next) => {
     const newLandSale = new LandSale(
         {
             ...req.body,
-            isApproved: false,  
+            isApproved: false,  // nếu người dùng có type, không cần kiểm duyệt
         });
 
     try {
@@ -54,16 +25,6 @@ export const createLandSale = async (req, res, next) => {
             await CategoryLandSale.findByIdAndUpdate(categoryLandSaleId, 
                 {$push : {landsales: savedLandSale._id},
             });
-
-            // Thiết lập hẹn giờ để cập nhật isApproved sau 10 phút
-            setTimeout(async () => {
-                const landSale = await LandSale.findById(savedLandSale._id);
-                if (!landSale.isApproved) {
-                    landSale.isApproved = true;
-                    await landSale.save();
-                }
-            }, 10 * 60 * 1000);  // 10 phút = 10 * 60 * 1000 ms
-
         } catch (err) {
             next(err);
         }
@@ -72,6 +33,45 @@ export const createLandSale = async (req, res, next) => {
         next(err);
     }
 };
+
+// export const createLandSale = async (req, res, next) => {
+//     const categoryLandSaleId = req.params.categorylandsaleid;
+
+//     // Kiểm tra xem CategoryLandSale có tồn tại không
+//     const categoryLandSaleExists = await CategoryLandSale.findById(categoryLandSaleId);
+//     if (!categoryLandSaleExists) {
+//         return res.status(400).send("CategoryLandSale không tồn tại!");
+//     }
+//     const newLandSale = new LandSale(
+//         {
+//             ...req.body,
+//             isApproved: false,  
+//         });
+
+//     try {
+//         const savedLandSale = await newLandSale.save()
+//         try {
+//             await CategoryLandSale.findByIdAndUpdate(categoryLandSaleId, 
+//                 {$push : {landsales: savedLandSale._id},
+//             });
+
+//             // Thiết lập hẹn giờ để cập nhật isApproved sau 10 phút
+//             setTimeout(async () => {
+//                 const landSale = await LandSale.findById(savedLandSale._id);
+//                 if (!landSale.isApproved) {
+//                     landSale.isApproved = true;
+//                     await landSale.save();
+//                 }
+//             }, 10 * 60 * 1000);  // 10 phút = 10 * 60 * 1000 ms
+
+//         } catch (err) {
+//             next(err);
+//         }
+//         res.status(200).json(savedLandSale);
+//     } catch (err) {
+//         next(err);
+//     }
+// };
 
 
 export const updateLandSale = async(req, res, next) => {
