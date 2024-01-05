@@ -144,22 +144,22 @@ const Content = () => {
             <p>{t('Tuyển dụng')}</p>
         </div>
         <h2 className='titletuyendung'>{t('CƠ HỘI NGHỀ NGHIỆP')}</h2>
+        <table className="tabletuyendung">
+        <tr className="thtuyendung">
+            <th className="muctuyendung">{t('Vị trí ứng tuyển')}</th>
+            <th className="muctuyendung">{t('Số lượng')}</th>
+            <th className="muctuyendung">{t('Địa điểm')}</th>
+            <th className="muctuyendung">{t('Hạn nộp hồ sơ')}</th>
+        </tr>
         {currentItems.map(item => (
-        <table className="tabletuyendung" key={item._id}>
-            <tr className="thtuyendung">
-                <th className="muctuyendung">{t('Vị trí ứng tuyển')}</th>
-                <th className="muctuyendung">{t('Số lượng')}</th>
-                <th className="muctuyendung">{t('Địa điểm')}</th>
-                <th className="muctuyendung">{t('Hạn nộp hồ sơ')}</th>
-            </tr>
-            <tr className="tdtuyendung">
+            <tr className="tdtuyendung" key={item._id}>
                 <td className="noidungtuyendung"><Link to={`/job/${item._id}`} className="linkjob" >{t(item.name)}</Link></td>
                 <td className="noidungtuyendung">{t(item.number)}</td>
                 <td className="noidungtuyendung">{t(item.location)}</td>
                 <td className="noidungtuyendung">{item.dateend}</td>
             </tr>
-        </table>
         ))}
+        </table>    
          <div className="pagination">
         {[...Array(pageCount)].map((_, index) => (
           <button
@@ -237,7 +237,7 @@ const Content = () => {
             <h1 className='doc'>--------------------</h1>
                <div className="iconmuclhtd">
                     <FontAwesomeIcon icon={faGlobe} className="iconlhtd"/>
-                    <p className="nd">bdsgoldenland.com.vn</p>
+                    <p className="nd">bdsgoldenland.id.vn</p>
                 </div>
                 <div className="iconmuclhtd">
                     <FontAwesomeIcon icon={faMailBulk} className="iconlhtd"/>

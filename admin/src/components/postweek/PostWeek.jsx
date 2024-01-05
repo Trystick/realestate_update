@@ -66,7 +66,7 @@ const PostWeek = () => {
             {data.length > 0 && (
             <BarChart width={1000} height={400} data={data}>
                 <XAxis dataKey="week" />
-                <YAxis tickCount={4} />
+                <YAxis tickCount={3} />
                 <Tooltip />
                 <CartesianGrid stroke="#f5f5f5" />
                 <Bar dataKey="landSales" fill="#8884d8" barSize={30}>

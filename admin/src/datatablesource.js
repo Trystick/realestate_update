@@ -715,7 +715,7 @@ export const postColumns = [
   },
   {
     field: "title",
-    headerName: "Nội dung",
+    headerName: "Tiêu đề",
     width: 230,
   },
   {
@@ -858,7 +858,9 @@ export const roleColumns = [
     field: "modules",
     headerName: "Các chức năng",
     width: 250,
-    valueGetter: (params) => params.row.modules.join(', '),
+    valueGetter: (params) => {
+      return params.value && Array.isArray(params.value) ? params.row.modules.join(', '):'';
+    }
   },
 ];
 

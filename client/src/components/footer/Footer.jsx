@@ -152,7 +152,7 @@ const Footer = () => {
             </div>
             <div className='chfooter'>
                 <FontAwesomeIcon icon={faGlobe} className="icon1"/>
-                <p className='pfooter'>Website: bdsgoldenland.com.vn</p>
+                <p className='pfooter'>Website: bdsgoldenland.id.vn</p>
             </div>
             <p className='pngang2'></p>
             <div className='banQuyen'>
