@@ -8,16 +8,16 @@ const CancelReasonChart = () => {
     const [data, setData] = useState([]);
     
     useEffect(() => {
-        fetch('/order/cancelReason')
+        fetch('/order/cancelReason') // api lấy dữ liệu hủy đơn
         .then(response => response.json())
         .then(data => setData(data))
         .catch(error => console.error(error));
     }, []);
     
-    const renderCustomBarLabel = (dataKey) => (props) => {
+    const renderCustomBarLabel = (dataKey) => (props) => { // hàm xử lý dữ liệu xuất giao diện lên trên cột
       const { x, y, width, height, value} = props;
   
-      if (value === 0) {
+      if (value === 0) { 
           return null;
       }
   

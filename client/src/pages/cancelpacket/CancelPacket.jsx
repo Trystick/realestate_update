@@ -17,7 +17,7 @@ const CancelPacket = () => {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:8800/api/cancel-package', { orderId, cancelReason });
+      const response = await axios.post('http://localhost:8800/api/cancel-package', { orderId, cancelReason }); //api hủy gói truyền vào 2 tham số là id đơn hàng và lý do hủy gói
       alert(response.data.message);
       navigate('/')
     } catch (error) {

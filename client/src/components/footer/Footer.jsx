@@ -26,11 +26,11 @@ const Footer = () => {
   const [submitStatus, setSubmitStatus] = useState(null);
   
   const { response, loading: postLoading, error: postError, postData } =
-    usePost(`http://localhost:8800/api/advise/`, formState);
+    usePost(`http://localhost:8800/api/advise/`, formState); // api thêm tư vấn khi khách hàng nhấn nút gửi.
 
   const handleInputChange = (event) => {
-  const { name, value } = event.target;
-    setFormState((prevState) => ({ ...prevState, [name]: value }));
+    const { name, value } = event.target;
+    setFormState((prevState) => ({ ...prevState, [name]: value })); // thực hiện toán tử thread thu thập giá trị của dữ liệu nhập vào
   };
 
   const validateForm = () => {

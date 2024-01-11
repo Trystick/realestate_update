@@ -72,7 +72,7 @@ useEffect(() => {
       const favoriteData = [];
       for (let i = 0; i < userLocal.favorites.length; i++) {
         const favoriteId = userLocal.favorites[i];
-        const favoriteResponse = await axios.get(`http://localhost:8800/api/favorite/${favoriteId}`);
+        const favoriteResponse = await axios.get(`http://localhost:8800/api/favorite/${favoriteId}`);// api lấy yêu thích qua id
         const favorite = favoriteResponse.data;
   
         // Check and fetch landsale data
@@ -106,9 +106,9 @@ useEffect(() => {
         }
   
         // Check if the favorite has already been added to favoriteData
-        const index = favoriteData.findIndex((f) => f._id === favorite._id);
-        if (index === -1) {
-          favoriteData.push(favorite);
+        const index = favoriteData.findIndex((f) => f._id === favorite._id);// trả về số đầu tiên mảng favoriteData là _id để kiểm tra tồn tại, không tìm thấy trả về -1
+        if (index === -1) {// không tồn tại yêu thích.
+          favoriteData.push(favorite);//thêm yêu thích vào cuối mảng
         }
       }
   

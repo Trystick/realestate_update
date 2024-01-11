@@ -13,7 +13,7 @@ const Resetpassword = () => {
     const handlePasswordReset = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("http://localhost:8800/api/auth/reset-password", { email: resetPasswordEmail });
+            const res = await axios.post("http://localhost:8800/api/auth/reset-password", { email: resetPasswordEmail }); // api yêu cầu đổi mật khẩu
             if (res.status === 200) {
                 alert('link đặt lại mật khẩu đã được gửi đến email của bạn.');
                 navigate("/login");

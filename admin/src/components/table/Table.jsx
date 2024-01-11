@@ -12,7 +12,7 @@ const List = () => {
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
-    fetch('/order/newest')
+    fetch('/order/newest') //api lấy dữ liệu đơn hàng mới nhất về trước
       .then(response => response.json())
       .then(async orders => {
         const updatedOrders = await Promise.all(orders.map(async order => {

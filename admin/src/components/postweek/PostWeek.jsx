@@ -8,7 +8,7 @@ const PostWeek = () => {
     const [year, setYear] = useState((new Date()).getFullYear());
 
     useEffect(() => {
-        fetch(`landSale/weekly-land-sale-lease/${year}/${month}`)
+        fetch(`landSale/weekly-land-sale-lease/${year}/${month}`) // api lấy dữ liệu bài đăng theo theo giá trị tháng và năm 
         .then(response => response.json())
         .then(data => setData(data))
         .catch(error => console.error(error));

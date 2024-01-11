@@ -4,12 +4,12 @@
 }
 
 .imgPresent {
-    width: 1264px;
+    width: 100%;
 }
 
 .presentList {
     display: flex;
-    width: 1264px;
+    width: 100%;
     background-color: rgb(243, 236, 236);
     height: 28px;
 }

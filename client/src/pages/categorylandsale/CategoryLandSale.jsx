@@ -56,12 +56,12 @@ const CategoryLandSale = () => {
   const [landsaleType, setLandsaleType] = useState(''); 
 
   useEffect(() => {
-    axios.get(`http://localhost:8800/api/landSaleCategory/${categorylandsaleId}`)
+    axios.get(`http://localhost:8800/api/landSaleCategory/${categorylandsaleId}`) //api lấy dữ liệu loại nhà bán
       .then(response => {
         const landsaleIds = response.data.landsales;
         setLandsaleType(response.data.name); // Cập nhật tên loại dự án
         const landsalePromises = landsaleIds.map(_id =>
-          axios.get(`http://localhost:8800/api/landSale/find/${_id}`)
+          axios.get(`http://localhost:8800/api/landSale/find/${_id}`)// lấy dữ liệu của nhà bán theo Id của nhà bán
         );
         Promise.all(landsalePromises)
           .then(landsaleResponses => {
@@ -69,7 +69,7 @@ const CategoryLandSale = () => {
             setHouses(houses);
 
             // Lấy danh sách userId duy nhất từ dữ liệu
-            const userIds = [...new Set(houses.map(house => house.userId))];
+            const userIds = [...new Set(houses.map(house => house.userId))];//[...new Set] là toán tử thread chuyển đổi Set lại thành mảng. 
 
             // Gọi API để lấy thông tin người dùng
             const userPromises = userIds.map(userId =>
@@ -77,8 +77,8 @@ const CategoryLandSale = () => {
             );
             Promise.all(userPromises)
               .then(userResponses => {
-                const users = userResponses.reduce((acc, response) => {
-                  acc[response.data._id] = response.data;
+                const users = userResponses.reduce((acc, response) => {// reduce biến mảng thành đối tương (object)
+                  acc[response.data._id] = response.data; 
                   return acc;
                 }, {});
                 setUsers(users);

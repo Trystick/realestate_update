@@ -20,11 +20,16 @@ const NewLandSale = () => {
     
   };
 
+  // const handleSelectChange = (e) => {
+  //   const selectedOptions = Array.from(e.target.selectedOptions);
+  //   const selectedValues = selectedOptions.map(option => option.value);
+  //   setLandSaleCategoryId(selectedValues);
+  // };
+  
   const handleSelectChange = (e) => {
     setLandSaleCategoryId(e.target.value);
   };
 
-  console.log(files);
 
   const [userLocal, setUserLocal] = useState([]);
   // Lấy thông tin người dùng từ API khi trang tải

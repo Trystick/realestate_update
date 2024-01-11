@@ -131,14 +131,23 @@ export const getLandLease = async(req, res, next) => {
     }
 }
 
+// export const getLandLeases = async (req, res, next) => {
+//   try {
+//     const landLeases =  await LandLease.find();
+//     res.status(200).json(landLeases)
+//   } catch (err) {
+//       next(err);
+//   }
+// }
+
 export const getLandLeases = async (req, res, next) => {
   try {
-    const landLeases =  await LandLease.find();
-    res.status(200).json(landLeases)
+    const landLeases = await LandLease.find().sort({ createdAt: -1 });
+    res.status(200).json(landLeases);
   } catch (err) {
-      next(err);
+    next(err);
   }
-}
+};
 
 export const getLandLeasesUser = async (req, res, next) => {
     try {

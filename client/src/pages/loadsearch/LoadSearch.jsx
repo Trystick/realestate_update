@@ -105,6 +105,7 @@ useEffect(() => {
       <Footer/>
       </div>;
   }
+  
   return (
     <div className='loadSearchContainer'>
      <Header/>
@@ -152,7 +153,6 @@ useEffect(() => {
                   </div>
                 </div>
               </div>
-            
           </div>
             <div className="detaillandsale">
               <div className="detaildeslandsale">

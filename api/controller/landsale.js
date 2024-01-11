@@ -34,6 +34,74 @@ export const createLandSale = async (req, res, next) => {
     }
 };
 
+
+// export const createLandSale = async (req, res, next) => {
+//     const categoryLandSaleIds = req.body.categoryLandSaleId; 
+
+//     // Kiểm tra xem tất cả CategoryLandSale có tồn tại không
+//     for (let id of categoryLandSaleIds) {
+//         const categoryLandSaleExists = await CategoryLandSale.findById(id);
+//         if (!categoryLandSaleExists) {
+//             return res.status(400).send("CategoryLandSale không tồn tại!");
+//         }
+//     }
+
+//     const newLandSale = new LandSale(
+//         {
+//             ...req.body,
+//             categoryLandSaleId: categoryLandSaleIds, 
+//             isApproved: false,  
+//         });
+
+//     try {
+//         const savedLandSale = await newLandSale.save()
+//         try {
+//             // Cập nhật tất cả CategoryLandSale
+//             for (let id of categoryLandSaleIds) {
+//                 await CategoryLandSale.findByIdAndUpdate(id, 
+//                     {$push : {landsales: savedLandSale._id},
+//                 });
+//             }
+//         } catch (err) {
+//             next(err);
+//         }
+//         res.status(200).json(savedLandSale);
+//     } catch (err) {
+//         next(err);
+//     }
+// };
+
+// // Cập nhật LandSale
+// export const updateLandSale = async(req, res, next) => {
+//     try {
+//         const landSale = await LandSale.findById(req.params.id);
+//         if (!landSale) {
+//             return res.status(404).send("LandSale không tồn tại!");
+//         }
+
+//         // Kiểm tra xem tất cả CategoryLandSale có tồn tại không
+//         const categoryLandSaleIds = req.body.categoryLandSaleId; // Đây giờ là một mảng
+//         for (let id of categoryLandSaleIds) {
+//             const categoryLandSaleExists = await CategoryLandSale.findById(id);
+//             if (!categoryLandSaleExists) {
+//                 return res.status(400).send("CategoryLandSale không tồn tại!");
+//             }
+//         }
+
+//         const updatedLandSale = await LandSale.findByIdAndUpdate(
+//             req.params.id, 
+//             {$set: req.body}, 
+//             {new:true}
+//         );
+
+//         res.status(200).json(updatedLandSale);
+//     } catch (err) {
+//         next(err);
+//     }
+// };
+
+
+
 // export const createLandSale = async (req, res, next) => {
 //     const categoryLandSaleId = req.params.categorylandsaleid;
 
@@ -86,6 +154,8 @@ export const updateLandSale = async(req, res, next) => {
     }
 };
 
+
+
 export const deleteLandSale = async(req, res, next) => {
     const landsaleId = req.params.id;
     try {
@@ -129,14 +199,24 @@ export const getLandSale = async(req, res, next) => {
 };
 
 
+// export const getLandSales = async (req, res, next) => {
+//   try {
+//     const landSales =  await LandSale.find();
+//     res.status(200).json(landSales)
+//   } catch (err) {
+//       next(err);
+//   }
+// };
+
 export const getLandSales = async (req, res, next) => {
-  try {
-    const landSales =  await LandSale.find();
-    res.status(200).json(landSales)
-  } catch (err) {
+    try {
+      const landSales = await LandSale.find().sort({ createdAt: -1 });
+      res.status(200).json(landSales);
+    } catch (err) {
       next(err);
-  }
+    }
 };
+  
 
 export const getLandSalesUser = async (req, res, next) => {
     try {

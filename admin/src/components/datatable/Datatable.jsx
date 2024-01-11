@@ -107,6 +107,7 @@ const Datatable = ({columns}) => {
       if (response.status === 200) {
         alert('Bình luận đã được đăng thành công');
         setActionStatus('success');
+        window.location.reload()
       }
     } catch (error) {
       console.error('Error approving comment', error);
@@ -120,6 +121,7 @@ const Datatable = ({columns}) => {
       if (response.status === 200) {
         alert('Nhà bán đã được đăng thành công');
         setActionStatus('success');
+        window.location.reload();
       }
     } catch (error) {
       console.error('Error approving landsale', error);
@@ -133,6 +135,7 @@ const Datatable = ({columns}) => {
       if (response.status === 200) {
         alert('Nhà thuê đã được đăng thành công');
         setActionStatus('success');
+        window.location.reload();
       }
     } catch (error) {
       console.error('Error approving landlease', error);
@@ -297,6 +300,12 @@ const Datatable = ({columns}) => {
       console.error('Có lỗi xảy ra khi tải dữ liệu:', error);
       return;
     }
+
+    // let newData = data.map(row => ({
+    //   "newColumn1": row.column1,
+    //   "newColumn2": row.column2
+    // }));
+    
   
     const ws = XLSX.utils.json_to_sheet(data);
     const wb = XLSX.utils.book_new();

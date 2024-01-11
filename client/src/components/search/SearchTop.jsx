@@ -16,7 +16,7 @@ const SearchTop = () => {
     useEffect(() => {
         const fetchPropertyTypes = async () => {
             try {
-                const response = await axios.get('http://localhost:8800/api/property-types');
+                const response = await axios.get('http://localhost:8800/api/property-types');// api lấy tất cả danh mục của nhà bán và nhà thuê
                 setPropertyTypes(response.data);
             } catch (err) {
                 console.error(err);

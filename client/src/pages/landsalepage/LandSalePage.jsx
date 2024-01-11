@@ -19,7 +19,7 @@ const LandSalePage = () => {
   const {landsaleId} = useParams();
   const [houseData, setHouseData] = useState([]);
   const [users, setUsers] = useState({});
-
+  // const [categoryLandSales,setCategoryLandSales] = useState([]);
   const [data, setData] = useState([]);
 
   const [userLocal, setUserLocal] = useState([]);
@@ -51,7 +51,7 @@ const LandSalePage = () => {
   }, []);
 
   useEffect(() => {
-    axios.get(`http://localhost:8800/api/landSale/find/${landsaleId}`)
+    axios.get(`http://localhost:8800/api/landSale/find/${landsaleId}`) // api lấy thông tin Nhà bán theo id nhà bán
       .then(response => {
         setImgs(response.data.photos);
         setWordData(response.data.photos[0]);
@@ -69,6 +69,42 @@ const LandSalePage = () => {
         console.error('There was an error!', error);
       });
   }, [landsaleId]);
+
+  // useEffect(() => {
+  //   axios.get(`http://localhost:8800/api/landSale/find/${landsaleId}`) // api lấy thông tin Nhà bán theo id nhà bán
+  //     .then(response => {
+  //       setImgs(response.data.photos);
+  //       setWordData(response.data.photos[0]);
+  //       setHouseData(response.data); // Lưu trữ tất cả dữ liệu trả về từ API
+
+  //       // Lấy thông tin của tất cả CategoryLandSale
+  //       const categoryLandSaleIds = response.data.categoryLandSaleId; // Đây giờ là một mảng
+  //       const categoryLandSales = [];
+  //       for (let id of categoryLandSaleIds) {
+  //         axios.get(`http://localhost:8800/api/landSaleCategory/${id}`) // api lấy thông tin CategoryLandSale theo id
+  //           .then(categoryResponse => {
+  //             categoryLandSales.push(categoryResponse.data);
+  //           })
+  //           .catch(error => {
+  //             console.error('There was an error!', error);
+  //           });
+  //       }
+  //       setCategoryLandSales(categoryLandSales);
+
+  //       // Gọi API để lấy thông tin người dùng
+  //       axios.get(`http://localhost:8800/api/users/${response.data.userId}`, {withCredentials: true})
+  //         .then(userResponse => {
+  //           setUsers(userResponse.data);
+  //         })
+  //         .catch(error => {
+  //           console.error('There was an error!', error);
+  //         });
+  //     })
+  //     .catch(error => {
+  //       console.error('There was an error!', error);
+  //     });
+  // }, [landsaleId]);
+
 
   
   const handleClick=(index)=>{
@@ -237,6 +273,20 @@ const LandSalePage = () => {
               </div>
             </div>
           </div>
+          {/* <div className="danhmucphanbien">
+            <div className="cacdanhmuckhac">
+              Các danh mục 
+            </div>
+            <div className="cacdanhmucphanbien">
+                {categoryLandSales.map((category) => (
+                  <div className="itemdanhmucpahanbien">
+                <div key={category._id}>
+                <a href={`/landsale/landsalecategory/${category._id}`}>{category.name}</a>
+                </div>
+                </div>
+              ))}
+            </div>
+          </div> */}
           </div>
           )}
           <div className="tinnoibatkhac">
