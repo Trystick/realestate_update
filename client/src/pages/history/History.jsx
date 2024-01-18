@@ -190,20 +190,22 @@ const [landData, setLandData] = useState([]);
         </thead>
         <tbody >
         {currentItems.map((land, index) => (
-            <tr key={index} className='trhistory'>
-              <td data-title='STT' className='tdhistory'>{index+1}</td>
-              <td data-title='Loại bất động sản' className='tdhistory'>{land.categoryName}</td>
-              <td data-title='Ngày đăng' className='tdhistory'>{formatDate(land.createdAt)}</td>
-              <td data-title='Tên bài đăng' className='tdhistory'>{land.name}</td>
-              <td data-title='Địa chỉ' className='tdhistory'>{land.location}</td>
-              <td data-title='Giá' className='tdhistory'>{land.price} {land.type === 'Landsale' ? 'tỷ' : 'triệu/tháng'} </td>
-              <td data-title='Trạng thái' className='tdhistory'>{land.isApproved ? 'Đã đăng' : 'Chưa đăng'}</td>
-              <td data-title='Thao tác' className='tdhistory'>
+          <tr key={index} className='trhistory'>
+            <td data-title='STT' className='tdhistory'>{index+1}</td>
+            <td data-title='Loại bất động sản' className='tdhistory'>{land.categoryName}</td>
+            <td data-title='Ngày đăng' className='tdhistory'>{formatDate(land.createdAt)}</td>
+            <td data-title='Tên bài đăng' className='tdhistory'>{land.name}</td>
+            <td data-title='Địa chỉ' className='tdhistory'>{land.location}</td>
+            <td data-title='Giá' className='tdhistory'>{land.price} {land.type === 'Landsale' ? 'tỷ' : 'triệu/tháng'}</td>
+            <td data-title='Trạng thái' className='tdhistory'>{land.isApproved ? 'Đã đăng' : 'Chưa đăng'}</td>
+            <td data-title='Thao tác' className='tdhistory'>
+              {land.isApproved && (
                 <button className='btnhistorysua' onClick={() => handleEdit(land._id)}>Sửa</button>
-                <button className='btnhistoryxoa' onClick={() => handleDelete(land._id, land.type === 'Landsale' ? land.categoryLandSaleId : land.categoryLandLeaseId, land.type)}>Xóa</button>
-              </td>
-            </tr>
-            ))}
+              )}
+              <button className='btnhistoryxoa' onClick={() => handleDelete(land._id, land.type === 'Landsale' ? land.categoryLandSaleId : land.categoryLandLeaseId, land.type)}>Xóa</button>
+            </td>
+          </tr>
+        ))}
         </tbody>
       </table>
       </div>
